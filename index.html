@@ -1,744 +1,700 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Dubey | Senior Business Analyst Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Rahul Dubey | Senior Business Analyst</title>
+    <meta name="description" content="Rahul Dubey — Senior Business Analyst with 8+ years in capital markets and financial services, specializing in clearing & settlement, system migrations, and Agile delivery.">
+    <meta property="og:title" content="Rahul Dubey | Senior Business Analyst">
+    <meta property="og:description" content="Rahul Dubey — Senior Business Analyst with 8+ years in capital markets and financial services, specializing in clearing & settlement, system migrations, and Agile delivery.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rahuldubey.github.io/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: "#080e1f",
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
     <style>
-        :root {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --accent: #4f46e5;
-            --accent-hover: #4338ca;
-            --border-color: #e2e8f0;
-            --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --pill-bg: #f1f5f9;
-        }
-
-        [data-theme="dark"] {
-            --bg-primary: #0b0f19;
-            --bg-secondary: #111827;
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --accent: #6366f1;
-            --accent-hover: #818cf8;
-            --border-color: #1f2937;
-            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
-            --pill-bg: #1f2937;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
         body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            transition: background-color 0.2s, color 0.2s;
-            line-height: 1.5;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
+        .gradient-text {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 45%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 1.5rem;
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(30, 64, 175, 0.25) 0%, rgba(8, 14, 31, 0) 70%);
+            z-index: -1;
+            filter: blur(50px);
         }
 
-        .logo {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            text-decoration: none;
-            letter-spacing: -0.05em;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dark .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.08);
         }
 
-        .logo span {
-            color: var(--accent);
+        html:not(.dark) .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 1.25rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.15s;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--text-primary);
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-size: 1rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-        }
-
-        .theme-toggle:hover {
-            color: var(--text-primary);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 6rem 1.5rem 3rem 1.5rem;
-        }
-
-        section {
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-primary);
-        }
-
-        #hero {
-            padding-top: 2rem;
-        }
-
-        .hero-badge-row {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            flex-wrap: wrap;
-        }
-
-        .hero-badge-row span {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .hero-title {
-            font-size: 2.75rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background-color: var(--text-primary);
-            color: var(--bg-secondary);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: opacity 0.15s;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-secondary);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.15s;
-        }
-
-        .btn-secondary:hover {
-            color: var(--text-primary);
-            border-color: var(--text-primary);
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-group h3 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.35rem;
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(96, 165, 250, 0.3);
+            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
         }
 
         .skill-tag {
-            background-color: var(--pill-bg);
-            color: var(--text-primary);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.03);
+            color: #cbd5e1;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.8125rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             font-weight: 500;
-        }
-
-        .exp-item {
-            margin-bottom: 2rem;
-        }
-
-        .exp-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 0.5rem;
-        }
-
-        .exp-role {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .exp-date {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .exp-company {
-            font-size: 0.95rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .exp-highlights {
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .exp-bullets {
-            list-style: none;
-        }
-
-        .exp-bullets li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.4rem;
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        [data-theme="dark"] .exp-bullets li {
-            color: #9ca3af;
-        }
-
-        .exp-bullets li::before {
-            content: "•";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-
-        .cert-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            padding: 1rem;
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .cert-name {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .cert-meta {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .stat-card {
-            padding: 1rem 0;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent);
-            letter-spacing: -0.03em;
-            line-height: 1;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .contact-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .contact-link {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.35rem;
-            border: 1px solid var(--border-color);
-            padding: 0.4rem 0.75rem;
-            border-radius: 6px;
-            background-color: var(--bg-secondary);
-            transition: all 0.15s;
+            transition: all 0.2s ease;
         }
 
-        .contact-link:hover {
-            color: var(--text-primary);
-            border-color: var(--text-primary);
+        html:not(.dark) .skill-tag {
+            background: rgba(0, 0, 0, 0.03);
+            color: #475569;
+            border-color: rgba(0, 0, 0, 0.05);
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
-            margin-top: 2rem;
+        .skill-tag:hover {
+            background: rgba(96, 165, 250, 0.1);
+            border-color: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
         }
 
-        @media (max-width: 640px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            .exp-header {
-                flex-direction: column;
-            }
-            .hero-title {
-                font-size: 2.25rem;
-            }
+        section {
+            padding: 4rem 0;
+        }
+        @media (min-width: 768px) {
+            section { padding: 6rem 0; }
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #1d4ed8, #38bdf8);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .theme-transition {
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #scroll-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 99;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(8px);
+        }
+        #scroll-top-btn.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .abbr-badge {
+            font-size: 0.55rem;
+            font-weight: 800;
+            font-family: ui-monospace, 'Cascadia Code', monospace;
+            background: rgba(96, 165, 250, 0.12);
+            color: #60a5fa;
+            border-radius: 4px;
+            padding: 1px 4px;
+            margin-right: 5px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: 1px solid rgba(96, 165, 250, 0.22);
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+        }
+        html:not(.dark) .abbr-badge {
+            background: rgba(37, 99, 235, 0.07);
+            color: #2563eb;
+            border-color: rgba(37, 99, 235, 0.18);
         }
     </style>
 </head>
-<body>
+<body class="theme-transition bg-slate-50 text-slate-900 dark:bg-dark dark:text-slate-200">
 
-    <header>
-        <nav class="nav-container">
-            <a href="#hero" class="logo">RD<span>.</span></a>
-            <ul class="nav-menu">
-                <li><a href="#hero" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Arsenal</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#certifications" class="nav-link">Certs</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li>
-                    <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
-                        <i class="fa-solid fa-moon"></i>
-                    </button>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="container">
-        
-        <section id="hero">
-            <div class="hero-badge-row">
-                <span><i class="fa-solid fa-location-dot"></i> Mumbai, India</span>
-                <span>•</span>
-                <span><i class="fa-solid fa-briefcase"></i> 8+ Years Experience</span>
-                <span>•</span>
-                <span><i class="fa-solid fa-landmark"></i> Capital Markets & Financial Services</span>
-            </div>
-            <h1 class="hero-title">Rahul Dubey</h1>
-            <p class="hero-subtitle">
-                Senior Business Analyst specializing in member onboarding, clearing & settlement systems, and regulatory-compliant platforms supporting national financial infrastructure.
-            </p>
-            <div class="hero-ctas">
-                <a href="#experience" class="btn-primary">Explore Work</a>
-                <a href="#contact" class="btn-secondary">Get in Touch</a>
-            </div>
-        </section>
-
-        <section id="about">
-            <h2 class="section-title">Professional Summary</h2>
-            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
-                Senior Business Analyst with 8+ years of experience across capital markets, financial services, and enterprise technology, currently driving large-scale transformation initiatives at CCIL.
-            </p>
-            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
-                Specialized in member onboarding, clearing & settlement systems, and regulatory-compliant platforms supporting national financial infrastructure.
-            </p>
-            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
-                Proven track record in leading system migrations, optimizing workflows, and delivering scalable, high-impact solutions through Agile methodologies.
-            </p>
-            <p style="font-size: 0.95rem; color: var(--text-secondary);">
-                Adept at bridging business and technology to enable data-driven decision-making and operational efficiency.
-            </p>
-        </section>
-
-        <section id="skills">
-            <h2 class="section-title">Technical Arsenal</h2>
-            <div class="skills-container">
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/50 theme-transition">
+        <div class="max-w-6xl mx-auto px-6 h-16 sm:h-20 flex items-center justify-between">
+            <span class="text-2xl font-bold tracking-tighter gradient-text">RD.</span>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                <a href="#hero" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Home</a>
+                <a href="#about" class="nav-link hover:text-blue-600 dark:hover:text-white transition">About</a>
+                <a href="#skills" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Skills</a>
+                <a href="#experience" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Experience</a>
+                <a href="#certifications" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Certifications</a>
+                <a href="#achievements" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Achievements</a>
+                <a href="#contact" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Contact</a>
                 
-                <div class="skill-group">
-                    <h3>Business Analysis</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Requirement Gathering</span>
-                        <span class="skill-tag">BRD/FRD/SRS</span>
-                        <span class="skill-tag">User Stories</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Agile & Delivery</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Scrum</span>
-                        <span class="skill-tag">SDLC</span>
-                        <span class="skill-tag">Sprint Planning</span>
-                        <span class="skill-tag">Backlog Grooming</span>
-                        <span class="skill-tag">Retrospectives</span>
-                        <span class="skill-tag">Agile Ceremonies</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Testing & Validation</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">UAT Planning & Execution</span>
-                        <span class="skill-tag">Test Case Design</span>
-                        <span class="skill-tag">Data Validation</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Data & Reporting</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Microsoft Excel</span>
-                        <span class="skill-tag">Word</span>
-                        <span class="skill-tag">PowerPoint</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Capital Markets Domain</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Membership Systems</span>
-                        <span class="skill-tag">Clearing & Settlement</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Process Modelling & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">BPMN 2.0</span>
-                        <span class="skill-tag">AS-IS / TO-BE Analysis</span>
-                        <span class="skill-tag">Draw.io</span>
-                        <span class="skill-tag">Balsamiq Wireframe</span>
-                        <span class="skill-tag">Lucidchart</span>
-                        <span class="skill-tag">Microsoft Visio</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Project & Collaboration Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Jira</span>
-                        <span class="skill-tag">Azure DevOps</span>
-                        <span class="skill-tag">Redmine</span>
-                        <span class="skill-tag">Microsoft Planner</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h3>Version Control & Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">GitLab</span>
-                        <span class="skill-tag">Microsoft SharePoint</span>
-                    </div>
-                </div>
-
+                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:ring-2 ring-blue-400 transition-all">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
             </div>
-        </section>
 
-        <section id="experience">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="exp-wrapper">
-                
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Business Analyst - Deputy Manager</span>
-                        <span class="exp-date">May 2024 - Present</span>
-                    </div>
-                    <div class="exp-company">The Clearing Corporation of India Ltd (CCIL) | Mumbai</div>
-                    <div class="exp-highlights">Key Highlights:</div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Managed a transformation project for Membership Portal (Onboarding and Maintenance Automation) and clearing & settlement systems in government securities, driving migration from legacy platforms to modern settlement systems.</p>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Played a key role in the Membership Module & Clearing and Settlement BA team for a large-scale transformation program.</p>
-                    <div class="exp-highlights">Responsibilities:</div>
-                    <ul class="exp-bullets">
-                        <li>Conducted business analysis and created Functional Requirement Documents (FRDs) for system migration covering 10+ modules including Member onboarding, Client & Constituent, FX-Options, Inter-Segment and others.</li>
-                        <li>Managed 50+ user stories per sprint with acceptance criteria, and test cases in Gitlab, ensuring full traceability from requirements to testing outcomes.</li>
-                        <li>Developed 100+ detailed test scenarios covering critical functionalities; planned and executed UAT, improving defect detection rate by ~25% before the production deployment.</li>
-                        <li>Reduced manual effort by ~30% and accelerated member onboarding turnaround time through workflow automation and streamlined settlement processes.</li>
-                        <li>Collaborated with cross functional teams including Product Owners, Scrum Masters, developers, QA Team, and business stakeholders across multiple Agile squads to prioritize backlog and achieve sprint goals.</li>
-                        <li>Participated in Agile ceremonies including sprint planning, stand-ups, and retrospectives.</li>
-                        <li>Led test planning, and database validation for leadership insights.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Business Analyst / Project Manager</span>
-                        <span class="exp-date">Nov 2022 - Dec 2023</span>
-                    </div>
-                    <div class="exp-company">NextGen Invent Corporation | Noida</div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Led end-to-end delivery of a financial services application and loan management system; managed stakeholder communication, project planning, and execution. Delivered a travel application (similar to ride-hailing platforms) with real-time tracking via Google Maps API.</p>
-                    <ul class="exp-bullets">
-                        <li>Conducted requirement gathering, wireframing, and stakeholder validation sessions.</li>
-                        <li>Managed Agile delivery as Scrum Master; facilitated UAT and integrated third-party APIs (Stripe, PayPal, Twilio, Google Maps).</li>
-                        <li>Developed Power BI dashboards for healthcare clients, transforming raw data into actionable insights.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Business Analyst</span>
-                        <span class="exp-date">Dec 2019 - Aug 2022</span>
-                    </div>
-                    <div class="exp-company">Integreon Managed Solutions India Pvt. Ltd. | Mumbai</div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Delivered a customer/vendor onboarding platform for legal and compliance domain.</p>
-                    <ul class="exp-bullets">
-                        <li>Gathered and documented requirements and translated them into implementation plans; defined KPIs and supported product strategy initiatives.</li>
-                        <li>Designed and executed UAT test cases, ensuring high-quality delivery.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Business Analyst</span>
-                        <span class="exp-date">Jan 2017 - Jul 2019</span>
-                    </div>
-                    <div class="exp-company">Concentrix Daksh Service India Pvt. Ltd. | Mumbai</div>
-                    <ul class="exp-bullets">
-                        <li>Developed and maintained loyalty rewards web and mobile applications (HTML, CSS, JavaScript).</li>
-                        <li>Transitioned into a Business Analyst role focusing on documentation, stakeholder collaboration, and requirement gathering.</li>
-                    </ul>
-                </div>
-
+            <div class="flex items-center space-x-4 md:hidden">
+                <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                    <svg id="theme-toggle-dark-icon-mob" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon-mob" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <button id="menu-btn" class="text-slate-500 dark:text-slate-400 p-2 z-50">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <section id="certifications">
-            <h2 class="section-title">Certifications</h2>
-            <div class="cert-grid">
-                
-                <div class="cert-card">
-                    <div class="cert-name">Business Analysis Foundations</div>
-                    <div class="cert-meta">by LinkedIn Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Project Management</div>
-                    <div class="cert-meta">by Great Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Product Management</div>
-                    <div class="cert-meta">by Great Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Product Lifecycle Management</div>
-                    <div class="cert-meta">by Great Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Data Visualization with Power BI</div>
-                    <div class="cert-meta">by Great Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Tableau Training</div>
-                    <div class="cert-meta">by Simplilearn</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">HL7 FHIR® Proficient Certification</div>
-                    <div class="cert-meta">by HL7 International</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Responsive Web Design</div>
-                    <div class="cert-meta">by freeCodeCamp</div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="impact">
-            <h2 class="section-title">Impact at a Glance</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">~30%</div>
-                    <div class="stat-label">Manual Effort Reduction</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">~25%</div>
-                    <div class="stat-label">Defect Discovery Improvement</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Modules Migrated</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8+ Y</div>
-                    <div class="stat-label">Professional Experience</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="exp-role">BSc Information Technology</span>
-                    <span class="exp-date">2013 - 2016</span>
-                </div>
-                <div class="exp-company" style="color: var(--text-secondary);">Mumbai University</div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-grid">
-                <a href="mailto:dubeyr428@outlook.com" class="contact-link">
-                    <i class="fa-solid fa-envelope" style="color: #ea4335;"></i> dubeyr428@outlook.com
-                </a>
-                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="contact-link">
-                    <i class="fa-brands fa-linkedin" style="color: #0077b5;"></i> linkedin.com/in/rahul-dubey-33a497a5
-                </a>
-            </div>
-        </section>
-
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white dark:bg-dark md:hidden flex flex-col items-center justify-center space-y-8 text-xl font-bold">
+        <a href="#hero" class="mobile-nav-link hover:text-blue-500 transition">Home</a>
+        <a href="#about" class="mobile-nav-link hover:text-blue-500 transition">About</a>
+        <a href="#skills" class="mobile-nav-link hover:text-blue-500 transition">Skills</a>
+        <a href="#experience" class="mobile-nav-link hover:text-blue-500 transition">Experience</a>
+        <a href="#certifications" class="mobile-nav-link hover:text-blue-500 transition">Certifications</a>
+        <a href="#achievements" class="mobile-nav-link hover:text-blue-500 transition">Achievements</a>
+        <a href="#contact" class="mobile-nav-link text-blue-500 transition">Contact</a>
     </div>
 
-    <footer>
-        <p>Designed for high performance. &copy; 2026 Rahul Dubey.</p>
+    <section id="hero" class="relative min-h-screen pt-20 flex flex-col items-center justify-center text-center overflow-hidden">
+        <div class="hero-glow"></div>
+        <div class="max-w-4xl px-6 relative z-10">
+            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-blue-950 via-blue-800 to-blue-600 border-[3px] border-blue-400/20 mx-auto mt-4 mb-7 flex items-center justify-center shadow-2xl shadow-blue-900/60 ring-4 ring-blue-500/10">
+                <span class="text-3xl sm:text-4xl font-black text-white tracking-tight select-none">RD</span>
+            </div>
+            <div class="inline-flex items-center gap-2.5 px-5 py-2 mb-6 rounded-full border border-blue-300 dark:border-blue-700/30 bg-blue-100 dark:bg-blue-950/30 backdrop-blur-sm shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0"></span>
+                <span class="text-blue-700 dark:text-blue-300 font-semibold tracking-[0.12em] uppercase text-[9px] sm:text-[11px]">Senior Business Analyst &nbsp;&middot;&nbsp; Capital Markets &amp; Financial Services</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-black mb-5 sm:mb-6 leading-[1.1] tracking-tight">
+                <span class="gradient-text">Rahul Dubey</span>
+            </h1>
+            <div class="flex flex-wrap justify-center items-center gap-x-5 gap-y-2 mb-8 sm:mb-10 text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-semibold tracking-widest uppercase">
+                <span class="flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Mumbai, India [cite: 2]
+                </span>
+                <span class="text-slate-600 dark:text-slate-700 hidden sm:inline">|</span>
+                <span class="flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    <span id="exp-years-strip">8+ Years Enterprise</span> [cite: 4]
+                </span>
+                <span class="text-slate-600 dark:text-slate-700 hidden sm:inline">|</span>
+                <span class="flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                    CCIL &amp; Enterprise FinTech [cite: 4]
+                </span>
+            </div>
+            <p class="text-base sm:text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed font-medium px-2">
+                Driving large-scale transformation initiatives [cite: 4] and optimizing clearing &amp; settlement infrastructure [cite: 5] while <span class="text-blue-400 dark:text-blue-300 font-bold">bridging business and technology</span> [cite: 7] to deliver data-driven, scalable financial platforms[cite: 6, 7].
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-5 px-4 sm:px-0">
+                <a href="#experience" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-bold transition-all shadow-xl shadow-blue-600/20 w-full sm:w-auto text-center transform hover:scale-105 active:scale-95">Explore Work</a>
+                
+                <a href="./Rahul_Dubey_Resume.pdf" download="Rahul_Dubey_Resume.pdf" class="bg-slate-200 dark:bg-slate-800/50 hover:bg-slate-300 dark:hover:bg-slate-800 text-slate-700 dark:text-white px-8 py-4 rounded-xl font-bold transition-all border border-slate-300 dark:border-slate-700 w-full sm:w-auto text-center backdrop-blur-sm transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download CV
+                </a>
+
+                <a href="mailto:dubeyr428@outlook.com" class="bg-transparent hover:bg-slate-100 dark:hover:bg-white/5 text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white px-8 py-4 rounded-xl font-bold transition-all border border-slate-300 dark:border-slate-800 w-full sm:w-auto text-center items-center justify-center transform hover:scale-105 active:scale-95 flex">Get in Touch</a> [cite: 2]
+            </div>
+            
+            <div class="mt-12 sm:mt-16 flex justify-center space-x-8 text-slate-400 dark:text-slate-500">
+                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all transform hover:-translate-y-1" aria-label="LinkedIn"> [cite: 2]
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="mailto:dubeyr428@outlook.com" class="hover:text-red-500 dark:hover:text-red-400 transition-all transform hover:-translate-y-1" aria-label="Email"> [cite: 2]
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-white/30 dark:bg-slate-900/30 border-y border-slate-200 dark:border-slate-800/40 theme-transition">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold inline-block relative">
+                    Professional Summary
+                    <span class="absolute -bottom-3 left-0 w-16 h-1.5 bg-gradient-to-r from-blue-600 to-sky-400 rounded-full"></span>
+                </h2>
+            </div>
+            <div class="glass-card p-6 sm:p-12 rounded-2xl sm:rounded-[2rem] shadow-2xl">
+                <div class="text-base sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed space-y-6 sm:space-y-8">
+                    <p>
+                        Senior Business Analyst with <span id="exp-years-about" class="text-slate-900 dark:text-white font-semibold">8+ years of experience</span> across capital markets, financial services, and enterprise technology[cite: 4]. Specialized in <span class="text-blue-600 dark:text-blue-400 font-medium">member onboarding, clearing &amp; settlement systems</span>, and regulatory-compliant platforms supporting national financial infrastructure[cite: 5].
+                    </p>
+                    <p>
+                        Currently driving cloud-native microservices and portal modernizations at <span class="text-slate-900 dark:text-white font-semibold">The Clearing Corporation of India Ltd (CCIL)</span> [cite: 4, 18], with a proven track record in large-scale system migration [cite: 6] covering <span class="text-slate-900 dark:text-white font-semibold">10+ critical modules</span> [cite: 24] and delivering an improved defect detection rate of <span class="text-emerald-600 dark:text-emerald-400 font-semibold">~25% in UAT testing</span>[cite: 26].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-10 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Core Skillset Matrix</h2>
+                <p class="text-slate-500 max-w-xl mx-auto uppercase tracking-widest text-[10px] sm:text-xs font-bold">Comprehensive business analysis & domain expertise</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 grid-auto-rows-fr items-stretch">
+                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
+                    <div class="icon-box bg-blue-500/10 text-blue-600 dark:text-blue-400 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-6">Business Analysis</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="skill-tag">Requirements Gathering</div> [cite: 9]
+                        <div class="skill-tag"><span class="abbr-badge">BRD</span>BRD</div> [cite: 9]
+                        <div class="skill-tag"><span class="abbr-badge">FRD</span>FRD</div> [cite: 9]
+                        <div class="skill-tag"><span class="abbr-badge">SRS</span>SRS</div> [cite: 9]
+                        <div class="skill-tag">User Stories</div> [cite: 9]
+                        <div class="skill-tag">AS-IS / TO-BE</div> [cite: 14]
+                    </div>
+                </div>
+                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
+                    <div class="icon-box bg-purple-500/10 text-purple-600 dark:text-purple-400 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-6">Modeling &amp; Wireframes</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="skill-tag"><span class="abbr-badge">BPMN</span>BPMN 2.0</div> [cite: 14]
+                        <div class="skill-tag">Balsamiq Wireframes</div> [cite: 14]
+                        <div class="skill-tag">Lucidchart</div> [cite: 14]
+                        <div class="skill-tag">Microsoft Visio</div> [cite: 14]
+                        <div class="skill-tag">Draw.io</div> [cite: 14]
+                    </div>
+                </div>
+                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
+                    <div class="icon-box bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a3.5 3.5 0 1 1 0-7c.2 0 .4 0 .6.1a6 6 0 1 1 10.4-3.1h.1a4 4 0 1 1 0 8h-11"/><path d="M12 10v6"/><path d="m9 13 3 3 3-3"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-6">Agile &amp; Project Delivery</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="skill-tag">Scrum Management</div> [cite: 10]
+                        <div class="skill-tag">Sprint Planning</div> [cite: 10]
+                        <div class="skill-tag">Backlog Grooming</div> [cite: 10]
+                        <div class="skill-tag">Jira</div> [cite: 15]
+                        <div class="skill-tag">Azure DevOps</div> [cite: 15]
+                        <div class="skill-tag">GitLab / Redmine</div> [cite: 15, 16]
+                    </div>
+                </div>
+                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
+                    <div class="icon-box bg-red-500/10 text-red-600 dark:text-red-400 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-6">Capital Markets Domain</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="skill-tag">Membership Systems</div> [cite: 13]
+                        <div class="skill-tag">Clearing &amp; Settlement</div> [cite: 13]
+                        <div class="skill-tag">Government Securities</div> [cite: 21]
+                        <div class="skill-tag">FX-Options</div> [cite: 24]
+                        <div class="skill-tag">Loan Management</div> [cite: 34]
+                    </div>
+                </div>
+                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
+                    <div class="icon-box bg-orange-500/10 text-orange-600 dark:text-orange-400 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-6">Data &amp; Reporting</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="skill-tag">Power BI</div> [cite: 12]
+                        <div class="skill-tag">MySQL</div> [cite: 12]
+                        <div class="skill-tag">Tableau</div> [cite: 57]
+                        <div class="skill-tag">Data Validation</div> [cite: 11]
+                        <div class="skill-tag">Excel Dashboarding</div> [cite: 12, 38]
+                    </div>
+                </div>
+                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
+                    <div class="icon-box bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-6">Testing &amp; Validation</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="skill-tag"><span class="abbr-badge">UAT</span>UAT Execution</div> [cite: 11]
+                        <div class="skill-tag">Test Case Design</div> [cite: 11]
+                        <div class="skill-tag">API Integration Testing</div> [cite: 37]
+                        <div class="skill-tag">Defect Tracking</div> [cite: 25]
+                        <div class="skill-tag">Database Validation</div> [cite: 30]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="bg-white/30 dark:bg-slate-900/30 theme-transition">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-16">Professional Journey</h2>
+            
+            <div class="space-y-12 sm:space-y-16 border-l-2 border-slate-300 dark:border-slate-800/50 ml-2 sm:ml-4 pl-6 sm:pl-10 relative">
+                <div class="relative group">
+                    <div class="absolute -left-[2.25rem] sm:-left-[3.25rem] top-1.5 w-6 h-6 sm:w-8 h-8 bg-blue-600 rounded-full border-4 border-slate-50 dark:border-dark shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform"></div>
+                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Business Analyst - Deputy Manager</h3> [cite: 18]
+                        <span class="text-blue-600 dark:text-blue-400 font-bold bg-blue-500/10 px-3 py-1 rounded-md text-xs sm:text-sm border border-blue-500/10 tracking-wide inline-block w-fit">May 2024 - Present</span> [cite: 20]
+                    </div>
+                    <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 font-semibold mb-4 sm:mb-6">The Clearing Corporation of India Ltd (CCIL)</p> [cite: 18]
+                    <ul class="text-sm sm:text-base text-slate-600 dark:text-slate-400 space-y-3 list-none">
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Managed transformation projects for <span class="text-slate-900 dark:text-white">Membership Portal automation</span> and legacy clearing/settlement systems in government securities[cite: 21].</span></li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Conducted extensive business analysis and authored <span class="text-slate-900 dark:text-white">FRDs for system migrations</span> across 10+ modules, including Member onboarding, FX-Options, and Inter-Segment processes[cite: 24].</span></li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Managed <span class="text-slate-900 dark:text-white">50+ user stories per sprint</span> with precise acceptance criteria and test setups utilizing GitLab[cite: 25].</span></li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Developed 100+ critical test scenarios and engineered UAT executions that improved the <span class="text-slate-900 dark:text-white">pre-production defect detection rate by ~25%</span>[cite: 26].</span></li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Reduced manual workflows by ~30% via robust business workflow automations[cite: 27].</span></li>
+                    </ul>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[2.25rem] sm:-left-[3.25rem] top-1.5 w-6 h-6 sm:w-8 h-8 bg-slate-400 dark:bg-slate-800 rounded-full border-4 border-slate-50 dark:border-dark group-hover:bg-slate-500 dark:group-hover:bg-slate-700 transition-colors"></div>
+                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Business Analyst / Project Manager</h3> [cite: 32]
+                        <span class="text-slate-500 font-semibold text-xs sm:text-sm inline-block w-fit">Nov 2022 - Dec 2023</span> [cite: 33]
+                    </div>
+                    <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 font-semibold mb-3">NextGen Invent Corporation</p> [cite: 31]
+                    <ul class="text-sm sm:text-base text-slate-600 dark:text-slate-400 space-y-3 list-none">
+                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Led end-to-end delivery of a financial services application and loan management system; steered stakeholder communication and timelines[cite: 34].</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Acted as Scrum Master to facilitate agile delivery and integrated complex third-party APIs like Stripe, PayPal, and Google Maps[cite: 37].</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Engineered interactive Power BI dashboards for healthcare clients to translate multi-tier data into insights[cite: 38].</span></li>
+                    </ul>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[2.25rem] sm:-left-[3.25rem] top-1.5 w-6 h-6 sm:w-8 h-8 bg-slate-400 dark:bg-slate-800 rounded-full border-4 border-slate-50 dark:border-dark group-hover:bg-slate-500 dark:group-hover:bg-slate-700 transition-colors"></div>
+                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Business Analyst</h3> [cite: 40]
+                        <span class="text-slate-500 font-semibold text-xs sm:text-sm inline-block w-fit">Dec 2019 - Aug 2022</span> [cite: 41]
+                    </div>
+                    <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 font-semibold mb-3">Integreon Managed Solutions India Pvt. Ltd.</p> [cite: 39]
+                    <ul class="text-sm sm:text-base text-slate-600 dark:text-slate-400 space-y-3 list-none">
+                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Delivered an enterprise-level customer/vendor onboarding platform specifically for legal and compliance spaces[cite: 42].</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Gathered complex requirements, defined core execution KPIs, and structured data-driven product strategies[cite: 43].</span></li>
+                    </ul>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[2.25rem] sm:-left-[3.25rem] top-1.5 w-6 h-6 sm:w-8 h-8 bg-slate-400 dark:bg-slate-800 rounded-full border-4 border-slate-50 dark:border-dark group-hover:bg-slate-500 dark:group-hover:bg-slate-700 transition-colors"></div>
+                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Business Analyst / Web Developer</h3> [cite: 46, 48, 49]
+                        <span class="text-slate-500 font-semibold text-xs sm:text-sm inline-block w-fit">Jan 2017 - Jul 2019</span> [cite: 47]
+                    </div>
+                    <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 font-semibold mb-3">Concentrix Daksh Service India Pvt. Ltd.</p> [cite: 45]
+                    <ul class="text-sm sm:text-base text-slate-600 dark:text-slate-400 space-y-3 list-none">
+                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Maintained and customized reward systems using core frontend tech stacks (HTML, CSS, JavaScript)[cite: 48].</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Successfully transitioned into a dedicated BA role managing stakeholder alignment and functional specs[cite: 49].</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="bg-white/30 dark:bg-slate-900/30 theme-transition">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold inline-block relative">
+                    Certifications &amp; Education
+                    <span class="absolute -bottom-3 left-0 w-16 h-1.5 bg-gradient-to-r from-blue-600 to-sky-400 rounded-full"></span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4 border-l-4 border-l-blue-500">
+                    <div class="icon-box bg-blue-500/10 text-blue-500 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">BSc Information Technology</p> [cite: 51]
+                        <p class="text-xs sm:text-sm text-slate-500">Mumbai University &middot; 2013-2016</p> [cite: 51, 52]
+                    </div>
+                </div>
+                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
+                    <div class="icon-box bg-orange-500/10 text-orange-500 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Business Analysis Foundations</p> [cite: 53]
+                        <p class="text-xs sm:text-sm text-slate-500">LinkedIn Learning</p> [cite: 53]
+                    </div>
+                </div>
+                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
+                    <div class="icon-box bg-amber-500/10 text-amber-500 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Data Visualization with Power BI</p> [cite: 57]
+                        <p class="text-xs sm:text-sm text-slate-500">Great Learning</p> [cite: 57]
+                    </div>
+                </div>
+                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
+                    <div class="icon-box bg-violet-500/10 text-violet-500 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">HL7 FHIR® Proficient Certification</p> [cite: 58]
+                        <p class="text-xs sm:text-sm text-slate-500">HL7 International</p> [cite: 58]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-16 text-center text-slate-900 dark:text-white">Impact at a Glance</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="text-center p-6 sm:p-8 glass-card rounded-2xl sm:rounded-[2rem]">
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black text-blue-600 dark:text-blue-400 mb-2 tracking-tighter">~25%</div> [cite: 26]
+                    <p class="text-[9px] sm:text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">UAT Defect Detection</p> [cite: 26]
+                </div>
+                <div class="text-center p-6 sm:p-8 glass-card rounded-2xl sm:rounded-[2rem]">
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black text-blue-600 dark:text-blue-400 mb-2 tracking-tighter">~30%</div> [cite: 27]
+                    <p class="text-[9px] sm:text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">Manual Effort Saved</p> [cite: 27]
+                </div>
+                <div class="text-center p-6 sm:p-8 glass-card rounded-2xl sm:rounded-[2rem]">
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black text-blue-600 dark:text-blue-400 mb-2 tracking-tighter">10+</div> [cite: 24]
+                    <p class="text-[9px] sm:text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">Migrated Modules</p> [cite: 24]
+                </div>
+                <div class="text-center p-6 sm:p-8 glass-card rounded-2xl sm:rounded-[2rem]">
+                    <div id="exp-years-stat" class="text-3xl sm:text-4xl md:text-5xl font-black text-blue-600 dark:text-blue-400 mb-2 tracking-tighter">8Y+</div> [cite: 4]
+                    <p class="text-[9px] sm:text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">Domain Practice</p> [cite: 2, 4]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="pb-24 sm:pb-32 bg-gradient-to-b from-transparent to-slate-200 dark:to-[#040810] theme-transition">
+        <div class="max-w-xl mx-auto px-6 text-center">
+            <div class="inline-block p-3 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Let's build reliable platforms together.</h2>
+            <p class="text-slate-600 dark:text-slate-400 mb-10 sm:mb-12 text-base sm:text-lg font-medium">Available for senior analytical roles and delivery management inside Capital Markets &amp; Financial Technology lines.</p>
+            <div class="space-y-4">
+                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-center space-x-4 p-5 glass-card rounded-2xl group transition-all"> [cite: 2]
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <span class="text-xs sm:text-lg font-bold truncate max-w-[200px] sm:max-w-none">dubeyr428@outlook.com</span> [cite: 2]
+                </a>
+                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-4 p-5 glass-card rounded-2xl group transition-all"> [cite: 2]
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform shrink-0"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    <span class="text-xs sm:text-lg font-bold truncate">linkedin.com/in/rahul-dubey</span> [cite: 2]
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <button id="scroll-top-btn" class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg shadow-blue-600/30 flex items-center justify-center" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <footer class="py-12 sm:py-16 border-t border-slate-200 dark:border-slate-800/50 text-center px-6 theme-transition">
+        <div class="max-w-6xl mx-auto">
+            <span class="text-xl font-bold tracking-tighter gradient-text block mb-4">RD.</span>
+            <p class="text-slate-500 dark:text-slate-600 text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-loose">Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> Rahul Dubey.</p>
+        </div>
     </footer>
 
     <script>
-        const themeBtn = document.getElementById('theme-btn');
-        const icon = themeBtn.querySelector('i');
-        
-        themeBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                icon.className = 'fa-solid fa-moon';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                icon.className = 'fa-solid fa-sun';
-            }
-        });
+        // Theme toggle mechanics
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleBtnMob = document.getElementById('theme-toggle-mobile');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIconMob = document.getElementById('theme-toggle-dark-icon-mob');
+        const lightIconMob = document.getElementById('theme-toggle-light-icon-mob');
 
+        function updateIcons() {
+            if (document.documentElement.classList.contains('dark')) {
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+                darkIconMob.classList.add('hidden');
+                lightIconMob.classList.remove('hidden');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+                lightIconMob.classList.add('hidden');
+                darkIconMob.classList.remove('hidden');
+            }
+        }
+
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            updateIcons();
+        }
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleBtnMob.addEventListener('click', toggleTheme);
+        updateIcons();
+
+        // Mobile drawer control logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('active')) toggleMenu();
+        }));
+
+        // Dynamic metric evaluation script
+        const startYear = 2017; [cite: 47]
+        const yearsExp = new Date().getFullYear() - startYear;
+        const expStrip = document.getElementById('exp-years-strip');
+        const expAbout = document.getElementById('exp-years-about');
+        const expStat = document.getElementById('exp-years-stat');
+        if (expStrip) expStrip.textContent = yearsExp + '+ Years Enterprise';
+        if (expAbout) expAbout.textContent = yearsExp + '+ years of experience';
+        if (expStat) expStat.textContent = yearsExp + 'Y+';
+
+        // Dynamic footer execution clock logic
+        const footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+        // Auto Scroll Spy Configuration
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
         window.addEventListener('scroll', () => {
+            const threshold = window.innerHeight * 0.4;
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 120) {
+                if (window.pageYOffset >= (section.offsetTop - threshold)) {
                     current = section.getAttribute('id');
                 }
             });
-
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
+                link.classList.remove('text-blue-500', 'font-bold');
+                if (current && link.getAttribute('href').includes(current)) {
+                    link.classList.add('text-blue-500', 'font-bold');
                 }
             });
+
+            const scrollTopBtn = document.getElementById('scroll-top-btn');
+            if (scrollTopBtn) {
+                if (window.pageYOffset > window.innerHeight * 0.8) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            }
         });
+
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // IntersectionObserver setups for scroll UI animations
+        const animTargets = document.querySelectorAll(
+            '#about .glass-card, #skills .glass-card, #experience .relative.group, ' +
+            '#certifications .glass-card, #achievements .glass-card, #contact .glass-card, ' +
+            'section:not(#hero) h2'
+        );
+        animTargets.forEach(el => el.classList.add('fade-up'));
+
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    animObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animTargets.forEach(el => animObserver.observe(el));
     </script>
 </body>
 </html>
