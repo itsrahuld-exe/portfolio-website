@@ -43,7 +43,6 @@
             line-height: 1.6;
         }
 
-        /* Navbar styling */
         header {
             position: fixed;
             top: 0;
@@ -102,7 +101,6 @@
             background-color: var(--bg-primary);
         }
 
-        /* Container utility */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -131,12 +129,11 @@
             border-radius: 2px;
         }
 
-        /* Home Section */
         #home {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            min-height: 85vh;
+            min-height: 75vh;
             padding-top: 2rem;
         }
 
@@ -157,10 +154,30 @@
             font-weight: 400;
         }
 
-        .hero-description {
-            max-width: 750px;
+        .summary-box {
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
             margin-bottom: 2rem;
+        }
+
+        .summary-item {
+            margin-bottom: 1rem;
             font-size: 1.1rem;
+            position: relative;
+            padding-left: 1.75rem;
+        }
+
+        .summary-item::before {
+            content: "\f0a4";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 2px;
         }
 
         .btn {
@@ -178,11 +195,10 @@
             background-color: var(--accent-hover);
         }
 
-        /* Experience Timeline */
         .timeline {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .timeline-item {
@@ -197,54 +213,70 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             flex-wrap: wrap;
             gap: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
         }
 
         .role-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--text-primary);
         }
 
         .company-name {
             color: var(--accent);
             font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 0.25rem;
         }
 
         .duration {
             font-size: 0.9rem;
             color: var(--text-secondary);
             background-color: var(--bg-primary);
-            padding: 0.25rem 0.75rem;
+            padding: 0.35rem 0.85rem;
             border-radius: 20px;
             border: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .highlight-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
         .timeline-body ul {
             list-style-type: none;
+            margin-top: 0.75rem;
         }
 
         .timeline-body li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             position: relative;
             padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .timeline-body li {
+            color: #cbd5e1;
         }
 
         .timeline-body li::before {
-            content: "•";
+            content: "✓";
             color: var(--accent);
             font-weight: bold;
-            font-size: 1.2rem;
             position: absolute;
             left: 0;
-            top: -2px;
+            top: 0;
         }
 
-        /* Skills Layout */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
@@ -253,15 +285,18 @@
             padding: 1.5rem;
             border-radius: 8px;
             border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
         }
 
         .skill-card h3 {
             margin-bottom: 1rem;
             color: var(--accent);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
         }
 
         .tags {
@@ -273,20 +308,20 @@
         .tag {
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            padding: 0.35rem 0.75rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             border: 1px solid var(--border-color);
+            font-weight: 500;
         }
 
-        /* Education & Certifications Layout */
         .edu-cert-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .edu-cert-grid {
                 grid-template-columns: 1fr;
             }
@@ -298,30 +333,33 @@
             }
         }
 
-        .cert-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-        }
-
-        @media (max-width: 480px) {
-            .cert-grid {
-                grid-template-columns: 1fr;
-            }
+        .cert-list {
+            list-style: none;
         }
 
         .cert-item {
             background-color: var(--bg-secondary);
-            padding: 0.75rem;
+            padding: 1rem;
             border-radius: 6px;
+            margin-bottom: 0.75rem;
             border-left: 4px solid var(--accent);
             border-top: 1px solid var(--border-color);
             border-right: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
-            font-size: 0.9rem;
+            box-shadow: var(--card-shadow);
         }
 
-        /* Contact Details */
+        .cert-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .cert-issuer {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
         .contact-wrapper {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -378,9 +416,10 @@
             <a href="#home" class="logo">Rahul Dubey</a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About & Education</a></li>
+                <li><a href="#summary" class="nav-link">Summary</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education & Certs</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li>
                     <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
@@ -396,42 +435,21 @@
         <section id="home">
             <h1 class="hero-title">Hi, I'm <span>Rahul Dubey</span></h1>
             <h2 class="hero-subtitle">Senior Business Analyst | Capital Markets & Financial Services</h2>
-            <p class="hero-description">
-                Senior Business Analyst with 8+ years of experience across capital markets, financial services, and enterprise technology, currently driving large-scale transformation initiatives at CCIL. Specialized in member onboarding, clearing & settlement systems, and regulatory-compliant platforms supporting national financial infrastructure.
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px; margin-bottom: 2rem;">
+                Welcome to my personal portfolio. I am a dedicated business analysis professional with an extensive history of delivering cross-functional solutions across modern financial landscapes.
             </p>
             <div>
-                <a href="#contact" class="btn">Get In Touch</a>
+                <a href="#experience" class="btn">View My Experience</a>
             </div>
         </section>
 
-        <section id="about">
+        <section id="summary">
             <h2 class="section-title">Professional Summary</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.1rem; color: var(--text-secondary);">
-                Proven track record in leading system migrations, optimizing workflows, and delivering scalable, high-impact solutions through Agile methodologies. Adept at bridging business and technology to enable data-driven decision-making and operational efficiency.
-            </p>
-            
-            <div class="edu-cert-grid">
-                <div>
-                    <h3 style="margin-bottom: 1.25rem;"><i class="fa-solid fa-graduation-cap" style="color: var(--accent);"></i> Education</h3>
-                    <div class="timeline-item">
-                        <h4 class="role-title">BSc Information Technology</h4>
-                        <p class="company-name">Mumbai University</p>
-                        <span class="duration" style="display:inline-block; margin-top: 0.5rem;">2013 - 2016</span>
-                    </div>
-                </div>
-                <div>
-                    <h3 style="margin-bottom: 1.25rem;"><i class="fa-solid fa-award" style="color: var(--accent);"></i> Professional Certifications</h3>
-                    <div class="cert-grid">
-                        <div class="cert-item">Business Analysis Foundations <br><small style="color:var(--text-secondary);">LinkedIn Learning</small></div>
-                        <div class="cert-item">Project Management <br><small style="color:var(--text-secondary);">Great Learning</small></div>
-                        <div class="cert-item">Product Management <br><small style="color:var(--text-secondary);">Great Learning</small></div>
-                        <div class="cert-item">Product Lifecycle Management <br><small style="color:var(--text-secondary);">Great Learning</small></div>
-                        <div class="cert-item">Data Visualization with Power BI <br><small style="color:var(--text-secondary);">Great Learning</small></div>
-                        <div class="cert-item">Tableau Training <br><small style="color:var(--text-secondary);">Simplilearn</small></div>
-                        <div class="cert-item">HL7 FHIR® Proficient <br><small style="color:var(--text-secondary);">HL7 International</small></div>
-                        <div class="cert-item">Responsive Web Design <br><small style="color:var(--text-secondary);">freeCodeCamp</small></div>
-                    </div>
-                </div>
+            <div class="summary-box">
+                <div class="summary-item">Senior Business Analyst with 8+ years of experience across capital markets, financial services, and enterprise technology, currently driving large-scale transformation initiatives at CCIL.</div>
+                <div class="summary-item">Specialized in member onboarding, clearing & settlement systems, and regulatory-compliant platforms supporting national financial infrastructure.</div>
+                <div class="summary-item">Proven track record in leading system migrations, optimizing workflows, and delivering scalable, high-impact solutions through Agile methodologies.</div>
+                <div class="summary-item">Adept at bridging business and technology to enable data-driven decision-making and operational efficiency.</div>
             </div>
         </section>
 
@@ -443,13 +461,16 @@
                     <div class="timeline-header">
                         <div>
                             <h3 class="role-title">Business Analyst - Deputy Manager</h3>
-                            <span class="company-name">The Clearing Corporation of India Ltd (CCIL)</span>
+                            <div class="company-name">The Clearing Corporation of India Ltd (CCIL)</div>
                         </div>
                         <span class="duration">May 2024 - Present | Mumbai</span>
                     </div>
                     <div class="timeline-body">
-                        <p style="margin-bottom: 1rem; font-weight: 500;">Key Highlights: Played a key role in the Membership Module & Clearing and Settlement BA team for a large-scale transformation program; managed a transformation project for Membership Portal (Onboarding and Maintenance Automation) and clearing & settlement systems in government securities, driving migration from legacy platforms to modern settlement systems.</p>
-                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent);">Responsibilities:</h4>
+                        <div class="highlight-title">Key Highlights:</div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                            Managed a transformation project for Membership Portal (Onboarding and Maintenance Automation) and clearing & settlement systems in government securities, driving migration from legacy platforms to modern settlement systems. Played a key role in the Membership Module & Clearing and Settlement BA team for a large-scale transformation program.
+                        </p>
+                        <div class="highlight-title">Responsibilities:</div>
                         <ul>
                             <li>Conducted business analysis and created Functional Requirement Documents (FRDs) for system migration covering 10+ modules including Member onboarding, Client & Constituent, FX-Options, Inter-Segment and others.</li>
                             <li>Managed 50+ user stories per sprint with acceptance criteria, and test cases in Gitlab, ensuring full traceability from requirements to testing outcomes.</li>
@@ -466,14 +487,16 @@
                     <div class="timeline-header">
                         <div>
                             <h3 class="role-title">Business Analyst / Project Manager</h3>
-                            <span class="company-name">NextGen Invent Corporation</span>
+                            <div class="company-name">NextGen Invent Corporation</div>
                         </div>
                         <span class="duration">Nov 2022 - Dec 2023 | Noida</span>
                     </div>
                     <div class="timeline-body">
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                            Led end-to-end delivery of a financial services application and loan management system; managed stakeholder communication, project planning, and execution. Delivered a travel application (similar to ride-hailing platforms) with real-time tracking via Google Maps API.
+                        </p>
+                        <div class="highlight-title">Responsibilities:</div>
                         <ul>
-                            <li>Led end-to-end delivery of a financial services application and loan management system; managed stakeholder communication, project planning, and execution.</li>
-                            <li>Delivered a travel application (similar to ride-hailing platforms) with real-time tracking via Google Maps API.</li>
                             <li>Conducted requirement gathering, wireframing, and stakeholder validation sessions.</li>
                             <li>Managed Agile delivery as Scrum Master; facilitated UAT and integrated third-party APIs (Stripe, PayPal, Twilio, Google Maps).</li>
                             <li>Developed Power BI dashboards for healthcare clients, transforming raw data into actionable insights.</li>
@@ -485,13 +508,16 @@
                     <div class="timeline-header">
                         <div>
                             <h3 class="role-title">Business Analyst</h3>
-                            <span class="company-name">Integreon Managed Solutions India Pvt. Ltd.</span>
+                            <div class="company-name">Integreon Managed Solutions India Pvt. Ltd.</div>
                         </div>
                         <span class="duration">Dec 2019 - Aug 2022 | Mumbai</span>
                     </div>
                     <div class="timeline-body">
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                            Delivered a customer/vendor onboarding platform for legal and compliance domain.
+                        </p>
+                        <div class="highlight-title">Responsibilities:</div>
                         <ul>
-                            <li>Delivered a customer/vendor onboarding platform for legal and compliance domain.</li>
                             <li>Gathered and documented requirements and translated them into implementation plans; defined KPIs and supported product strategy initiatives.</li>
                             <li>Designed and executed UAT test cases, ensuring high-quality delivery.</li>
                         </ul>
@@ -502,14 +528,15 @@
                     <div class="timeline-header">
                         <div>
                             <h3 class="role-title">Business Analyst</h3>
-                            <span class="company-name">Concentrix Daksh Service India Pvt. Ltd.</span>
+                            <div class="company-name">Concentrix Daksh Service India Pvt. Ltd.</div>
                         </div>
                         <span class="duration">Jan 2017 - Jul 2019 | Mumbai</span>
                     </div>
                     <div class="timeline-body">
+                        <div class="highlight-title">Responsibilities:</div>
                         <ul>
+                            <li>Developed and maintained loyalty rewards web and mobile applications (HTML, CSS, JavaScript).</li>
                             <li>Transitioned into a Business Analyst role focusing on documentation, stakeholder collaboration, and requirement gathering.</li>
-                            <li>Developed and maintained loyalty rewards web and mobile applications using HTML, CSS, and JavaScript.</li>
                         </ul>
                     </div>
                 </div>
@@ -518,16 +545,14 @@
         </section>
 
         <section id="skills">
-            <h2 class="section-title">Core Skills & Competencies</h2>
+            <h2 class="section-title">Core Skills</h2>
             <div class="skills-grid">
                 
                 <div class="skill-card">
                     <h3><i class="fa-solid fa-briefcase"></i> Business Analysis</h3>
                     <div class="tags">
                         <span class="tag">Requirement Gathering</span>
-                        <span class="tag">BRD</span>
-                        <span class="tag">FRD</span>
-                        <span class="tag">SRS</span>
+                        <span class="tag">BRD/FRD/SRS</span>
                         <span class="tag">User Stories</span>
                     </div>
                 </div>
@@ -535,7 +560,7 @@
                 <div class="skill-card">
                     <h3><i class="fa-solid fa-users"></i> Agile & Delivery</h3>
                     <div class="tags">
-                        <span class="tag">Scrum Master</span>
+                        <span class="tag">Scrum</span>
                         <span class="tag">SDLC</span>
                         <span class="tag">Sprint Planning</span>
                         <span class="tag">Backlog Grooming</span>
@@ -545,7 +570,7 @@
                 </div>
 
                 <div class="skill-card">
-                    <h3><i class="fa-solid fa-vial"></i> Testing & Validation</h3>
+                    <h3><i class="fa-solid fa-check-double"></i> Testing & Validation</h3>
                     <div class="tags">
                         <span class="tag">UAT Planning & Execution</span>
                         <span class="tag">Test Case Design</span>
@@ -554,7 +579,7 @@
                 </div>
 
                 <div class="skill-card">
-                    <h3><i class="fa-solid fa-chart-bar"></i> Data & Reporting</h3>
+                    <h3><i class="fa-solid fa-chart-pie"></i> Data & Reporting</h3>
                     <div class="tags">
                         <span class="tag">Power BI</span>
                         <span class="tag">MySQL</span>
@@ -565,10 +590,10 @@
                 </div>
 
                 <div class="skill-card">
-                    <h3><i class="fa-solid fa-landmark"></i> Capital Markets Domain</h3>
+                    <h3><i class="fa-solid fa-building-columns"></i> Capital Markets Domain</h3>
                     <div class="tags">
                         <span class="tag">Membership Systems</span>
-                        <span class="tag">Clearing & Settlement Systems</span>
+                        <span class="tag">Clearing & Settlement</span>
                     </div>
                 </div>
 
@@ -585,7 +610,7 @@
                 </div>
 
                 <div class="skill-card">
-                    <h3><i class="fa-solid fa-folder-tree"></i> Project & Collaboration</h3>
+                    <h3><i class="fa-solid fa-square-poll-horizontal"></i> Project & Collaboration Tools</h3>
                     <div class="tags">
                         <span class="tag">Jira</span>
                         <span class="tag">Azure DevOps</span>
@@ -595,7 +620,7 @@
                 </div>
 
                 <div class="skill-card">
-                    <h3><i class="fa-solid fa-code-branch"></i> Version Control</h3>
+                    <h3><i class="fa-solid fa-code-branch"></i> Version Control & Platforms</h3>
                     <div class="tags">
                         <span class="tag">GitLab</span>
                         <span class="tag">Microsoft SharePoint</span>
@@ -605,11 +630,61 @@
             </div>
         </section>
 
+        <section id="education">
+            <div class="edu-cert-grid">
+                <div>
+                    <h2 class="section-title">Education</h2>
+                    <div class="timeline-item" style="margin-top: 0.5rem;">
+                        <h4 class="role-title" style="font-size: 1.25rem;">BSc Information Technology</h4>
+                        <div class="company-name">Mumbai University</div>
+                        <span class="duration" style="display:inline-block; margin-top: 0.5rem;">2013 - 2016</span>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="section-title">Certifications</h2>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <div class="cert-title">Business Analysis Foundations</div>
+                            <div class="cert-issuer">by LinkedIn Learning</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Project Management</div>
+                            <div class="cert-issuer">by Great Learning</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Product Management</div>
+                            <div class="cert-issuer">by Great Learning</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Product Lifecycle Management</div>
+                            <div class="cert-issuer">by Great Learning</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Data Visualization with Power BI</div>
+                            <div class="cert-issuer">by Great Learning</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Tableau Training</div>
+                            <div class="cert-issuer">by Simplilearn</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">HL7 FHIR® Proficient Certification</div>
+                            <div class="cert-issuer">by HL7 International</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Responsive Web Design</div>
+                            <div class="cert-issuer">by freeCodeCamp</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="contact">
             <h2 class="section-title">Connect With Me</h2>
             <div class="contact-wrapper">
                 <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    Based in Mumbai, India. I am open to discussing complex system migrations, automation projects, and senior analytical consultancy opportunities.
+                    If you would like to discuss my experience or potential opportunities, feel free to connect via Email or LinkedIn.
                 </p>
                 <div class="contact-links">
                     <a href="mailto:dubeyr428@outlook.com" class="contact-btn">
@@ -632,7 +707,6 @@
         const themeBtn = document.getElementById('theme-btn');
         const icon = themeBtn.querySelector('i');
         
-        // Dark Mode Toggle Logic
         themeBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             if (currentTheme === 'dark') {
@@ -644,7 +718,6 @@
             }
         });
 
-        // Active Navigation Link Tracking on Scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
