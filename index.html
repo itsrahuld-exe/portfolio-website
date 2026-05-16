@@ -9,23 +9,25 @@
         :root {
             --bg-primary: #f8fafc;
             --bg-secondary: #ffffff;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent: #4f46e5;
+            --accent-hover: #4338ca;
             --border-color: #e2e8f0;
-            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --pill-bg: #f1f5f9;
         }
 
         [data-theme="dark"] {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #3b82f6;
-            --accent-hover: #60a5fa;
-            --border-color: #334155;
+            --bg-primary: #0b0f19;
+            --bg-secondary: #111827;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --border-color: #1f2937;
             --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+            --pill-bg: #1f2937;
         }
 
         * {
@@ -33,16 +35,17 @@
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            transition: background-color 0.3s, color 0.3s;
-            line-height: 1.6;
+            transition: background-color 0.2s, color 0.2s;
+            line-height: 1.5;
         }
 
+        /* Top Sticky Header */
         header {
             position: fixed;
             top: 0;
@@ -53,25 +56,30 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 0.75rem 1.5rem;
         }
 
         .logo {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--text-primary);
             text-decoration: none;
+            letter-spacing: -0.05em;
+        }
+
+        .logo span {
+            color: var(--accent);
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.25rem;
             align-items: center;
         }
 
@@ -79,333 +87,328 @@
             text-decoration: none;
             color: var(--text-secondary);
             font-weight: 500;
-            transition: color 0.2s;
+            font-size: 0.9rem;
+            transition: color 0.15s;
         }
 
         .nav-link:hover, .nav-link.active {
-            color: var(--accent);
+            color: var(--text-primary);
         }
 
         .theme-toggle {
             background: none;
             border: none;
-            color: var(--text-primary);
+            color: var(--text-secondary);
             cursor: pointer;
-            font-size: 1.2rem;
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: background-color 0.2s;
+            font-size: 1rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
         }
 
         .theme-toggle:hover {
-            background-color: var(--bg-primary);
+            color: var(--text-primary);
         }
 
+        /* Layout Container */
         .container {
-            max-width: 1100px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 5rem 2rem 2rem 2rem;
+            padding: 6rem 1.5rem 3rem 1.5rem;
         }
 
         section {
-            padding: 4rem 0;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-
-        #home {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 75vh;
+        /* Hero Layout */
+        #hero {
             padding-top: 2rem;
         }
 
+        .hero-badge-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge-row span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
         .hero-title {
-            font-size: 3.5rem;
-            line-height: 1.2;
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
             margin-bottom: 1rem;
         }
 
-        .hero-title span {
-            color: var(--accent);
-        }
-
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             font-weight: 400;
         }
 
-        .summary-box {
-            background-color: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--card-shadow);
-            margin-bottom: 2rem;
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .summary-item {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            position: relative;
-            padding-left: 1.75rem;
-        }
-
-        .summary-item::before {
-            content: "\f0a4";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            top: 2px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.75rem 1.5rem;
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: var(--bg-secondary);
+            padding: 0.5rem 1rem;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-
-        .timeline-item {
-            background-color: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--card-shadow);
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.25rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1rem;
-        }
-
-        .role-title {
-            font-size: 1.4rem;
-            color: var(--text-primary);
-        }
-
-        .company-name {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 0.25rem;
-        }
-
-        .duration {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            background-color: var(--bg-primary);
-            padding: 0.35rem 0.85rem;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
             font-weight: 500;
+            font-size: 0.9rem;
+            transition: opacity 0.15s;
         }
 
-        .highlight-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
+        .btn-primary:hover {
+            opacity: 0.9;
         }
 
-        .timeline-body ul {
-            list-style-type: none;
-            margin-top: 0.75rem;
-        }
-
-        .timeline-body li {
-            margin-bottom: 0.75rem;
-            position: relative;
-            padding-left: 1.5rem;
+        .btn-secondary {
+            background-color: transparent;
             color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.15s;
         }
 
-        [data-theme="dark"] .timeline-body li {
-            color: #cbd5e1;
+        .btn-secondary:hover {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
         }
 
-        .timeline-body li::before {
-            content: "✓";
-            color: var(--accent);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .skills-grid {
+        /* Technical Arsenal Layout */
+        .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 1.5rem;
         }
 
-        .skill-card {
-            background-color: var(--bg-secondary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--card-shadow);
+        .skill-group h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
         }
 
-        .skill-card h3 {
-            margin-bottom: 1rem;
-            color: var(--accent);
-            font-size: 1.15rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .tags {
+        .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.35rem;
         }
 
-        .tag {
-            background-color: var(--bg-primary);
+        .skill-tag {
+            background-color: var(--pill-bg);
             color: var(--text-primary);
-            padding: 0.4rem 0.8rem;
+            padding: 0.2rem 0.5rem;
             border-radius: 4px;
-            font-size: 0.88rem;
-            border: 1px solid var(--border-color);
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
-        .edu-cert-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+        /* Experience Component */
+        .exp-item {
+            margin-bottom: 2rem;
         }
 
-        @media (max-width: 850px) {
-            .edu-cert-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-menu {
-                gap: 1rem;
-            }
-            .hero-title {
-                font-size: 2.5rem;
-            }
+        .exp-item:last-child {
+            margin-bottom: 0;
         }
 
-        .cert-list {
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-role {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .exp-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .exp-company {
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .exp-highlights {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+
+        .exp-bullets {
             list-style: none;
         }
 
-        .cert-item {
-            background-color: var(--bg-secondary);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 0.75rem;
-            border-left: 4px solid var(--accent);
-            border-top: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--card-shadow);
+        .exp-bullets li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            position: relative;
+            padding-left: 1rem;
         }
 
-        .cert-title {
+        [data-theme="dark"] .exp-bullets li {
+            color: #9ca3af;
+        }
+
+        .exp-bullets li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Certifications Component */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cert-name {
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--text-primary);
         }
 
-        .cert-issuer {
-            font-size: 0.85rem;
+        .cert-meta {
+            font-size: 0.8rem;
             color: var(--text-secondary);
             margin-top: 0.25rem;
         }
 
-        .contact-wrapper {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
+        /* Impact Matrix Component */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
         }
 
-        .contact-links {
+        .stat-card {
+            padding: 1rem 0;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Contact Matrix */
+        .contact-grid {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
             flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .contact-btn {
+        .contact-link {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
+            gap: 0.35rem;
             border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            background-color: var(--bg-primary);
-            transition: all 0.2s;
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            background-color: var(--bg-secondary);
+            transition: all 0.15s;
         }
 
-        .contact-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
+        .contact-link:hover {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-top: 4rem;
-            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            .exp-header {
+                flex-direction: column;
+            }
+            .hero-title {
+                font-size: 2.25rem;
+            }
         }
     </style>
 </head>
@@ -413,13 +416,13 @@
 
     <header>
         <nav class="nav-container">
-            <a href="#home" class="logo">Rahul Dubey</a>
+            <a href="#hero" class="logo">RD<span>.</span></a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#summary" class="nav-link">Summary</a></li>
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Arsenal</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#education" class="nav-link">Education & Certs</a></li>
+                <li><a href="#certifications" class="nav-link">Certs</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li>
                     <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
@@ -432,275 +435,262 @@
 
     <div class="container">
         
-        <section id="home">
-            <h1 class="hero-title">Hi, I'm <span>Rahul Dubey</span></h1>
-            <h2 class="hero-subtitle">Senior Business Analyst | Capital Markets & Financial Services</h2>
-            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px; margin-bottom: 2rem;">
-                Welcome to my personal portfolio. I am a dedicated business analysis professional with an extensive history of delivering cross-functional solutions across modern financial landscapes.
+        <section id="hero">
+            <div class="hero-badge-row">
+                <span><i class="fa-solid fa-location-dot"></i> Mumbai, India</span>
+                <span>•</span>
+                <span><i class="fa-solid fa-briefcase"></i> 8+ Years Enterprise</span>
+                <span>•</span>
+                <span><i class="fa-solid fa-landmark"></i> Capital Markets & Fintech</span>
+            </div>
+            <h1 class="hero-title">Rahuldubey Prajapati</h1>
+            <p class="hero-subtitle">
+                Architecting enterprise-scale membership platforms, migration workflows, and high-volume clearing & settlement analytics frameworks for mission-critical clearing operations—delivering measurable performance, operational efficiency, and resilience.
             </p>
-            <div>
-                <a href="#experience" class="btn">View My Experience</a>
+            <div class="hero-ctas">
+                <a href="#experience" class="btn-primary">Explore Work</a>
+                <a href="#contact" class="btn-secondary">Get in Touch</a>
             </div>
         </section>
 
-        <section id="summary">
+        <section id="about">
             <h2 class="section-title">Professional Summary</h2>
-            <div class="summary-box">
-                <div class="summary-item">Senior Business Analyst with 8+ years of experience across capital markets, financial services, and enterprise technology, currently driving large-scale transformation initiatives at CCIL.</div>
-                <div class="summary-item">Specialized in member onboarding, clearing & settlement systems, and regulatory-compliant platforms supporting national financial infrastructure.</div>
-                <div class="summary-item">Proven track record in leading system migrations, optimizing workflows, and delivering scalable, high-impact solutions through Agile methodologies.</div>
-                <div class="summary-item">Adept at bridging business and technology to enable data-driven decision-making and operational efficiency.</div>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                Senior Business Analyst with 8+ years of experience designing and optimizing high-availability enterprise applications across membership operations, payment ecosystems, digital onboarding, and regulatory compliance in capital markets and fintech. Strong command over requirements mapping, system migrations, UAT architectures, and database validation metrics.
+            </p>
+            <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                Currently driving platform modernization and automated onboarding transformations at The Clearing Corporation of India Ltd (CCIL), with a proven track record in leading complex multi-module transformations—including 10+ core module data migrations and delivering a 30% turnaround reduction for high-security operations.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="skills-container">
+                
+                <div class="skill-group">
+                    <h3>Business Analysis</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Requirement Gathering</span>
+                        <span class="skill-tag">BRD/FRD/SRS</span>
+                        <span class="skill-tag">User Stories</span>
+                        <span class="skill-tag">AS-IS / TO-BE</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Agile & Delivery</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Scrum Master</span>
+                        <span class="skill-tag">SDLC Frameworks</span>
+                        <span class="skill-tag">Sprint Planning</span>
+                        <span class="skill-tag">Backlog Grooming</span>
+                        <span class="skill-tag">Retrospectives</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Testing & Ops</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">UAT Execution</span>
+                        <span class="skill-tag">Test Case Design</span>
+                        <span class="skill-tag">Data Validation</span>
+                        <span class="skill-tag">Defect Tracking</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Data & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Advanced Excel</span>
+                        <span class="skill-tag">Tableau</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Process & Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">BPMN 2.0</span>
+                        <span class="skill-tag">Microsoft Visio</span>
+                        <span class="skill-tag">Draw.io</span>
+                        <span class="skill-tag">Balsamiq Wireframes</span>
+                        <span class="skill-tag">Lucidchart</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>PM & Collaboration</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">Azure DevOps</span>
+                        <span class="skill-tag">GitLab</span>
+                        <span class="skill-tag">Redmine</span>
+                        <span class="skill-tag">SharePoint</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <section id="experience">
             <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
+            <div class="exp-wrapper">
                 
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="role-title">Business Analyst - Deputy Manager</h3>
-                            <div class="company-name">The Clearing Corporation of India Ltd (CCIL)</div>
-                        </div>
-                        <span class="duration">May 2024 - Present | Mumbai</span>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Business Analyst - Deputy Manager</span>
+                        <span class="exp-date">May 2024 - Present</span>
                     </div>
-                    <div class="timeline-body">
-                        <div class="highlight-title">Key Highlights:</div>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                            Managed a transformation project for Membership Portal (Onboarding and Maintenance Automation) and clearing & settlement systems in government securities, driving migration from legacy platforms to modern settlement systems. Played a key role in the Membership Module & Clearing and Settlement BA team for a large-scale transformation program.
-                        </p>
-                        <div class="highlight-title">Responsibilities:</div>
-                        <ul>
-                            <li>Conducted business analysis and created Functional Requirement Documents (FRDs) for system migration covering 10+ modules including Member onboarding, Client & Constituent, FX-Options, Inter-Segment and others.</li>
-                            <li>Managed 50+ user stories per sprint with acceptance criteria, and test cases in Gitlab, ensuring full traceability from requirements to testing outcomes.</li>
-                            <li>Developed 100+ detailed test scenarios covering critical functionalities; planned and executed UAT, improving defect detection rate by ~25% before the production deployment.</li>
-                            <li>Reduced manual effort by ~30% and accelerated member onboarding turnaround time through workflow automation and streamlined settlement processes.</li>
-                            <li>Collaborated with cross functional teams including Product Owners, Scrum Masters, developers, QA Team, and business stakeholders across multiple Agile squads to prioritize backlog and achieve sprint goals.</li>
-                            <li>Participated in Agile ceremonies including sprint planning, stand-ups, and retrospectives.</li>
-                            <li>Led test planning, and database validation for leadership insights.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-company">The Clearing Corporation of India Ltd (CCIL)</div>
+                    <div class="exp-highlights">Key Program Matrix: Membership Module & Clearing and Settlement transformation streams.</div>
+                    <ul class="exp-bullets">
+                        <li>Managed a transformation project for Membership Portal (Onboarding and Maintenance Automation) and clearing & settlement systems in government securities, driving migration from legacy platforms to modern settlement systems.</li>
+                        <li>Conducted business analysis and created Functional Requirement Documents (FRDs) for system migration covering 10+ modules including Member onboarding, Client & Constituent, FX-Options, Inter-Segment and others.</li>
+                        <li>Managed 50+ user stories per sprint with acceptance criteria, and test cases in Gitlab, ensuring full traceability from requirements to testing outcomes.</li>
+                        <li>Developed 100+ detailed test scenarios covering critical functionalities; planned and executed UAT, improving defect detection rate by ~25% before the production deployment.</li>
+                        <li>Reduced manual effort by ~30% and accelerated member onboarding turnaround time through workflow automation and streamlined settlement processes.</li>
+                        <li>Collaborated with cross functional teams including Product Owners, Scrum Masters, developers, QA Team, and business stakeholders across multiple Agile squads to prioritize backlog and achieve sprint goals.</li>
+                        <li>Participated in Agile ceremonies including sprint planning, stand-ups, and retrospectives.</li>
+                        <li>Led test planning, and database validation for leadership insights.</li>
+                    </ul>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="role-title">Business Analyst / Project Manager</h3>
-                            <div class="company-name">NextGen Invent Corporation</div>
-                        </div>
-                        <span class="duration">Nov 2022 - Dec 2023 | Noida</span>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Business Analyst / Project Manager</span>
+                        <span class="exp-date">Nov 2022 - Dec 2023</span>
                     </div>
-                    <div class="timeline-body">
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                            Led end-to-end delivery of a financial services application and loan management system; managed stakeholder communication, project planning, and execution. Delivered a travel application (similar to ride-hailing platforms) with real-time tracking via Google Maps API.
-                        </p>
-                        <div class="highlight-title">Responsibilities:</div>
-                        <ul>
-                            <li>Conducted requirement gathering, wireframing, and stakeholder validation sessions.</li>
-                            <li>Managed Agile delivery as Scrum Master; facilitated UAT and integrated third-party APIs (Stripe, PayPal, Twilio, Google Maps).</li>
-                            <li>Developed Power BI dashboards for healthcare clients, transforming raw data into actionable insights.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-company">NextGen Invent Corporation</div>
+                    <ul class="exp-bullets">
+                        <li>Led end-to-end delivery of a financial services application and loan management system; managed stakeholder communication, project planning, and execution.</li>
+                        <li>Delivered a travel application (similar to ride-hailing platforms) with real-time tracking via Google Maps API.</li>
+                        <li>Conducted requirement gathering, wireframing, and stakeholder validation sessions.</li>
+                        <li>Managed Agile delivery as Scrum Master; facilitated UAT and integrated third-party APIs (Stripe, PayPal, Twilio, Google Maps).</li>
+                        <li>Developed Power BI dashboards for healthcare clients, transforming raw data into actionable insights.</li>
+                    </ul>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="role-title">Business Analyst</h3>
-                            <div class="company-name">Integreon Managed Solutions India Pvt. Ltd.</div>
-                        </div>
-                        <span class="duration">Dec 2019 - Aug 2022 | Mumbai</span>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Business Analyst</span>
+                        <span class="exp-date">Dec 2019 - Aug 2022</span>
                     </div>
-                    <div class="timeline-body">
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                            Delivered a customer/vendor onboarding platform for legal and compliance domain.
-                        </p>
-                        <div class="highlight-title">Responsibilities:</div>
-                        <ul>
-                            <li>Gathered and documented requirements and translated them into implementation plans; defined KPIs and supported product strategy initiatives.</li>
-                            <li>Designed and executed UAT test cases, ensuring high-quality delivery.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-company">Integreon Managed Solutions India Pvt. Ltd.</div>
+                    <ul class="exp-bullets">
+                        <li>Delivered a customer/vendor onboarding platform for legal and compliance domain.</li>
+                        <li>Gathered and documented requirements and translated them into implementation plans; defined KPIs and supported product strategy initiatives.</li>
+                        <li>Designed and executed UAT test cases, ensuring high-quality delivery.</li>
+                    </ul>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="role-title">Business Analyst</h3>
-                            <div class="company-name">Concentrix Daksh Service India Pvt. Ltd.</div>
-                        </div>
-                        <span class="duration">Jan 2017 - Jul 2019 | Mumbai</span>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Business Analyst</span>
+                        <span class="exp-date">Jan 2017 - Jul 2019</span>
                     </div>
-                    <div class="timeline-body">
-                        <div class="highlight-title">Responsibilities:</div>
-                        <ul>
-                            <li>Developed and maintained loyalty rewards web and mobile applications (HTML, CSS, JavaScript).</li>
-                            <li>Transitioned into a Business Analyst role focusing on documentation, stakeholder collaboration, and requirement gathering.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-company">Concentrix Daksh Service India Pvt. Ltd.</div>
+                    <ul class="exp-bullets">
+                        <li>Developed and maintained loyalty rewards web and mobile applications (HTML, CSS, JavaScript).</li>
+                        <li>Transitioned into a Business Analyst role focusing on documentation, stakeholder collaboration, and requirement gathering.</li>
+                    </ul>
                 </div>
 
             </div>
         </section>
 
-        <section id="skills">
-            <h2 class="section-title">Core Skills</h2>
-            <div class="skills-grid">
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
                 
-                <div class="skill-card">
-                    <h3><i class="fa-solid fa-briefcase"></i> Business Analysis</h3>
-                    <div class="tags">
-                        <span class="tag">Requirement Gathering</span>
-                        <span class="tag">BRD/FRD/SRS</span>
-                        <span class="tag">User Stories</span>
-                    </div>
+                <div class="cert-card">
+                    <div class="cert-name">Business Analysis Foundations</div>
+                    <div class="cert-meta">LinkedIn Learning</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-name">Project Management</div>
+                    <div class="cert-meta">Great Learning</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-name">Product Management</div>
+                    <div class="cert-meta">Great Learning</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-name">Product Lifecycle Management</div>
+                    <div class="cert-meta">Great Learning</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-name">Data Visualization with Power BI</div>
+                    <div class="cert-meta">Great Learning</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-name">Tableau Training</div>
+                    <div class="cert-meta">Simplilearn</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-name">HL7 FHIR® Proficient Certification</div>
+                    <div class="cert-meta">HL7 International</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-name">Responsive Web Design</div>
+                    <div class="cert-meta">freeCodeCamp</div>
                 </div>
 
-                <div class="skill-card">
-                    <h3><i class="fa-solid fa-users"></i> Agile & Delivery</h3>
-                    <div class="tags">
-                        <span class="tag">Scrum</span>
-                        <span class="tag">SDLC</span>
-                        <span class="tag">Sprint Planning</span>
-                        <span class="tag">Backlog Grooming</span>
-                        <span class="tag">Retrospectives</span>
-                        <span class="tag">Agile Ceremonies</span>
-                    </div>
-                </div>
+            </div>
+        </section>
 
-                <div class="skill-card">
-                    <h3><i class="fa-solid fa-check-double"></i> Testing & Validation</h3>
-                    <div class="tags">
-                        <span class="tag">UAT Planning & Execution</span>
-                        <span class="tag">Test Case Design</span>
-                        <span class="tag">Data Validation</span>
-                    </div>
+        <section id="impact">
+            <h2 class="section-title">Impact at a Glance</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Effort Reduction</div>
                 </div>
-
-                <div class="skill-card">
-                    <h3><i class="fa-solid fa-chart-pie"></i> Data & Reporting</h3>
-                    <div class="tags">
-                        <span class="tag">Power BI</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">Microsoft Excel</span>
-                        <span class="tag">Word</span>
-                        <span class="tag">PowerPoint</span>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">25%</div>
+                    <div class="stat-label">UAT Optimization</div>
                 </div>
-
-                <div class="skill-card">
-                    <h3><i class="fa-solid fa-building-columns"></i> Capital Markets Domain</h3>
-                    <div class="tags">
-                        <span class="tag">Membership Systems</span>
-                        <span class="tag">Clearing & Settlement</span>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Module Migrations</div>
                 </div>
-
-                <div class="skill-card">
-                    <h3><i class="fa-solid fa-diagram-project"></i> Process Modelling & Tools</h3>
-                    <div class="tags">
-                        <span class="tag">BPMN 2.0</span>
-                        <span class="tag">AS-IS / TO-BE Analysis</span>
-                        <span class="tag">Draw.io</span>
-                        <span class="tag">Balsamiq Wireframe</span>
-                        <span class="tag">Lucidchart</span>
-                        <span class="tag">Microsoft Visio</span>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">8+ Y</div>
+                    <div class="stat-label">Enterprise Experience</div>
                 </div>
-
-                <div class="skill-card">
-                    <h3><i class="fa-solid fa-square-poll-horizontal"></i> Project & Collaboration Tools</h3>
-                    <div class="tags">
-                        <span class="tag">Jira</span>
-                        <span class="tag">Azure DevOps</span>
-                        <span class="tag">Redmine</span>
-                        <span class="tag">Microsoft Planner</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <h3><i class="fa-solid fa-code-branch"></i> Version Control & Platforms</h3>
-                    <div class="tags">
-                        <span class="tag">GitLab</span>
-                        <span class="tag">Microsoft SharePoint</span>
-                    </div>
-                </div>
-
             </div>
         </section>
 
         <section id="education">
-            <div class="edu-cert-grid">
-                <div>
-                    <h2 class="section-title">Education</h2>
-                    <div class="timeline-item" style="margin-top: 0.5rem;">
-                        <h4 class="role-title" style="font-size: 1.25rem;">BSc Information Technology</h4>
-                        <div class="company-name">Mumbai University</div>
-                        <span class="duration" style="display:inline-block; margin-top: 0.5rem;">2013 - 2016</span>
-                    </div>
+            <h2 class="section-title">Education</h2>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-role">BSc Information Technology</span>
+                    <span class="exp-date">2013 - 2016</span>
                 </div>
-                <div>
-                    <h2 class="section-title">Certifications</h2>
-                    <ul class="cert-list">
-                        <li class="cert-item">
-                            <div class="cert-title">Business Analysis Foundations</div>
-                            <div class="cert-issuer">by LinkedIn Learning</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">Project Management</div>
-                            <div class="cert-issuer">by Great Learning</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">Product Management</div>
-                            <div class="cert-issuer">by Great Learning</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">Product Lifecycle Management</div>
-                            <div class="cert-issuer">by Great Learning</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">Data Visualization with Power BI</div>
-                            <div class="cert-issuer">by Great Learning</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">Tableau Training</div>
-                            <div class="cert-issuer">by Simplilearn</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">HL7 FHIR® Proficient Certification</div>
-                            <div class="cert-issuer">by HL7 International</div>
-                        </li>
-                        <li class="cert-item">
-                            <div class="cert-title">Responsive Web Design</div>
-                            <div class="cert-issuer">by freeCodeCamp</div>
-                        </li>
-                    </ul>
-                </div>
+                <div class="exp-company" style="color: var(--text-secondary);">Mumbai University</div>
             </div>
         </section>
 
         <section id="contact">
-            <h2 class="section-title">Connect With Me</h2>
-            <div class="contact-wrapper">
-                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    If you would like to discuss my experience or potential opportunities, feel free to connect via Email or LinkedIn.
-                </p>
-                <div class="contact-links">
-                    <a href="mailto:dubeyr428@outlook.com" class="contact-btn">
-                        <i class="fa-solid fa-envelope" style="color: #ea4335;"></i> dubeyr428@outlook.com
-                    </a>
-                    <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="contact-btn">
-                        <i class="fa-brands fa-linkedin" style="color: #0077b5;"></i> LinkedIn Profile
-                    </a>
-                </div>
+            <h2 class="section-title">Open to High-Impact Opportunities</h2>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Available for senior analytical delivery, product management, and architectural consulting positions in enterprise banking, fintech, and clearing ecosystems.
+            </p>
+            <div class="contact-grid">
+                <a href="mailto:dubeyr428@outlook.com" class="contact-link">
+                    <i class="fa-solid fa-envelope" style="color: #ea4335;"></i> dubeyr428@outlook.com
+                </a>
+                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="contact-link">
+                    <i class="fa-brands fa-linkedin" style="color: #0077b5;"></i> linkedin.com/in/rahul-dubey
+                </a>
             </div>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Rahul Dubey. All Rights Reserved.</p>
+        <p>Designed for high performance. &copy; 2026 Rahul Dubey.</p>
     </footer>
 
     <script>
