@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Dubey | Senior Business Analyst Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border-color: #e2e8f0;
+            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+            --border-color: #334155;
+            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.6;
+        }
+
+        /* Navbar styling */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--bg-primary);
+        }
+
+        /* Container utility */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem 2rem 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 85vh;
+            padding-top: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline-item {
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-title {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+        }
+
+        .company-name {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .duration {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background-color: var(--bg-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-body ul {
+            list-style-type: none;
+        }
+
+        .timeline-body li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-body li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* Skills Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Education & Certifications Layout */
+        .edu-cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .edu-cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-menu {
+                gap: 1rem;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-item {
+            background-color: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid var(--accent);
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Contact Details */
+        .contact-wrapper {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.2s;
+        }
+
+        .contact-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="#home" class="logo">RD.</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <section id="home">
+            <h1 class="hero-title">Hi, I'm <span>Rahul Dubey</span></h1>
+            <h2 class="hero-subtitle">Senior Business Analyst | Capital Markets & Financial Services</h2>
+            <p class="hero-description">
+                Over 8 years of experience across capital markets, financial services, and enterprise technology. 
+                Specialized in driving large-scale transformation initiatives, member onboarding, and regulatory-compliant clearing & settlement systems.
+            </p>
+            <div>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem; color: var(--text-secondary);">
+                Adept at bridging the gap between business needs and technological delivery to enable data-driven decision-making and optimal operational efficiency. Proven track record of leading complex system migrations, streamlining workflows, and implementing highly scalable fintech platforms using Agile framework constraints.
+            </p>
+            
+            <div class="edu-cert-grid">
+                <div>
+                    <h3 style="margin-bottom: 1.25rem;"><i class="fa-solid fa-graduation-cap" style="color: var(--accent);"></i> Education</h3>
+                    <div class="timeline-item">
+                        <h4 class="role-title">BSc Information Technology</h4>
+                        <p class="company-name">Mumbai University</p>
+                        <span class="duration" style="display:inline-block; margin-top: 0.5rem;">2013 - 2016</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1.25rem;"><i class="fa-solid fa-award" style="color: var(--accent);"></i> Key Certifications</h3>
+                    <ul class="cert-list">
+                        <li class="cert-item">Business Analysis Foundations — LinkedIn Learning</li>
+                        <li class="cert-item">Product & Project Management — Great Learning</li>
+                        <li class="cert-item">HL7 FHIR® Proficient Certification — HL7 International</li>
+                        <li class="cert-item">Data Visualization with Power BI — Great Learning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="role-title">Business Analyst - Deputy Manager</h3>
+                            <span class="company-name">The Clearing Corporation of India Ltd (CCIL)</span>
+                        </div>
+                        <span class="duration">May 2024 - Present | Mumbai</span>
+                    </div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Managed a transformation project for Membership Portal automating onboarding and maintenance for modern settlement systems.</li>
+                            <li>Authored complete Functional Requirement Documents (FRDs) for system migrations spanning 10+ core structural modules.</li>
+                            <li>Engineered workflow automations reducing manual effort by ~30% and accelerating turn-around times.</li>
+                            <li>Managed 50+ detailed user stories per sprint with complete acceptance criteria and test coverage mappings.</li>
+                            <li>Designed and verified 100+ end-to-end test scenarios, uplifting UAT defect discovery rates by ~25%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="role-title">Business Analyst / Project Manager</h3>
+                            <span class="company-name">NextGen Invent Corporation</span>
+                        </div>
+                        <span class="duration">Nov 2022 - Dec 2023 | Noida</span>
+                    </div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Led end-to-end delivery of financial services applications and comprehensive loan management ecosystems.</li>
+                            <li>Successfully executed delivery cycles integrating heavy third-party APIs including Stripe, PayPal, Twilio, and Google Maps.</li>
+                            <li>Facilitated cross-functional stakeholder requirements workshops, visual wireframing sprints, and client validation milestones.</li>
+                            <li>Transformed data architecture maps into interactive Power BI dashboards for operational executive metrics.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="role-title">Business Analyst</h3>
+                            <span class="company-name">Integreon Managed Solutions India Pvt. Ltd.</span>
+                        </div>
+                        <span class="duration">Dec 2019 - Aug 2022 | Mumbai</span>
+                    </div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Formulated client and vendor onboarding architectures adapted specifically for highly regulated legal and compliance landscapes.</li>
+                            <li>Translated strategic organizational priorities into clearly mapped platform features and foundational execution frameworks.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-briefcase"></i> Business Analysis</h3>
+                    <div class="tags">
+                        <span class="tag">Requirement Gathering</span>
+                        <span class="tag">BRD / FRD / SRS</span>
+                        <span class="tag">User Stories</span>
+                        <span class="tag">AS-IS / TO-BE</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-chart-line"></i> Domain Expertise</h3>
+                    <div class="tags">
+                        <span class="tag">Capital Markets</span>
+                        <span class="tag">Clearing & Settlement</span>
+                        <span class="tag">Membership Systems</span>
+                        <span class="tag">Loan Management</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-users"></i> Agile & Delivery</h3>
+                    <div class="tags">
+                        <span class="tag">Scrum Master</span>
+                        <span class="tag">Sprint Planning</span>
+                        <span class="tag">Backlog Grooming</span>
+                        <span class="tag">UAT Planning</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-screwdriver-wrench"></i> Systems & Tools</h3>
+                    <div class="tags">
+                        <span class="tag">Jira</span>
+                        <span class="tag">Azure DevOps</span>
+                        <span class="tag">GitLab</span>
+                        <span class="tag">BPMN 2.0</span>
+                        <span class="tag">Visio</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-database"></i> Data & Analytics</h3>
+                    <div class="tags">
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Advanced Excel</span>
+                        <span class="tag">Data Validation</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="contact-wrapper">
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    I am open to discussions regarding complex data challenges, system transformations, and senior analytical consultation opportunities.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:dubeyr428@outlook.com" class="contact-btn">
+                        <i class="fa-solid fa-envelope" style="color: #ea4335;"></i> Email Me
+                    </a>
+                    <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="contact-btn">
+                        <i class="fa-brands fa-linkedin" style="color: #0077b5;"></i> LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Rahul Dubey. Built with structured clean layout design standards.</p>
+    </footer>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const icon = themeBtn.querySelector('i');
+        
+        // Dark Mode Logic
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                icon.className = 'fa-solid fa-moon';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                icon.className = 'fa-solid fa-sun';
+            }
+        });
+
+        // Simple Active Navigation Tracking
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
