@@ -158,7 +158,7 @@
         }
 
         .hero-description {
-            max-width: 600px;
+            max-width: 750px;
             margin-bottom: 2rem;
             font-size: 1.1rem;
         }
@@ -298,19 +298,27 @@
             }
         }
 
-        .cert-list {
-            list-style: none;
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 480px) {
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .cert-item {
             background-color: var(--bg-secondary);
-            padding: 1rem;
+            padding: 0.75rem;
             border-radius: 6px;
-            margin-bottom: 0.75rem;
             border-left: 4px solid var(--accent);
             border-top: 1px solid var(--border-color);
             border-right: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
         }
 
         /* Contact Details */
@@ -367,10 +375,10 @@
 
     <header>
         <nav class="nav-container">
-            <a href="#home" class="logo">RD.</a>
+            <a href="#home" class="logo">Rahul Dubey</a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#about" class="nav-link">About & Education</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -389,8 +397,7 @@
             <h1 class="hero-title">Hi, I'm <span>Rahul Dubey</span></h1>
             <h2 class="hero-subtitle">Senior Business Analyst | Capital Markets & Financial Services</h2>
             <p class="hero-description">
-                Over 8 years of experience across capital markets, financial services, and enterprise technology. 
-                Specialized in driving large-scale transformation initiatives, member onboarding, and regulatory-compliant clearing & settlement systems.
+                Senior Business Analyst with 8+ years of experience across capital markets, financial services, and enterprise technology, currently driving large-scale transformation initiatives at CCIL. Specialized in member onboarding, clearing & settlement systems, and regulatory-compliant platforms supporting national financial infrastructure.
             </p>
             <div>
                 <a href="#contact" class="btn">Get In Touch</a>
@@ -398,9 +405,9 @@
         </section>
 
         <section id="about">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">Professional Summary</h2>
             <p style="margin-bottom: 2rem; font-size: 1.1rem; color: var(--text-secondary);">
-                Adept at bridging the gap between business needs and technological delivery to enable data-driven decision-making and optimal operational efficiency. Proven track record of leading complex system migrations, streamlining workflows, and implementing highly scalable fintech platforms using Agile framework constraints.
+                Proven track record in leading system migrations, optimizing workflows, and delivering scalable, high-impact solutions through Agile methodologies. Adept at bridging business and technology to enable data-driven decision-making and operational efficiency.
             </p>
             
             <div class="edu-cert-grid">
@@ -413,13 +420,17 @@
                     </div>
                 </div>
                 <div>
-                    <h3 style="margin-bottom: 1.25rem;"><i class="fa-solid fa-award" style="color: var(--accent);"></i> Key Certifications</h3>
-                    <ul class="cert-list">
-                        <li class="cert-item">Business Analysis Foundations — LinkedIn Learning</li>
-                        <li class="cert-item">Product & Project Management — Great Learning</li>
-                        <li class="cert-item">HL7 FHIR® Proficient Certification — HL7 International</li>
-                        <li class="cert-item">Data Visualization with Power BI — Great Learning</li>
-                    </ul>
+                    <h3 style="margin-bottom: 1.25rem;"><i class="fa-solid fa-award" style="color: var(--accent);"></i> Professional Certifications</h3>
+                    <div class="cert-grid">
+                        <div class="cert-item">Business Analysis Foundations <br><small style="color:var(--text-secondary);">LinkedIn Learning</small></div>
+                        <div class="cert-item">Project Management <br><small style="color:var(--text-secondary);">Great Learning</small></div>
+                        <div class="cert-item">Product Management <br><small style="color:var(--text-secondary);">Great Learning</small></div>
+                        <div class="cert-item">Product Lifecycle Management <br><small style="color:var(--text-secondary);">Great Learning</small></div>
+                        <div class="cert-item">Data Visualization with Power BI <br><small style="color:var(--text-secondary);">Great Learning</small></div>
+                        <div class="cert-item">Tableau Training <br><small style="color:var(--text-secondary);">Simplilearn</small></div>
+                        <div class="cert-item">HL7 FHIR® Proficient <br><small style="color:var(--text-secondary);">HL7 International</small></div>
+                        <div class="cert-item">Responsive Web Design <br><small style="color:var(--text-secondary);">freeCodeCamp</small></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -437,12 +448,16 @@
                         <span class="duration">May 2024 - Present | Mumbai</span>
                     </div>
                     <div class="timeline-body">
+                        <p style="margin-bottom: 1rem; font-weight: 500;">Key Highlights: Played a key role in the Membership Module & Clearing and Settlement BA team for a large-scale transformation program; managed a transformation project for Membership Portal (Onboarding and Maintenance Automation) and clearing & settlement systems in government securities, driving migration from legacy platforms to modern settlement systems.</p>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent);">Responsibilities:</h4>
                         <ul>
-                            <li>Managed a transformation project for Membership Portal automating onboarding and maintenance for modern settlement systems.</li>
-                            <li>Authored complete Functional Requirement Documents (FRDs) for system migrations spanning 10+ core structural modules.</li>
-                            <li>Engineered workflow automations reducing manual effort by ~30% and accelerating turn-around times.</li>
-                            <li>Managed 50+ detailed user stories per sprint with complete acceptance criteria and test coverage mappings.</li>
-                            <li>Designed and verified 100+ end-to-end test scenarios, uplifting UAT defect discovery rates by ~25%.</li>
+                            <li>Conducted business analysis and created Functional Requirement Documents (FRDs) for system migration covering 10+ modules including Member onboarding, Client & Constituent, FX-Options, Inter-Segment and others.</li>
+                            <li>Managed 50+ user stories per sprint with acceptance criteria, and test cases in Gitlab, ensuring full traceability from requirements to testing outcomes.</li>
+                            <li>Developed 100+ detailed test scenarios covering critical functionalities; planned and executed UAT, improving defect detection rate by ~25% before the production deployment.</li>
+                            <li>Reduced manual effort by ~30% and accelerated member onboarding turnaround time through workflow automation and streamlined settlement processes.</li>
+                            <li>Collaborated with cross functional teams including Product Owners, Scrum Masters, developers, QA Team, and business stakeholders across multiple Agile squads to prioritize backlog and achieve sprint goals.</li>
+                            <li>Participated in Agile ceremonies including sprint planning, stand-ups, and retrospectives.</li>
+                            <li>Led test planning, and database validation for leadership insights.</li>
                         </ul>
                     </div>
                 </div>
@@ -457,10 +472,11 @@
                     </div>
                     <div class="timeline-body">
                         <ul>
-                            <li>Led end-to-end delivery of financial services applications and comprehensive loan management ecosystems.</li>
-                            <li>Successfully executed delivery cycles integrating heavy third-party APIs including Stripe, PayPal, Twilio, and Google Maps.</li>
-                            <li>Facilitated cross-functional stakeholder requirements workshops, visual wireframing sprints, and client validation milestones.</li>
-                            <li>Transformed data architecture maps into interactive Power BI dashboards for operational executive metrics.</li>
+                            <li>Led end-to-end delivery of a financial services application and loan management system; managed stakeholder communication, project planning, and execution.</li>
+                            <li>Delivered a travel application (similar to ride-hailing platforms) with real-time tracking via Google Maps API.</li>
+                            <li>Conducted requirement gathering, wireframing, and stakeholder validation sessions.</li>
+                            <li>Managed Agile delivery as Scrum Master; facilitated UAT and integrated third-party APIs (Stripe, PayPal, Twilio, Google Maps).</li>
+                            <li>Developed Power BI dashboards for healthcare clients, transforming raw data into actionable insights.</li>
                         </ul>
                     </div>
                 </div>
@@ -475,8 +491,25 @@
                     </div>
                     <div class="timeline-body">
                         <ul>
-                            <li>Formulated client and vendor onboarding architectures adapted specifically for highly regulated legal and compliance landscapes.</li>
-                            <li>Translated strategic organizational priorities into clearly mapped platform features and foundational execution frameworks.</li>
+                            <li>Delivered a customer/vendor onboarding platform for legal and compliance domain.</li>
+                            <li>Gathered and documented requirements and translated them into implementation plans; defined KPIs and supported product strategy initiatives.</li>
+                            <li>Designed and executed UAT test cases, ensuring high-quality delivery.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="role-title">Business Analyst</h3>
+                            <span class="company-name">Concentrix Daksh Service India Pvt. Ltd.</span>
+                        </div>
+                        <span class="duration">Jan 2017 - Jul 2019 | Mumbai</span>
+                    </div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Transitioned into a Business Analyst role focusing on documentation, stakeholder collaboration, and requirement gathering.</li>
+                            <li>Developed and maintained loyalty rewards web and mobile applications using HTML, CSS, and JavaScript.</li>
                         </ul>
                     </div>
                 </div>
@@ -485,26 +518,17 @@
         </section>
 
         <section id="skills">
-            <h2 class="section-title">Core Competencies</h2>
+            <h2 class="section-title">Core Skills & Competencies</h2>
             <div class="skills-grid">
                 
                 <div class="skill-card">
                     <h3><i class="fa-solid fa-briefcase"></i> Business Analysis</h3>
                     <div class="tags">
                         <span class="tag">Requirement Gathering</span>
-                        <span class="tag">BRD / FRD / SRS</span>
+                        <span class="tag">BRD</span>
+                        <span class="tag">FRD</span>
+                        <span class="tag">SRS</span>
                         <span class="tag">User Stories</span>
-                        <span class="tag">AS-IS / TO-BE</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <h3><i class="fa-solid fa-chart-line"></i> Domain Expertise</h3>
-                    <div class="tags">
-                        <span class="tag">Capital Markets</span>
-                        <span class="tag">Clearing & Settlement</span>
-                        <span class="tag">Membership Systems</span>
-                        <span class="tag">Loan Management</span>
                     </div>
                 </div>
 
@@ -512,30 +536,69 @@
                     <h3><i class="fa-solid fa-users"></i> Agile & Delivery</h3>
                     <div class="tags">
                         <span class="tag">Scrum Master</span>
+                        <span class="tag">SDLC</span>
                         <span class="tag">Sprint Planning</span>
                         <span class="tag">Backlog Grooming</span>
-                        <span class="tag">UAT Planning</span>
+                        <span class="tag">Retrospectives</span>
+                        <span class="tag">Agile Ceremonies</span>
                     </div>
                 </div>
 
                 <div class="skill-card">
-                    <h3><i class="fa-solid fa-screwdriver-wrench"></i> Systems & Tools</h3>
+                    <h3><i class="fa-solid fa-vial"></i> Testing & Validation</h3>
+                    <div class="tags">
+                        <span class="tag">UAT Planning & Execution</span>
+                        <span class="tag">Test Case Design</span>
+                        <span class="tag">Data Validation</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-chart-bar"></i> Data & Reporting</h3>
+                    <div class="tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Microsoft Excel</span>
+                        <span class="tag">Word</span>
+                        <span class="tag">PowerPoint</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-landmark"></i> Capital Markets Domain</h3>
+                    <div class="tags">
+                        <span class="tag">Membership Systems</span>
+                        <span class="tag">Clearing & Settlement Systems</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-diagram-project"></i> Process Modelling & Tools</h3>
+                    <div class="tags">
+                        <span class="tag">BPMN 2.0</span>
+                        <span class="tag">AS-IS / TO-BE Analysis</span>
+                        <span class="tag">Draw.io</span>
+                        <span class="tag">Balsamiq Wireframe</span>
+                        <span class="tag">Lucidchart</span>
+                        <span class="tag">Microsoft Visio</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-folder-tree"></i> Project & Collaboration</h3>
                     <div class="tags">
                         <span class="tag">Jira</span>
                         <span class="tag">Azure DevOps</span>
-                        <span class="tag">GitLab</span>
-                        <span class="tag">BPMN 2.0</span>
-                        <span class="tag">Visio</span>
+                        <span class="tag">Redmine</span>
+                        <span class="tag">Microsoft Planner</span>
                     </div>
                 </div>
 
                 <div class="skill-card">
-                    <h3><i class="fa-solid fa-database"></i> Data & Analytics</h3>
+                    <h3><i class="fa-solid fa-code-branch"></i> Version Control</h3>
                     <div class="tags">
-                        <span class="tag">MySQL</span>
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Advanced Excel</span>
-                        <span class="tag">Data Validation</span>
+                        <span class="tag">GitLab</span>
+                        <span class="tag">Microsoft SharePoint</span>
                     </div>
                 </div>
 
@@ -546,11 +609,11 @@
             <h2 class="section-title">Connect With Me</h2>
             <div class="contact-wrapper">
                 <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    I am open to discussions regarding complex data challenges, system transformations, and senior analytical consultation opportunities.
+                    Based in Mumbai, India. I am open to discussing complex system migrations, automation projects, and senior analytical consultancy opportunities.
                 </p>
                 <div class="contact-links">
                     <a href="mailto:dubeyr428@outlook.com" class="contact-btn">
-                        <i class="fa-solid fa-envelope" style="color: #ea4335;"></i> Email Me
+                        <i class="fa-solid fa-envelope" style="color: #ea4335;"></i> dubeyr428@outlook.com
                     </a>
                     <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="contact-btn">
                         <i class="fa-brands fa-linkedin" style="color: #0077b5;"></i> LinkedIn Profile
@@ -562,14 +625,14 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Rahul Dubey. Built with structured clean layout design standards.</p>
+        <p>&copy; 2026 Rahul Dubey. All Rights Reserved.</p>
     </footer>
 
     <script>
         const themeBtn = document.getElementById('theme-btn');
         const icon = themeBtn.querySelector('i');
         
-        // Dark Mode Logic
+        // Dark Mode Toggle Logic
         themeBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             if (currentTheme === 'dark') {
@@ -581,7 +644,7 @@
             }
         });
 
-        // Simple Active Navigation Tracking
+        // Active Navigation Link Tracking on Scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
