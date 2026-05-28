@@ -32,7 +32,6 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
         
@@ -43,6 +42,7 @@
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
+        /* Preloader Structural Hide Mechanics */
         #preloader {
             transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
         }
@@ -74,9 +74,9 @@
         }
 
         .skill-tag {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 500;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border: 1px solid rgba(0, 0, 0, 0.08);
             background: rgba(0, 0, 0, 0.01);
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -93,12 +93,12 @@
         }
 
         .abbr-badge {
-            font-size: 0.58rem;
+            font-size: 0.52rem;
             font-weight: 700;
             border: 1px solid rgba(37, 99, 235, 0.25);
             color: #2563eb;
-            padding: 1px 4px;
-            margin-right: 6px;
+            padding: 1px 3px;
+            margin-right: 4px;
             line-height: 1;
             display: inline-flex;
             align-items: center;
@@ -135,29 +135,29 @@
 </head>
 <body class="bg-swissLight text-slate-900 dark:bg-swissDark dark:text-slate-200 antialiased tracking-tight">
 
-    <!-- LOADING APP SCREEN -->
+    <!-- APP INITIALIZATION SCREEN OVERLAY -->
     <div id="preloader" class="fixed inset-0 z-[100] bg-swissLight dark:bg-swissDark flex flex-col items-center justify-center font-sans">
-        <div class="w-10 h-10 border-2 border-slate-300 dark:border-neutral-700 border-t-swissAccent rounded-full animate-spin mb-3"></div>
-        <span class="text-[11px] font-medium tracking-wider text-slate-400 uppercase">Loading Profile...</span>
+        <div class="w-12 h-12 border-2 border-slate-300 dark:border-neutral-700 border-t-swissAccent rounded-full animate-spin mb-4"></div>
+        <span class="text-xs font-mono tracking-widest text-slate-400 uppercase animate-pulse">Initializing Framework...</span>
     </div>
 
-    <!-- MAIN NAVIGATION BAR -->
-    <nav class="fixed top-0 w-full z-50 bg-swissLight/80 dark:bg-swissDark/80 backdrop-blur-md border-b canvas swiss-border">
+    <!-- GLOBAL SWISS BAR NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 bg-swissLight/80 dark:bg-swissDark/80 backdrop-blur-md border-b swiss-border">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <span class="text-base font-bold tracking-tight select-none">Rahul Dubey</span>
+            <span class="text-lg font-black tracking-tight select-none">RAHUL DUBEY<span class="text-swissAccent">.</span></span>
             
-            <div class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wide">
+            <div class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider">
                 <a href="#hero" class="nav-link hover:text-swissAccent transition">Overview</a>
                 <a href="#about" class="nav-link hover:text-swissAccent transition">Summary</a>
                 <a href="#skills" class="nav-link hover:text-swissAccent transition">Frameworks</a>
-                <a href="#experience" class="nav-link hover:text-swissAccent transition">Experience</a>
-                <a href="#certifications" class="nav-link hover:text-swissAccent transition">Certifications</a>
+                <a href="#experience" class="nav-link hover:text-swissAccent transition">Ledger</a>
+                <a href="#certifications" class="nav-link hover:text-swissAccent transition">Credentials</a>
                 <a href="#achievements" class="nav-link hover:text-swissAccent transition">Impact</a>
-                <a href="#contact" class="nav-link hover:text-swissAccent transition">Contact</a>
+                <a href="#contact" class="nav-link hover:text-swissAccent transition">Sync</a>
                 
                 <button id="theme-toggle" class="p-2 border swiss-border hover:bg-black/5 dark:hover:bg-white/5 transition-all" aria-label="Toggle Theme">
                     <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                    <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                 </button>
             </div>
 
@@ -166,7 +166,7 @@
                     <svg id="theme-toggle-dark-icon-mob" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                     <svg id="theme-toggle-light-icon-mob" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                 </button>
-                <button id="menu-btn" class="p-2" aria-label="Toggle Menu">
+                <button id="menu-btn" class="p-2" aria-label="Toggle Drawer">
                     <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                     <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
@@ -174,10 +174,10 @@
         </div>
     </nav>
 
-    <!-- MOBILE NAVIGATION EXPANSION DRAWER -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-swissLight dark:bg-swissDark md:hidden flex flex-col items-center justify-center space-y-6 text-sm font-bold tracking-wider uppercase border-b swiss-border transform translate-x-full transition-transform duration-300">
-        <a href="#hero" class="mobile-nav-link">Overview</a>
-        <a href="#about" class="mobile-nav-link">Summary</a>
+    <!-- MOBILE NAVIGATION DROPDOWN OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-swissLight dark:bg-swissDark md:hidden flex flex-col items-center justify-center space-y-6 text-sm font-bold tracking-widest uppercase border-b swiss-border transform translate-x-full transition-transform duration-300">
+        <a href="#hero" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About</a>
         <a href="#skills" class="mobile-nav-link">Skills</a>
         <a href="#experience" class="mobile-nav-link">Experience</a>
         <a href="#certifications" class="mobile-nav-link">Certifications</a>
@@ -185,28 +185,27 @@
         <a href="#contact" class="mobile-nav-link text-swissAccent">Contact</a>
     </div>
 
-    <!-- MAIN CORE MATRIX WRAPPER GRID LAYER -->
+    <!-- MAIN CORE CONTENT MATRIX GRID WRAPPER -->
     <div class="max-w-7xl mx-auto swiss-grid-container relative min-h-screen pt-16">
 
-        <!-- AUTHENTIC ASYMMETRICAL HERO SECTION -->
+        <!-- ASYMMETRICAL ARCHITECTURAL HERO -->
         <section id="hero" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0">
             <div class="lg:col-span-8 p-6 sm:p-12 flex flex-col justify-center items-start space-y-6 border-b lg:border-b-0 lg:border-r swiss-border">
-                
+                <div class="font-mono text-[10px] tracking-widest uppercase bg-black/5 dark:bg-white/5 border swiss-border px-3 py-1 font-semibold">
+                    System.Status // Active Core Implementation
+                </div>
                 <h1 class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter text-slate-900 dark:text-white uppercase leading-none">
                     Rahul Dubey
                 </h1>
-                
                 <p class="text-lg sm:text-xl md:text-2xl font-light text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
                     Senior Business Analyst at <span class="text-slate-900 dark:text-white font-medium">The Clearing Corporation of India Limited</span>. Balancing functional corporate architecture with large-scale technology transformations.
                 </p>
-
                 <p class="text-sm text-slate-500 dark:text-slate-400 font-medium max-w-xl">
                     Driving transactional clarity, optimizing cloud microservices, and leading system UAT validation matrices to establish highly resilient financial infrastructure.
                 </p>
-
                 <div class="flex flex-col sm:flex-row gap-4 pt-4 text-xs font-bold uppercase tracking-wider w-full sm:w-auto">
-                    <a href="#experience" class="bg-swissAccent text-white px-8 py-4 text-center hover:bg-blue-700 transition shadow-sm">
-                        Explore Experience Ledger
+                    <a href="#experience" class="bg-swissAccent text-white px-8 py-4 text-center border border-transparent hover:bg-blue-700 transition">
+                        Explore System Ledger
                     </a>
                     <a href="./Rahul_Dubey_Resume.pdf" download class="bg-transparent text-slate-900 dark:text-white border swiss-border px-8 py-4 text-center hover:bg-black/5 dark:hover:bg-white/5 transition flex items-center justify-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -215,19 +214,19 @@
                 </div>
             </div>
 
-            <!-- RIGHT PROFILE BRIEF METRICS INDEX COLUMN -->
-            <div class="lg:col-span-4 grid grid-cols-1 divide-y swiss-border font-medium text-xs text-slate-500 bg-white/5">
+            <!-- RIGHT BLUEPRINT SIDE PANEL INDEX -->
+            <div class="lg:col-span-4 grid grid-cols-1 divide-y swiss-border font-mono text-[11px] text-slate-500 bg-white/5">
                 <div class="p-6 flex flex-col justify-center">
-                    <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Location</span>
-                    <span class="text-sm font-bold text-slate-900 dark:text-white uppercase">Mumbai, India</span>
+                    <span class="text-swissAccent font-bold uppercase tracking-widest block mb-1">[LOC_REGISTRY]</span>
+                    <span class="text-sm font-bold text-slate-900 dark:text-white font-sans uppercase">Mumbai, India</span>
                 </div>
                 <div class="p-6 flex flex-col justify-center">
-                    <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Tenure Practice</span>
-                    <span id="exp-years-strip" class="text-sm font-bold text-slate-900 dark:text-white uppercase">8+ Years Experience</span>
+                    <span class="text-swissAccent font-bold uppercase tracking-widest block mb-1">[TENURE_METRIC]</span>
+                    <span id="exp-years-strip" class="text-sm font-bold text-slate-900 dark:text-white font-sans uppercase">8+ Years Experience</span>
                 </div>
                 <div class="p-6 flex flex-col justify-center">
-                    <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Domain Focus</span>
-                    <span class="text-sm font-bold text-slate-900 dark:text-white uppercase">Capital Market Systems</span>
+                    <span class="text-swissAccent font-bold uppercase tracking-widest block mb-1">[DOMAIN_SCOPE]</span>
+                    <span class="text-sm font-bold text-slate-900 dark:text-white font-sans uppercase">Capital Market Systems</span>
                 </div>
                 <div class="p-6 flex space-x-6 items-center justify-start">
                     <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="hover:text-swissAccent transition" aria-label="LinkedIn">
@@ -240,9 +239,10 @@
             </div>
         </section>
 
-        <!-- STICKY ASYMMETRICAL EXECUTIVE SUMMARY -->
+        <!-- ASYMMETRICAL STICKY SECTION: SUMMARY -->
         <section id="about" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10 items-start">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
+                <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 01 / PROFILE OVERVIEW</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Executive Summary</h2>
             </div>
             <div class="lg:col-span-8 p-6 sm:p-12 grid-block">
@@ -257,27 +257,29 @@
             </div>
         </section>
 
-        <!-- STICKY CAPABILITIES MATRIX GRID WITH DYNAMIC DATA CHART -->
+        <!-- STICKY MATRICES LAYER WITH INTELLIGENT DATA CHART -->
         <section id="skills" class="border-b swiss-border p-0 items-start">
             <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border lg:sticky lg:top-16 bg-swissLight dark:bg-swissDark z-30">
                 <div class="lg:col-span-4 p-6 sm:p-12 lg:border-r swiss-border">
+                    <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 02 / METRIC SYSTEMS</span>
                     <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Capabilities Matrix</h2>
                 </div>
                 <div class="lg:col-span-8 p-6 sm:p-12 flex items-center">
-                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Comprehensive business strategy analysis &amp; telemetry data visualization modeling</p>
+                    <p class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">Comprehensive business strategy analysis &amp; telemetry data visualization modeling</p>
                 </div>
             </div>
 
             <!-- INTERACTIVE RATIONAL RADAR SKILLS PLOT -->
             <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border items-stretch">
                 <div class="lg:col-span-5 p-6 sm:p-8 flex items-center justify-center border-b lg:border-b-0 lg:border-r swiss-border bg-black/[0.01] dark:bg-white/[0.01]">
-                    <div class="w-full max-w-[330px] aspect-square relative">
+                    <div class="w-full max-w-[340px] aspect-square relative">
                         <canvas id="skillsRadarChart"></canvas>
                     </div>
                 </div>
                 <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x swiss-border text-left">
                     <div class="p-6 grid-block border-b swiss-border">
-                        <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Business Analysis</h3>
+                        <div class="font-mono text-[9px] text-slate-400 mb-2">[SYSTEM_ANALYSIS]</div>
+                        <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Business Analysis</h3>
                         <div class="flex flex-wrap gap-1.5">
                             <div class="skill-tag">Requirements Gathering</div>
                             <div class="skill-tag"><span class="abbr-badge">BRD</span>BRD</div>
@@ -288,7 +290,8 @@
                         </div>
                     </div>
                     <div class="p-6 grid-block border-b swiss-border">
-                        <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Modeling &amp; Wireframes</h3>
+                        <div class="font-mono text-[9px] text-slate-400 mb-2">[PROCESS_BLUEPRINT]</div>
+                        <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Modeling &amp; Wireframes</h3>
                         <div class="flex flex-wrap gap-1.5">
                             <div class="skill-tag"><span class="abbr-badge">BPMN</span>BPMN 2.0</div>
                             <div class="skill-tag">Balsamiq Wireframes</div>
@@ -302,7 +305,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-x divide-y md:divide-y-0 swiss-border">
                 <div class="p-6 grid-block border-b md:border-b-0 swiss-border">
-                    <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Agile Delivery</h3>
+                    <div class="font-mono text-[9px] text-slate-400 mb-2">[SDLC_GOVERNANCE]</div>
+                    <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Agile Delivery</h3>
                     <div class="flex flex-wrap gap-1.5">
                         <div class="skill-tag">Scrum</div>
                         <div class="skill-tag">Sprints</div>
@@ -313,6 +317,7 @@
                     </div>
                 </div>
                 <div class="p-6 grid-block border-b md:border-b-0 swiss-border">
+                    <div class="font-mono text-[9px] text-slate-400 mb-2">[FINTECH_CORE]</div>
                     <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Financial Domains</h3>
                     <div class="flex flex-wrap gap-1.5">
                         <div class="skill-tag">Membership</div>
@@ -323,6 +328,7 @@
                     </div>
                 </div>
                 <div class="p-6 grid-block border-b sm:border-b-0 swiss-border">
+                    <div class="font-mono text-[9px] text-slate-400 mb-2">[DATA_LOGISTICS]</div>
                     <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Data Analytics</h3>
                     <div class="flex flex-wrap gap-1.5">
                         <div class="skill-tag">Power BI</div>
@@ -333,6 +339,7 @@
                     </div>
                 </div>
                 <div class="p-6 grid-block">
+                    <div class="font-mono text-[9px] text-slate-400 mb-2">[QUALITY_SHIELD]</div>
                     <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Testing Setup</h3>
                     <div class="flex flex-wrap gap-1.5">
                         <div class="skill-tag"><span class="abbr-badge">UAT</span>UAT Execution</div>
@@ -345,71 +352,72 @@
             </div>
         </section>
 
-        <!-- ASYMMETRICAL STICKY WORK TIMELINE REGISTRY -->
+        <!-- STICKY ASYMMETRICAL TIME LEDGER ROW -->
         <section id="experience" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 items-start">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
+                <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 03 / TIMELINE CHRONOLOGY</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white mb-4">Professional Chronology</h2>
-                <p class="text-xs font-medium text-slate-400 max-w-xs leading-relaxed">System-by-system framework tracking operations-facing institutional alignment.</p>
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider leading-relaxed">Structural blueprint ledger tracking transaction-facing corporate involvement parameters.</p>
             </div>
             
             <div class="lg:col-span-8 divide-y swiss-border">
-                <!-- NODE 1: CCIL -->
+                <!-- JOB 1: CCIL -->
                 <div class="p-6 sm:p-12 grid-block relative group">
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <span class="text-swissAccent text-xs font-bold uppercase tracking-wider">Regulated Markets Segment</span>
-                        <span class="bg-swissAccent/10 text-swissAccent border border-swissAccent/10 px-2 py-0.5 text-xs font-bold uppercase rounded-sm">May 2024 - Present</span>
+                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
+                        <span class="text-swissAccent font-bold uppercase tracking-wider">[CORE_BLOCK // REGULATED_MARKETS]</span>
+                        <span class="bg-swissAccent/10 text-swissAccent border border-swissAccent/10 px-2 py-0.5 font-bold uppercase">May 2024 - Present</span>
                     </div>
                     <h3 class="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Business Analyst - Deputy Manager</h3>
-                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider mt-1 mb-6">The Clearing Corporation of India Ltd (CCIL)</p>
+                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mt-1 mb-6">The Clearing Corporation of India Ltd (CCIL)</p>
                     <ul class="text-sm sm:text-base text-slate-600 dark:text-slate-400 space-y-3 list-none font-light leading-relaxed">
-                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-bold text-xs">&middot;</span><span>Orchestrated automation workflows for core transactional Membership Portals and legacy institutional clearing engines inside domestic sovereign debt markets.</span></li>
-                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-bold text-xs">&middot;</span><span>Mapped functional specifications to engineer system conversion blueprints for cloud native microservices traversing 10+ operational modules.</span></li>
-                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-bold text-xs">&middot;</span><span>Administered sprint backlogs logging 50+ core feature user stories paired with rigorous boundary acceptance inputs inside internal code pipelines.</span></li>
-                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-bold text-xs">&middot;</span><span>Constructed integration-testing architectures mapping 100+ critical logic directions, optimizing pre-production UAT bug containment ratios by ~25%.</span></li>
-                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-bold text-xs">&middot;</span><span>Refactored operational workflows via system pipeline connections, removing ~30% of legacy execution processing time.</span></li>
+                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-mono font-bold text-xs">&middot;</span><span>Orchestrated automation workflows for core transactional Membership Portals and legacy institutional clearing engines inside domestic sovereign debt markets.</span></li>
+                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-mono font-bold text-xs">&middot;</span><span>Mapped functional specifications to engineer system conversion blueprints for cloud native microservices traversing 10+ operational modules.</span></li>
+                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-mono font-bold text-xs">&middot;</span><span>Administered sprint backlogs logging 50+ core feature user stories paired with rigorous boundary acceptance inputs inside internal code pipelines.</span></li>
+                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-mono font-bold text-xs">&middot;</span><span>Constructed integration-testing architectures mapping 100+ critical logic directions, optimizing pre-production UAT bug containment ratios by ~25%.</span></li>
+                        <li class="flex items-start"><span class="text-swissAccent mr-3 font-mono font-bold text-xs">&middot;</span><span>Refactored operational workflows via system pipeline connections, removing ~30% of legacy execution processing time.</span></li>
                     </ul>
                 </div>
 
-                <!-- NODE 2: NEXTGEN -->
+                <!-- JOB 2: NEXTGEN -->
                 <div class="p-6 sm:p-12 grid-block relative group">
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <span class="text-slate-400 text-xs font-bold uppercase tracking-wider">Commercial Portfolios</span>
-                        <span class="bg-black/5 dark:bg-white/5 text-slate-500 border swiss-border px-2 py-0.5 text-xs font-bold uppercase rounded-sm">Nov 2022 - Dec 2023</span>
+                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
+                        <span class="text-slate-400 font-bold uppercase tracking-wider">[CORE_BLOCK // COMMERCIAL_LEDGER]</span>
+                        <span class="bg-black/5 dark:bg-white/5 text-slate-500 border swiss-border px-2 py-0.5 font-bold uppercase">Nov 2022 - Dec 2023</span>
                     </div>
                     <h3 class="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Business Analyst / Project Manager</h3>
-                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider mt-1 mb-6">NextGen Invent Corporation</p>
+                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mt-1 mb-6">NextGen Invent Corporation</p>
                     <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-3 list-none font-light leading-relaxed">
-                        <li class="flex items-start"><span class="text-slate-400 mr-3 text-xs">&middot;</span><span>Supervised milestone blueprints and delivery scopes for global customer-tier application deployments and loan optimization ledgers.</span></li>
-                        <li class="flex items-start"><span class="text-slate-400 mr-3 text-xs">&middot;</span><span>Directed milestone delivery plans as Scrum Master, deploying API integration targets across enterprise settlement networks (Stripe, PayPal connections).</span></li>
-                        <li class="flex items-start"><span class="text-slate-400 mr-3 text-xs">&middot;</span><span>Engineered business intelligence logic schemas within interactive dashboard applications to track multi-source relational metrics.</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Supervised milestone blueprints and delivery scopes for global customer-tier application deployments and loan optimization ledgers.</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Directed milestone delivery plans as Scrum Master, deploying API integration targets across enterprise settlement networks (Stripe, PayPal connections).</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Engineered business intelligence logic schemas within interactive dashboard applications to track multi-source relational metrics.</span></li>
                     </ul>
                 </div>
 
-                <!-- NODE 3: INTEGREON -->
+                <!-- JOB 3: INTEGREON -->
                 <div class="p-6 sm:p-12 grid-block relative group">
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <span class="text-slate-400 text-xs font-bold uppercase tracking-wider">Compliance Risk Oversight</span>
-                        <span class="bg-black/5 dark:bg-white/5 text-slate-500 border swiss-border px-2 py-0.5 text-xs font-bold uppercase rounded-sm">Dec 2019 - Aug 2022</span>
+                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
+                        <span class="text-slate-400 font-bold uppercase tracking-wider">[CORE_BLOCK // RISK_OVERSIGHT]</span>
+                        <span class="bg-black/5 dark:bg-white/5 text-slate-500 border swiss-border px-2 py-0.5 font-bold uppercase">Dec 2019 - Aug 2022</span>
                     </div>
                     <h3 class="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Business Analyst</h3>
-                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider mt-1 mb-6">Integreon Managed Solutions India Pvt. Ltd.</p>
+                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mt-1 mb-6">Integreon Managed Solutions India Pvt. Ltd.</p>
                     <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-3 list-none font-light leading-relaxed">
-                        <li class="flex items-start"><span class="text-slate-400 mr-3 text-xs">&middot;</span><span>Mapped functional workflow boundaries for specialized multi-tier customer screening systems operating inside global enterprise alignment grids.</span></li>
-                        <li class="flex items-start"><span class="text-slate-400 mr-3 text-xs">&middot;</span><span>Aggregated intricate transaction profiles to construct systematic logic parameter documents for development scrums.</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Mapped functional workflow boundaries for specialized multi-tier customer screening systems operating inside global enterprise alignment grids.</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Aggregated intricate transaction profiles to construct systematic logic parameter documents for development scrums.</span></li>
                     </ul>
                 </div>
 
-                <!-- NODE 4: CONCENTRIX -->
+                <!-- JOB 4: CONCENTRIX -->
                 <div class="p-6 sm:p-12 grid-block relative group">
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <span class="text-slate-400 text-xs font-bold uppercase tracking-wider">Interface Adaptations</span>
-                        <span class="bg-black/5 dark:bg-white/5 text-slate-500 border swiss-border px-2 py-0.5 text-xs font-bold uppercase rounded-sm">Jan 2017 - Jul 2019</span>
+                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
+                        <span class="text-slate-400 font-bold uppercase tracking-wider">[CORE_BLOCK // FRONTEND_INTERFACE]</span>
+                        <span class="bg-black/5 dark:bg-white/5 text-slate-500 border swiss-border px-2 py-0.5 font-bold uppercase">Jan 2017 - Jul 2019</span>
                     </div>
                     <h3 class="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Business Analyst / Web Developer</h3>
-                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider mt-1 mb-6">Concentrix Daksh Service India Pvt. Ltd.</p>
+                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mt-1 mb-6">Concentrix Daksh Service India Pvt. Ltd.</p>
                     <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-3 list-none font-light leading-relaxed">
-                        <li class="flex items-start"><span class="text-slate-400 mr-3 text-xs">&middot;</span><span>Maintained internal operations portals deploying browser tracking structures using core frontend layout codes (HTML, CSS, JavaScript).</span></li>
-                        <li class="flex items-start"><span class="text-slate-400 mr-3 text-xs">&middot;</span><span>Transitioned strategically into focused process analysis, handling stakeholder targets and functional parameters.</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Maintained internal operations portals deploying browser tracking structures using core frontend layout codes (HTML, CSS, JavaScript).</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Transitioned strategically into focused process analysis, handling stakeholder targets and functional parameters.</span></li>
                     </ul>
                 </div>
             </div>
@@ -418,117 +426,129 @@
         <!-- STICKY ASYMMETRICAL CREDENTIALS ROW -->
         <section id="certifications" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10 items-start">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
+                <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 04 / CERTIFICATE REGISTRIES</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Credentials &amp; Education</h2>
             </div>
             
-            <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x grid-flow-row swiss-border text-xs font-semibold uppercase">
+            <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x grid-flow-row swiss-border font-mono text-[11px]">
                 <div class="p-6 grid-block border-b swiss-border">
+                    <div class="text-slate-400 mb-1">[ACADEMIC_DEGREE]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">BSc Information Technology</p>
-                    <p class="text-slate-500 tracking-wide mt-1 normal-case font-normal">Mumbai University &middot; Class of 2016</p>
+                    <p class="text-slate-500 tracking-wide mt-1">Mumbai University &middot; Class of 2016</p>
                 </div>
                 <div class="p-6 grid-block border-b swiss-border">
+                    <div class="text-slate-400 mb-1">[LICENSE_ID_01]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Business Analysis Foundations</p>
-                    <p class="text-slate-500 tracking-wide mt-1 normal-case font-normal">LinkedIn Learning Matrix</p>
+                    <p class="text-slate-500 tracking-wide mt-1">LinkedIn Learning Matrix</p>
                 </div>
                 <div class="p-6 grid-block border-b swiss-border">
+                    <div class="text-slate-400 mb-1">[LICENSE_ID_02]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Project Management Framework</p>
-                    <p class="text-slate-500 tracking-wide mt-1 normal-case font-normal">Great Learning Certified</p>
+                    <p class="text-slate-500 tracking-wide mt-1">Great Learning Certified</p>
                 </div>
                 <div class="p-6 grid-block border-b swiss-border">
+                    <div class="text-slate-400 mb-1">[LICENSE_ID_03]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Product Management Strategy</p>
-                    <p class="text-slate-500 tracking-wide mt-1 normal-case font-normal">Great Learning Certified</p>
+                    <p class="text-slate-500 tracking-wide mt-1">Great Learning Certified</p>
                 </div>
                 <div class="p-6 grid-block border-b swiss-border">
+                    <div class="text-slate-400 mb-1">[LICENSE_ID_04]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Product Lifecycle Management</p>
-                    <p class="text-slate-500 tracking-wide mt-1 normal-case font-normal">Great Learning Certified</p>
+                    <p class="text-slate-500 tracking-wide mt-1">Great Learning Certified</p>
                 </div>
                 <div class="p-6 grid-block border-b swiss-border">
+                    <div class="text-slate-400 mb-1">[LICENSE_ID_05]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Data Visualization with Power BI</p>
-                    <p class="text-slate-500 tracking-wide mt-1 normal-case font-normal">Great Learning Certified</p>
+                    <p class="text-slate-500 tracking-wide mt-1">Great Learning Certified</p>
                 </div>
                 <div class="p-6 grid-block sm:border-b-0 swiss-border">
+                    <div class="text-slate-400 mb-1">[LICENSE_ID_06]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Tableau Core Analytics</p>
-                    <p class="text-slate-500 tracking-wide mt-1 normal-case font-normal">Simplilearn Pipeline</p>
+                    <p class="text-slate-500 tracking-wide mt-1">Simplilearn Pipeline</p>
                 </div>
                 <div class="p-6 grid-block sm:border-b-0 swiss-border">
+                    <div class="text-slate-400 mb-1">[LICENSE_ID_07]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Responsive Web Architecture</p>
-                    <p class="text-slate-500 tracking-wide mt-1 normal-case font-normal">freeCodeCamp Core Frameworks</p>
+                    <p class="text-slate-500 tracking-wide mt-1">freeCodeCamp Core Frameworks</p>
                 </div>
                 <div class="p-6 grid-block sm:col-span-2 border-t swiss-border">
-                    <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase tracking-tight">HL7 FHIR® Proficient Certification</p>
-                    <p class="text-slate-500 tracking-wide mt-1 normal-case font-normal">HL7 International Competency Authority</p>
+                    <div class="text-swissAccent font-bold mb-1">[INTEROPERABILITY_PROTOCOL]</div>
+                    <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">HL7 FHIR® Proficient Certification</p>
+                    <p class="text-slate-500 tracking-wide mt-1">HL7 International Competency Authority</p>
                 </div>
             </div>
         </section>
 
-        <!-- DYNAMIC TELEMETRY COUNTER ROW -->
+        <!-- DYNAMIC TELEMETRY COUNTER SECTION -->
         <section id="achievements" class="border-b swiss-border p-0">
             <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border">
                 <div class="lg:col-span-4 p-6 sm:p-12 lg:border-r swiss-border">
+                    <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 05 / SYSTEM PERFORMANCE</span>
                     <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Impact Telemetry</h2>
                 </div>
                 <div class="lg:col-span-8 p-6 sm:p-12 flex items-center">
-                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Metrics-verified production lifecycle optimizations and process elevations.</p>
+                    <p class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">Metrics-verified production lifecycle optimizations and process elevations.</p>
                 </div>
             </div>
             
-            <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 swiss-border text-center font-sans">
+            <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 swiss-border text-center font-mono">
                 <div class="p-8 grid-block">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">
                         ~<span class="count-up-metric" data-target="25">0</span>%
                     </div>
-                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">UAT Defect Isolation</p>
+                    <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">UAT Defect Isolation</p>
                 </div>
                 <div class="p-8 grid-block">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">
                         ~<span class="count-up-metric" data-target="30">0</span>%
                     </div>
-                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Manual Overhead Saved</p>
+                    <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Manual Overhead Saved</p>
                 </div>
                 <div class="p-8 grid-block">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">
                         <span class="count-up-metric" data-target="10">0</span>+
                     </div>
-                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Migrated Modules</p>
+                    <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Migrated Modules</p>
                 </div>
                 <div class="p-8 grid-block">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">
                         <span id="exp-years-stat-count" class="count-up-metric" data-target="8">0</span>Y+
                     </div>
-                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Domain Architecture</p>
+                    <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Domain Architecture</p>
                 </div>
             </div>
         </section>
 
-        <!-- STICKY ASYMMETRICAL INTAKE INTAKE HANDSHAKE FORM -->
+        <!-- HIGH-END SECURE INTAKE HANDSHAKE CORE FORM -->
         <section id="contact" class="grid grid-cols-1 lg:grid-cols-12 p-0 items-start">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
+                <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 06 / PORT_ESTABLISHMENT</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white mb-4">Establish Sync</h2>
-                <p class="text-xs font-medium text-slate-400 leading-relaxed max-w-xs">Available for enterprise framework coordination, delivery parameters, and product solutions consulting loops.</p>
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider leading-relaxed">Available for enterprise framework coordination and permanent delivery management positions.</p>
                 
-                <div class="pt-8 space-y-3 font-semibold text-[11px] tracking-wide hidden lg:block text-slate-400">
-                    <a href="mailto:dubeyr428@outlook.com" class="block hover:text-swissAccent transition">dubeyr428@outlook.com</a>
-                    <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="block hover:text-swissAccent transition">linkedin.com/in/rahul-dubey</a>
+                <div class="pt-8 space-y-3 font-mono text-[10px] tracking-widest uppercase hidden lg:block">
+                    <a href="mailto:dubeyr428@outlook.com" class="block text-slate-400 hover:text-swissAccent transition">// dubeyr428@outlook.com</a>
+                    <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="block text-slate-400 hover:text-swissAccent transition">// in/rahul-dubey</a>
                 </div>
             </div>
             
             <div class="lg:col-span-8 p-6 sm:p-12 bg-white/[0.01]">
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold tracking-wide text-slate-400">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs uppercase tracking-wider">
                     <div class="flex flex-col space-y-2">
-                        <label class="text-[11px]">Full Name</label>
-                        <input type="text" name="name" required placeholder="Your Name" class="p-3 bg-transparent border swiss-border focus:border-swissAccent focus:outline-none text-slate-900 dark:text-white font-sans transition-colors rounded-none font-normal">
+                        <label class="text-slate-400 text-[10px]">[IDENT_NAME]</label>
+                        <input type="text" name="name" required placeholder="Enter Full Name" class="p-3 bg-transparent border swiss-border focus:border-swissAccent focus:outline-none text-slate-900 dark:text-white font-sans transition-colors rounded-none">
                     </div>
                     <div class="flex flex-col space-y-2">
-                        <label class="text-[11px]">Corporate Email</label>
-                        <input type="email" name="email" required placeholder="name@corporate.com" class="p-3 bg-transparent border swiss-border focus:border-swissAccent focus:outline-none text-slate-900 dark:text-white font-sans transition-colors rounded-none font-normal">
+                        <label class="text-slate-400 text-[10px]">[IDENT_EMAIL]</label>
+                        <input type="email" name="email" required placeholder="name@corporate.com" class="p-3 bg-transparent border swiss-border focus:border-swissAccent focus:outline-none text-slate-900 dark:text-white font-sans transition-colors rounded-none">
                     </div>
                     <div class="flex flex-col space-y-2 sm:col-span-2">
-                        <label class="text-[11px]">Message Scope</label>
-                        <textarea name="message" required rows="4" placeholder="Describe opportunity parameter details..." class="p-3 bg-transparent border swiss-border focus:border-swissAccent focus:outline-none text-slate-900 dark:text-white font-sans transition-colors rounded-none resize-none font-normal"></textarea>
+                        <label class="text-slate-400 text-[10px]">[INTENT_MESSAGE]</label>
+                        <textarea name="message" required rows="4" placeholder="Describe Project Scope / Opportunity Parameter Details..." class="p-3 bg-transparent border swiss-border focus:border-swissAccent focus:outline-none text-slate-900 dark:text-white font-sans transition-colors rounded-none resize-none"></textarea>
                     </div>
                     <div class="sm:col-span-2 pt-2">
-                        <button type="submit" class="w-full bg-swissAccent hover:bg-blue-700 text-white p-4 font-bold transition-colors text-center tracking-wider text-xs uppercase">
-                            Submit Message Gateway
+                        <button type="submit" class="w-full bg-swissAccent hover:bg-blue-700 text-white p-4 font-bold transition-colors text-center">
+                            TRANSMIT_SECURE_HANDSHAKE()
                         </button>
                     </div>
                 </form>
@@ -537,20 +557,22 @@
 
     </div>
 
-    <!-- CONTROL SCROLL ARROW -->
+    <!-- BACK TO TOP FLOATING BUTTON -->
     <button id="scroll-top-btn" class="w-10 h-10 bg-swissAccent text-white flex items-center justify-center hover:bg-blue-700 transition shadow" aria-label="Top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
-    <!-- SYSTEM FOOTER -->
-    <footer class="py-12 border-t swiss-border text-center px-6 text-xs text-slate-400 bg-white/10 dark:bg-black/20 relative z-30">
+    <!-- ARCHIVE SYSTEM FOOTER -->
+    <footer class="py-12 border-t swiss-border text-center px-6 text-xs font-mono tracking-widest text-slate-400 bg-white/10 dark:bg-black/20 relative z-30">
         <div class="max-w-7xl mx-auto">
-            <p class="font-normal tracking-wide text-slate-500">Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> Rahul Dubey. All rights reserved.</p>
+            <div>// REGISTER_ROOT_TERMINATED //</div>
+            <p class="text-[10px] uppercase text-slate-500 tracking-widest mt-2">Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> Rahul Dubey.</p>
         </div>
     </footer>
 
     <!-- INTERNALS ENGINES AND OBSERVERS RUNTIME -->
     <script>
+        // Core Dual Action Theme Toggle Control System
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleBtnMob = document.getElementById('theme-toggle-mobile');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -577,13 +599,13 @@
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
             updateIcons();
-            renderRadarChart();
+            renderRadarChart(); // Re-render visual chart data points to map color systems instantly
         }
 
         themeToggleBtn.addEventListener('click', toggleTheme);
         themeToggleBtnMob.addEventListener('click', toggleTheme);
 
-        // Mobile Responsive Dropdown Layout Control Logic Fix
+        // Mobile Drawer Controller Interface Logic
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -615,7 +637,7 @@
         const footerYear = document.getElementById('footer-year');
         if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-        // Active Navigation Scroll Tracker Module (ScrollSpy)
+        // Active Navigation Tracker ScrollSpy Framework Logic
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -703,6 +725,7 @@
             const ctx = document.getElementById('skillsRadarChart').getContext('2d');
             const isDark = document.documentElement.classList.contains('dark');
             
+            // Mathematical design parameter evaluation mapping current dark/light state metrics
             const gridColor = isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.06)';
             const labelColor = isDark ? '#A2A9B0' : '#475569';
             const angleLineColor = isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(0, 0, 0, 0.04)';
@@ -740,7 +763,7 @@
                             angleLines: { color: angleLineColor },
                             pointLabels: {
                                 color: labelColor,
-                                font: { family: 'Inter', size: 10, weight: '500' }
+                                font: { family: 'Inter', size: 9, weight: '500' }
                             },
                             ticks: { display: false },
                             min: 0,
