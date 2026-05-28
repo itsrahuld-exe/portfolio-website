@@ -40,6 +40,7 @@
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
+        /* Swiss Engineering Grid Structural Setup */
         .swiss-grid-container {
             border-left: 1px solid rgba(0, 0, 0, 0.08);
             border-right: 1px solid rgba(0, 0, 0, 0.08);
@@ -56,6 +57,7 @@
             border-color: rgba(255, 255, 255, 0.05);
         }
 
+        /* Hover states with pure mathematical alignment */
         .grid-block {
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
@@ -71,6 +73,7 @@
             font-weight: 500;
             letter-spacing: 0.02em;
             padding: 5px 12px;
+            border-radius: 0px;
             border: 1px solid rgba(0, 0, 0, 0.1);
             background: rgba(0, 0, 0, 0.02);
             transition: all 0.2s ease;
@@ -228,8 +231,8 @@
             </div>
         </section>
 
-        <section id="about" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10">
-            <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border">
+        <section id="about" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10 items-start">
+            <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 01 / PROFILE OVERVIEW</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Executive Summary</h2>
             </div>
@@ -245,8 +248,8 @@
             </div>
         </section>
 
-        <section id="skills" class="border-b swiss-border p-0">
-            <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border">
+        <section id="skills" class="border-b swiss-border p-0 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border lg:sticky lg:top-16 bg-swissLight dark:bg-swissDark z-30">
                 <div class="lg:col-span-4 p-6 sm:p-12 lg:border-r swiss-border">
                     <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 02 / METRIC SYSTEMS</span>
                     <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Capabilities Matrix</h2>
@@ -257,7 +260,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 lg:divide-x divide-y divide-x-0 swiss-border">
-                
                 <div class="p-6 sm:p-8 grid-block border-b swiss-border">
                     <div class="font-mono text-[9px] text-slate-400 mb-4">[SYSTEM_ANALYSIS]</div>
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Business Analysis</h3>
@@ -296,7 +298,7 @@
                     </div>
                 </div>
 
-                <div class="p-6 sm:p-8 grid-block">
+                <div class="p-6 sm:p-8 grid-block border-b lg:border-b-0 swiss-border">
                     <div class="font-mono text-[9px] text-slate-400 mb-4">[FINTECH_CORE]</div>
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Financial Domains</h3>
                     <div class="flex flex-wrap gap-2">
@@ -308,7 +310,7 @@
                     </div>
                 </div>
 
-                <div class="p-6 sm:p-8 grid-block">
+                <div class="p-6 sm:p-8 grid-block border-b md:border-b-0 swiss-border">
                     <div class="font-mono text-[9px] text-slate-400 mb-4">[DATA_LOGISTICS]</div>
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Data Analytics</h3>
                     <div class="flex flex-wrap gap-2">
@@ -331,19 +333,17 @@
                         <div class="skill-tag">Database State Mapping</div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="experience" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0">
-            <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border">
+        <section id="experience" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 items-start">
+            <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 03 / OPERATIONAL TIMELINE</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white mb-4">Professional Chronology</h2>
                 <p class="text-xs font-mono text-slate-400 uppercase tracking-wider leading-relaxed">System-by-system registry of core production involvement parameters.</p>
             </div>
             
             <div class="lg:col-span-8 divide-y swiss-border">
-                
                 <div class="p-6 sm:p-12 grid-block relative group">
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
                         <span class="text-swissAccent font-bold uppercase tracking-wider">[CORE_BLOCK // REGULATED_MARKETS]</span>
@@ -399,12 +399,11 @@
                         <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Transitioned strategically into focused process analysis, handling stakeholder targets and functional parameters.</span></li>
                     </ul>
                 </div>
-
             </div>
         </section>
 
-        <section id="certifications" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10">
-            <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border">
+        <section id="certifications" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10 items-start">
+            <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 04 / CERTIFICATE REGISTRIES</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Credentials &amp; Education</h2>
             </div>
@@ -471,26 +470,34 @@
             
             <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 swiss-border text-center font-mono">
                 <div class="p-8 grid-block">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">~25%</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">
+                        ~<span class="count-up-metric" data-target="25">0</span>%
+                    </div>
                     <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">UAT Defect Isolation</p>
                 </div>
                 <div class="p-8 grid-block">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">~30%</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">
+                        ~<span class="count-up-metric" data-target="30">0</span>%
+                    </div>
                     <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Manual Overhead Saved</p>
                 </div>
                 <div class="p-8 grid-block">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">10+</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">
+                        <span class="count-up-metric" data-target="10">0</span>+
+                    </div>
                     <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Migrated Modules</p>
                 </div>
                 <div class="p-8 grid-block">
-                    <div id="exp-years-stat" class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">8Y+</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-swissAccent mb-2 select-none">
+                        <span id="exp-years-stat-count" class="count-up-metric" data-target="8">0</span>Y+
+                    </div>
                     <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Domain Architecture</p>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="grid grid-cols-1 lg:grid-cols-12 p-0">
-            <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border">
+        <section id="contact" class="grid grid-cols-1 lg:grid-cols-12 p-0 items-start">
+            <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 06 / PORT_ESTABLISHMENT</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white mb-4">Establish Sync</h2>
                 <p class="text-xs font-mono text-slate-400 uppercase tracking-wider leading-relaxed">Available for enterprise framework coordination, delivery leads, and architectural project solutions.</p>
@@ -552,7 +559,7 @@
         themeToggleBtnMob.addEventListener('click', toggleTheme);
         updateIcons();
 
-        // Mobile Hamburger Responsive Controller logic Fix
+        // Mobile Hamburger Router Logic Fixed
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -571,20 +578,21 @@
             if (!mobileMenu.classList.contains('translate-x-full')) toggleMenu();
         }));
 
-        // Experience Automatic Processing Engine Update
+        // Experience Delta Computations Engine
         const startYear = 2017;
         const yearsExp = new Date().getFullYear() - startYear;
         const expStrip = document.getElementById('exp-years-strip');
         const expAbout = document.getElementById('exp-years-about');
-        const expStat = document.getElementById('exp-years-stat');
+        const expStatCount = document.getElementById('exp-years-stat-count');
+        
         if (expStrip) expStrip.textContent = yearsExp + '+ Years Experience';
         if (expAbout) expAbout.textContent = yearsExp + '+ years of structural experience';
-        if (expStat) expStat.textContent = yearsExp + 'Y+';
+        if (expStatCount) expStatCount.setAttribute('data-target', yearsExp);
 
         const footerYear = document.getElementById('footer-year');
         if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-        // Navigation Tracker Engine ScrollSpy
+        // Active Navigation Scroll Tracker Module (ScrollSpy)
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -620,11 +628,10 @@
             });
         }
 
-        // Viewport Intersector Initializer for Smooth Transitions
+        // Setup Modern Viewport Intersectors for Element Transitions
         const animTargets = document.querySelectorAll(
             '#about .grid-block, #skills .grid-block, #experience .grid-block, ' +
-            '#certifications .grid-block, #achievements .grid-block, #contact .grid-block, ' +
-            'section h2'
+            '#certifications .grid-block, #contact .grid-block, section h2'
         );
         animTargets.forEach(el => el.classList.add('fade-up'));
 
@@ -638,6 +645,35 @@
         }, { threshold: 0.02 });
 
         animTargets.forEach(el => animObserver.observe(el));
+
+        // PREMIUM PURE JAVASCRIPT COUNT-UP METRICS ENGINE
+        const metricElements = document.querySelectorAll('.count-up-metric');
+        
+        const countUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'), 10);
+                    let count = 0;
+                    const duration = 1200; // Animation total runtime context miliseconds
+                    const increment = target / (duration / 16); // ~60fps step mapping
+
+                    const counterLoop = setInterval(() => {
+                        count += increment;
+                        if (count >= target) {
+                            el.textContent = target;
+                            clearInterval(counterLoop);
+                        } else {
+                            el.textContent = Math.floor(count);
+                        }
+                    }, 16);
+
+                    countUpObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        metricElements.forEach(el => countUpObserver.observe(el));
     </script>
 </body>
 </html>
