@@ -16,7 +16,12 @@
             theme: {
                 extend: {
                     colors: {
-                        dark: "#080e1f",
+                        obsidian: "#070C0B",
+                        matrix: "#00FFCC",
+                        terminal: "#12201D"
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'SF Mono', 'ui-monospace', 'monospace']
                     }
                 }
             }
@@ -24,91 +29,77 @@
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            background-color: #070C0B;
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 45%, #38bdf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
+        /* FinTech Cyber Terminal Styling Grid Lines */
+        .terminal-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 255, 204, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 255, 204, 0.02) 1px, transparent 1px);
         }
 
-        .hero-glow {
+        .terminal-glow {
             position: absolute;
-            top: 50%;
+            top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(30, 64, 175, 0.25) 0%, rgba(8, 14, 31, 0) 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 204, 0.06) 0%, rgba(7, 12, 11, 0) 70%);
             z-index: -1;
-            filter: blur(50px);
+            filter: blur(60px);
+            pointer-events: none;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .dark .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            border-color: rgba(255, 255, 255, 0.08);
+        .terminal-card {
+            background: #0E1715;
+            border: 1px solid rgba(0, 255, 204, 0.08);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        html:not(.dark) .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            border-color: rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(96, 165, 250, 0.3);
-            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
+        .terminal-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 255, 204, 0.3);
+            box-shadow: 0 10px 30px -15px rgba(0, 255, 204, 0.15);
         }
 
         .skill-tag {
-            background: rgba(255, 255, 255, 0.03);
-            color: #cbd5e1;
+            background: rgba(0, 255, 204, 0.03);
+            color: #A3B8B5;
             padding: 6px 14px;
-            border-radius: 12px;
+            border-radius: 4px;
             font-size: 0.8125rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(0, 255, 204, 0.06);
             display: inline-flex;
             align-items: center;
             transition: all 0.2s ease;
         }
 
-        html:not(.dark) .skill-tag {
-            background: rgba(0, 0, 0, 0.03);
-            color: #475569;
-            border-color: rgba(0, 0, 0, 0.05);
-        }
-
         .skill-tag:hover {
-            background: rgba(96, 165, 250, 0.1);
-            border-color: rgba(96, 165, 250, 0.2);
-            color: #60a5fa;
+            background: rgba(0, 255, 204, 0.1);
+            border-color: #00FFCC;
+            color: #00FFCC;
         }
 
         section {
-            padding: 4rem 0;
+            padding: 5rem 0;
+            position: relative;
         }
         @media (min-width: 768px) {
-            section { padding: 6rem 0; }
+            section { padding: 8rem 0; }
         }
 
         .nav-link {
             position: relative;
+            font-family: 'JetBrains Mono', monospace;
             transition: color 0.3s ease;
         }
 
@@ -116,25 +107,15 @@
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
+            height: 1px;
             bottom: -4px;
             left: 0;
-            background: linear-gradient(90deg, #1d4ed8, #38bdf8);
+            background: #00FFCC;
             transition: width 0.3s ease;
         }
 
         .nav-link:hover::after {
             width: 100%;
-        }
-
-        .icon-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            flex-shrink: 0;
         }
 
         #mobile-menu {
@@ -144,15 +125,11 @@
         #mobile-menu.active {
             transform: translateX(0);
         }
-        
-        .theme-transition {
-            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
-        }
 
         .fade-up {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         .fade-up.visible {
             opacity: 1;
@@ -160,141 +137,139 @@
         }
 
         .abbr-badge {
-            font-size: 0.55rem;
-            font-weight: 800;
-            font-family: ui-monospace, 'Cascadia Code', monospace;
-            background: rgba(96, 165, 250, 0.12);
-            color: #60a5fa;
-            border-radius: 4px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(0, 255, 204, 0.1);
+            color: #00FFCC;
+            border-radius: 2px;
             padding: 1px 4px;
-            margin-right: 5px;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            border: 1px solid rgba(96, 165, 250, 0.22);
+            margin-right: 6px;
+            border: 1px solid rgba(0, 255, 204, 0.2);
             line-height: 1;
             display: inline-flex;
             align-items: center;
         }
-        html:not(.dark) .abbr-badge {
-            background: rgba(37, 99, 235, 0.07);
-            color: #2563eb;
-            border-color: rgba(37, 99, 235, 0.18);
+
+        #scroll-top-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 40;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        #scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
-<body class="theme-transition bg-slate-50 text-slate-900 dark:bg-dark dark:text-slate-200">
+<body class="bg-obsidian text-slate-300 terminal-grid antialiased">
 
-    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/50 theme-transition">
+    <nav class="fixed top-0 w-full z-50 bg-obsidian/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-6xl mx-auto px-6 h-16 sm:h-20 flex items-center justify-between">
-            <span class="text-2xl font-bold tracking-tighter gradient-text">RD.</span>
+            <span class="text-xl font-bold font-mono tracking-tight text-white flex items-center gap-2">
+                <span class="text-matrix">&lt;/&gt;</span> RAHUL.D
+            </span>
             
-            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
-                <a href="#hero" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Home</a>
-                <a href="#about" class="nav-link hover:text-blue-600 dark:hover:text-white transition">About</a>
-                <a href="#skills" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Skills</a>
-                <a href="#experience" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Experience</a>
-                <a href="#certifications" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Certifications</a>
-                <a href="#achievements" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Achievements</a>
-                <a href="#contact" class="nav-link hover:text-blue-600 dark:hover:text-white transition">Contact</a>
-                
-                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:ring-2 ring-blue-400 transition-all">
-                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                </button>
+            <div class="hidden md:flex items-center space-x-8 text-xs font-medium tracking-wider">
+                <a href="#hero" class="nav-link text-slate-400 hover:text-white transition">// home</a>
+                <a href="#about" class="nav-link text-slate-400 hover:text-white transition">// summary</a>
+                <a href="#skills" class="nav-link text-slate-400 hover:text-white transition">// framework</a>
+                <a href="#experience" class="nav-link text-slate-400 hover:text-white transition">// ledger</a>
+                <a href="#certifications" class="nav-link text-slate-400 hover:text-white transition">// credentials</a>
+                <a href="#achievements" class="nav-link text-slate-400 hover:text-white transition">// impact</a>
+                <a href="#contact" class="nav-link text-slate-400 hover:text-white transition">// sync</a>
             </div>
 
-            <div class="flex items-center space-x-4 md:hidden">
-                <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
-                    <svg id="theme-toggle-dark-icon-mob" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                    <svg id="theme-toggle-light-icon-mob" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                </button>
-                <button id="menu-btn" class="text-slate-500 dark:text-slate-400 p-2 z-50">
-                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                    <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <div class="flex items-center md:hidden">
+                <button id="menu-btn" class="text-matrix p-2 z-50">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
             </div>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white dark:bg-dark md:hidden flex flex-col items-center justify-center space-y-8 text-xl font-bold">
-        <a href="#hero" class="mobile-nav-link hover:text-blue-500 transition">Home</a>
-        <a href="#about" class="mobile-nav-link hover:text-blue-500 transition">About</a>
-        <a href="#skills" class="mobile-nav-link hover:text-blue-500 transition">Skills</a>
-        <a href="#experience" class="mobile-nav-link hover:text-blue-500 transition">Experience</a>
-        <a href="#certifications" class="mobile-nav-link hover:text-blue-500 transition">Certifications</a>
-        <a href="#achievements" class="mobile-nav-link hover:text-blue-500 transition">Achievements</a>
-        <a href="#contact" class="mobile-nav-link text-blue-500 transition">Contact</a>
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-obsidian md:hidden flex flex-col items-center justify-center space-y-8 text-sm font-mono tracking-widest">
+        <a href="#hero" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// home</a>
+        <a href="#about" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// summary</a>
+        <a href="#skills" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// framework</a>
+        <a href="#experience" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// ledger</a>
+        <a href="#certifications" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// credentials</a>
+        <a href="#achievements" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// impact</a>
+        <a href="#contact" class="mobile-nav-link text-matrix transition">// sync</a>
     </div>
 
-    <section id="hero" class="relative min-h-screen pt-20 flex flex-col items-center justify-center text-center overflow-hidden">
-        <div class="hero-glow"></div>
+    <section id="hero" class="min-h-screen pt-25 flex flex-col items-center justify-center text-center overflow-hidden">
+        <div class="terminal-glow"></div>
         <div class="max-w-4xl px-6 relative z-10">
-            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-blue-950 via-blue-800 to-blue-600 border-[3px] border-blue-400/20 mx-auto mt-4 mb-7 flex items-center justify-center shadow-2xl shadow-blue-900/60 ring-4 ring-blue-500/10">
-                <span class="text-3xl sm:text-4xl font-black text-white tracking-tight select-none">RD</span>
-            </div>
-            <div class="inline-flex items-center gap-2.5 px-5 py-2 mb-6 rounded-full border border-blue-300 dark:border-blue-700/30 bg-blue-100 dark:bg-blue-950/30 backdrop-blur-sm shadow-sm">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0"></span>
-                <span class="text-blue-700 dark:text-blue-300 font-semibold tracking-[0.12em] uppercase text-[9px] sm:text-[11px]">Senior Business Analyst &nbsp;&middot;&nbsp; The Clearing Corporation of India Limited</span>
-            </div>
-            <h1 class="text-4xl sm:text-6xl md:text-8xl font-black mb-5 sm:mb-6 leading-[1.1] tracking-tight">
-                <span class="gradient-text">Rahul Dubey</span>
-            </h1>
-            <div class="flex flex-wrap justify-center items-center gap-x-5 gap-y-2 mb-8 sm:mb-10 text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-semibold tracking-widest uppercase">
-                <span class="flex items-center gap-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Mumbai, India
-                </span>
-                <span class="text-slate-600 dark:text-slate-700 hidden sm:inline">|</span>
-                <span class="flex items-center gap-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                    <span id="exp-years-strip">8+ Years Experience</span>
-                </span>
-                <span class="text-slate-600 dark:text-slate-700 hidden sm:inline">|</span>
-                <span class="flex items-center gap-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
-                    Capital Market &amp; Financial Services
-                </span>
-            </div>
-            <p class="text-base sm:text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed font-medium px-2">
-                Driving large-scale transformation initiatives and optimizing clearing &amp; settlement infrastructure while <span class="text-blue-400 dark:text-blue-300 font-bold">bridging business and technology</span> to deliver data-driven, scalable financial platforms.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-5 px-4 sm:px-0">
-                <a href="#experience" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-bold transition-all shadow-xl shadow-blue-600/20 w-full sm:w-auto text-center transform hover:scale-105 active:scale-95">Explore Work</a>
-                
-                <a href="./Rahul_Dubey_Resume.pdf" download="Rahul_Dubey_Resume.pdf" class="bg-slate-200 dark:bg-slate-800/50 hover:bg-slate-300 dark:hover:bg-slate-800 text-slate-700 dark:text-white px-8 py-4 rounded-xl font-bold transition-all border border-slate-300 dark:border-slate-700 w-full sm:w-auto text-center backdrop-blur-sm transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Download CV
-                </a>
-
-                <a href="mailto:dubeyr428@outlook.com" class="bg-transparent hover:bg-slate-100 dark:hover:bg-white/5 text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white px-8 py-4 rounded-xl font-bold transition-all border border-slate-300 dark:border-slate-800 w-full sm:w-auto text-center items-center justify-center transform hover:scale-105 active:scale-95 flex">Get in Touch</a>
+            
+            <div class="inline-flex items-center gap-3 px-4 py-1.5 mb-8 rounded border border-matrix/20 bg-matrix/5 backdrop-blur-sm shadow-sm">
+                <span class="w-2 h-2 bg-matrix shadow-[0_0_8px_#00FFCC] animate-pulse shrink-0"></span>
+                <span class="text-matrix font-mono tracking-wider uppercase text-[10px] sm:text-[11px]">System.Status: ACTIVE &nbsp;&middot;&nbsp; CCIL Deputy Manager</span>
             </div>
             
-            <div class="mt-12 sm:mt-16 flex justify-center space-x-8 text-slate-400 dark:text-slate-500">
-                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-all transform hover:-translate-y-1" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-6 tracking-tight text-white">
+                Rahul Dubey
+            </h1>
+            
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-10 text-[11px] font-mono tracking-wider uppercase text-slate-500">
+                <span class="flex items-center gap-2">
+                    <span class="text-matrix">[LOC]</span> Mumbai, India
+                </span>
+                <span class="text-white/10 hidden sm:inline">|</span>
+                <span class="flex items-center gap-2">
+                    <span class="text-matrix">[EXP]</span> <span id="exp-years-strip">8+ Years Practice</span>
+                </span>
+                <span class="text-white/10 hidden sm:inline">|</span>
+                <span class="flex items-center gap-2">
+                    <span class="text-matrix">[DOM]</span> Capital Markets &amp; FinTech
+                </span>
+            </div>
+            
+            <p class="text-base sm:text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-normal px-2">
+                Optimizing clearing &amp; settlement systems while engineered to bridge structural business workflows and scalable enterprise infrastructure.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4 sm:px-0 font-mono text-xs tracking-wider">
+                <a href="#experience" class="bg-matrix hover:bg-matrix/90 text-obsidian px-8 py-3.5 rounded font-bold transition-all shadow-lg shadow-matrix/10 w-full sm:w-auto text-center transform active:scale-95">
+                    EXECUTE: Explore_Work()
                 </a>
-                <a href="mailto:dubeyr428@outlook.com" class="hover:text-red-500 dark:hover:text-red-400 transition-all transform hover:-translate-y-1" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                
+                <a href="./Rahul_Dubey_Resume.pdf" download="Rahul_Dubey_Resume.pdf" class="bg-transparent hover:bg-white/5 text-white px-8 py-3.5 rounded font-bold transition-all border border-white/10 w-full sm:w-auto text-center transform active:scale-95 flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Fetch_CV.pdf
+                </a>
+
+                <a href="mailto:dubeyr428@outlook.com" class="bg-transparent hover:text-matrix text-slate-400 px-8 py-3.5 rounded font-bold transition-all border border-transparent hover:border-matrix/20 w-full sm:w-auto text-center transform active:scale-95 flex items-center justify-center">// init_contact</a>
+            </div>
+            
+            <div class="mt-16 flex justify-center space-x-6 text-slate-600">
+                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="hover:text-matrix transition-colors" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="mailto:dubeyr428@outlook.com" class="hover:text-matrix transition-colors" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="bg-white/30 dark:bg-slate-900/30 border-y border-slate-200 dark:border-slate-800/40 theme-transition">
+    <section id="about" class="border-y border-white/5 bg-black/20">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="flex flex-col mb-8 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold inline-block relative">
-                    Professional Summary
-                    <span class="absolute -bottom-3 left-0 w-16 h-1.5 bg-gradient-to-r from-blue-600 to-sky-400 rounded-full"></span>
-                </h2>
+            <div class="flex flex-col mb-8 font-mono">
+                <span class="text-xs text-matrix tracking-widest uppercase">// 01 . EXECUTIVE SUMMARY</span>
             </div>
-            <div class="glass-card p-6 sm:p-12 rounded-2xl sm:rounded-[2rem] shadow-2xl">
-                <div class="text-base sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed space-y-6 sm:space-y-8">
+            <div class="terminal-card p-6 sm:p-10 rounded border border-white/5">
+                <div class="text-sm sm:text-base text-slate-400 leading-relaxed space-y-6 font-mono">
                     <p>
-                        Senior Business Analyst with <span id="exp-years-about" class="text-slate-900 dark:text-white font-semibold">8+ years of experience</span> across capital markets, financial services, and enterprise technology. Specialized in <span class="text-blue-600 dark:text-blue-400 font-medium">member onboarding, clearing &amp; settlement systems</span>, and regulatory-compliant platforms supporting national financial infrastructure.
+                        Senior Business Analyst with <span id="exp-years-about" class="text-white font-semibold">8+ years of expertise</span> across capital markets, financial operations, and infrastructure engineering. Specialized implementation architecture across <span class="text-matrix">membership structures, clearing engines, &amp; settlement logs</span> compliant with national framework directives.
                     </p>
                     <p>
-                        Currently driving cloud-native microservices and portal modernizations at <span class="text-slate-900 dark:text-white font-semibold">The Clearing Corporation of India Ltd (CCIL)</span>, with a proven track record in large-scale system migration covering <span class="text-slate-900 dark:text-white font-semibold">10+ critical modules</span> and delivering an improved defect detection rate of <span class="text-emerald-600 dark:text-emerald-400 font-semibold">~25% in UAT testing</span>.
+                        Currently driving high-availability cloud migration initiatives and architecture modernization patterns at <span class="text-white">The Clearing Corporation of India Ltd (CCIL)</span>. System transformation portfolio aggregates over <span class="text-white">10+ production modules</span>, realizing a metrics-verified validation uplift of <span class="text-matrix">~25% defect detection coverage</span> inside complex end-to-end integration environments.
                     </p>
                 </div>
             </div>
@@ -303,350 +278,296 @@
 
     <section id="skills">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-10 sm:mb-16">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Core Skillset Matrix</h2>
-                <p class="text-slate-500 max-w-xl mx-auto uppercase tracking-widest text-[10px] sm:text-xs font-bold">Comprehensive business analysis & domain expertise</p>
+            <div class="mb-12 font-mono">
+                <span class="text-xs text-matrix tracking-widest uppercase block mb-2">// 02 . SKILLS_MATRIX_DESTRUCTION</span>
+                <h2 class="text-xl font-bold text-white uppercase tracking-tight">Core Capabilities Map</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 grid-auto-rows-fr items-stretch">
-                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
-                    <div class="icon-box bg-blue-500/10 text-blue-600 dark:text-blue-400 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-6">Business Analysis</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag">Requirements Gathering</div>
-                        <div class="skill-tag"><span class="abbr-badge">BRD</span>BRD</div>
-                        <div class="skill-tag"><span class="abbr-badge">FRD</span>FRD</div>
-                        <div class="skill-tag"><span class="abbr-badge">SRS</span>SRS</div>
-                        <div class="skill-tag">User Stories</div>
-                        <div class="skill-tag">AS-IS / TO-BE</div>
-                    </div>
-                </div>
-                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
-                    <div class="icon-box bg-purple-500/10 text-purple-600 dark:text-purple-400 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-6">Modeling &amp; Wireframes</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag"><span class="abbr-badge">BPMN</span>BPMN 2.0</div>
-                        <div class="skill-tag">Balsamiq Wireframes</div>
-                        <div class="skill-tag">Lucidchart</div>
-                        <div class="skill-tag">Microsoft Visio</div>
-                        <div class="skill-tag">Draw.io</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+                
+                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                    <div>
+                        <div class="text-matrix font-mono text-xs mb-4">[SYSTEM_ANALYSIS]</div>
+                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Business Analysis</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="skill-tag">Requirements Gathering</div>
+                            <div class="skill-tag"><span class="abbr-badge">BRD</span>BRD</div>
+                            <div class="skill-tag"><span class="abbr-badge">FRD</span>FRD</div>
+                            <div class="skill-tag"><span class="abbr-badge">SRS</span>SRS</div>
+                            <div class="skill-tag">User Stories</div>
+                            <div class="skill-tag">AS-IS / TO-BE</div>
+                        </div>
                     </div>
                 </div>
-                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
-                    <div class="icon-box bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a3.5 3.5 0 1 1 0-7c.2 0 .4 0 .6.1a6 6 0 1 1 10.4-3.1h.1a4 4 0 1 1 0 8h-11"/><path d="M12 10v6"/><path d="m9 13 3 3 3-3"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-6">Agile &amp; Project Delivery</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag">Scrum Management</div>
-                        <div class="skill-tag">Sprint Planning</div>
-                        <div class="skill-tag">Backlog Grooming</div>
-                        <div class="skill-tag">Jira</div>
-                        <div class="skill-tag">Azure DevOps</div>
-                        <div class="skill-tag">GitLab / Redmine</div>
-                    </div>
-                </div>
-                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
-                    <div class="icon-box bg-red-500/10 text-red-600 dark:text-red-400 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-6">Capital Markets Domain</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag">Membership Systems</div>
-                        <div class="skill-tag">Clearing &amp; Settlement</div>
-                        <div class="skill-tag">Government Securities</div>
-                        <div class="skill-tag">FX-Options</div>
-                        <div class="skill-tag">Loan Management</div>
+
+                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                    <div>
+                        <div class="text-matrix font-mono text-xs mb-4">[STRUCTURAL_LOGIC]</div>
+                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Modeling &amp; Schematics</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="skill-tag"><span class="abbr-badge">BPMN</span>BPMN 2.0</div>
+                            <div class="skill-tag">Balsamiq Wireframes</div>
+                            <div class="skill-tag">Lucidchart</div>
+                            <div class="skill-tag">Microsoft Visio</div>
+                            <div class="skill-tag">Draw.io</div>
+                        </div>
                     </div>
                 </div>
-                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
-                    <div class="icon-box bg-orange-500/10 text-orange-600 dark:text-orange-400 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-6">Data &amp; Reporting</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag">Power BI</div>
-                        <div class="skill-tag">MySQL</div>
-                        <div class="skill-tag">Tableau</div>
-                        <div class="skill-tag">Data Validation</div>
-                        <div class="skill-tag">Excel Dashboarding</div>
-                    </div>
-                </div>
-                <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col h-full">
-                    <div class="icon-box bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-6">Testing &amp; Validation</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag"><span class="abbr-badge">UAT</span>UAT Execution</div>
-                        <div class="skill-tag">Test Case Design</div>
-                        <div class="skill-tag">API Integration Testing</div>
-                        <div class="skill-tag">Defect Tracking</div>
-                        <div class="skill-tag">Database Validation</div>
+
+                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                    <div>
+                        <div class="text-matrix font-mono text-xs mb-4">[SDLC_PIPELINE]</div>
+                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Agile Delivery</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="skill-tag">Scrum Management</div>
+                            <div class="skill-tag">Sprint Planning</div>
+                            <div class="skill-tag">Backlog Grooming</div>
+                            <div class="skill-tag">Jira</div>
+                            <div class="skill-tag">Azure DevOps</div>
+                            <div class="skill-tag">GitLab / Redmine</div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                    <div>
+                        <div class="text-matrix font-mono text-xs mb-4">[DOMAIN_INTELLIGENCE]</div>
+                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Financial Ecosystems</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="skill-tag">Membership Systems</div>
+                            <div class="skill-tag">Clearing &amp; Settlement</div>
+                            <div class="skill-tag">Government Securities</div>
+                            <div class="skill-tag">FX-Options</div>
+                            <div class="skill-tag">Loan Management</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                    <div>
+                        <div class="text-matrix font-mono text-xs mb-4">[DATA_DECODER]</div>
+                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Analytics &amp; Datastores</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="skill-tag">Power BI</div>
+                            <div class="skill-tag">MySQL</div>
+                            <div class="skill-tag">Tableau</div>
+                            <div class="skill-tag">Data Validation</div>
+                            <div class="skill-tag">Excel Dashboarding</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                    <div>
+                        <div class="text-matrix font-mono text-xs mb-4">[INTEGRITY_SHIELD]</div>
+                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Testing &amp; Auditing</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="skill-tag"><span class="abbr-badge">UAT</span>UAT Execution</div>
+                            <div class="skill-tag">Test Case Design</div>
+                            <div class="skill-tag">API Integration Testing</div>
+                            <div class="skill-tag">Defect Tracking</div>
+                            <div class="skill-tag">Database Validation</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="experience" class="bg-white/30 dark:bg-slate-900/30 theme-transition">
+    <section id="experience" class="border-y border-white/5 bg-black/20">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-16">Professional Journey</h2>
+            <div class="mb-12 font-mono">
+                <span class="text-xs text-matrix tracking-widest uppercase block mb-2">// 03 . TIMELINE_LOGS</span>
+                <h2 class="text-xl font-bold text-white uppercase tracking-tight">Professional Journey</h2>
+            </div>
             
-            <div class="space-y-12 sm:space-y-16 border-l-2 border-slate-300 dark:border-slate-800/50 ml-2 sm:ml-4 pl-6 sm:pl-10 relative">
+            <div class="space-y-12 border-l border-matrix/20 ml-2 pl-6 sm:pl-8 relative font-mono text-xs">
+                
                 <div class="relative group">
-                    <div class="absolute -left-[2.25rem] sm:-left-[3.25rem] top-1.5 w-6 h-6 sm:w-8 h-8 bg-blue-600 rounded-full border-4 border-slate-50 dark:border-dark shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform"></div>
+                    <div class="absolute -left-[1.85rem] top-1 w-3 h-3 bg-matrix border-4 border-obsidian shadow-[0_0_8px_#00FFCC] rounded-none group-hover:scale-125 transition-transform"></div>
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Business Analyst - Deputy Manager</h3>
-                        <span class="text-blue-600 dark:text-blue-400 font-bold bg-blue-500/10 px-3 py-1 rounded-md text-xs sm:text-sm border border-blue-500/10 tracking-wide inline-block w-fit">May 2024 - Present</span>
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wide group-hover:text-matrix transition-colors">Business Analyst - Deputy Manager</h3>
+                        <span class="text-matrix bg-matrix/5 px-2 py-1 border border-matrix/10 inline-block w-fit">May 2024 - Present</span>
                     </div>
-                    <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 font-semibold mb-4 sm:mb-6">The Clearing Corporation of India Ltd (CCIL)</p>
-                    <ul class="text-sm sm:text-base text-slate-600 dark:text-slate-400 space-y-3 list-none">
-                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Managed transformation projects for <span class="text-slate-900 dark:text-white">Membership Portal automation</span> and legacy clearing/settlement systems in government securities.</span></li>
-                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Conducted extensive business analysis and authored <span class="text-slate-900 dark:text-white">FRDs for system migrations</span> across 10+ modules, including Member onboarding, FX-Options, and Inter-Segment processes.</span></li>
-                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Managed <span class="text-slate-900 dark:text-white">50+ user stories per sprint</span> with precise acceptance criteria and test setups utilizing GitLab.</span></li>
-                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Developed 100+ critical test scenarios and engineered UAT executions that improved the <span class="text-slate-900 dark:text-white">pre-production defect detection rate by ~25%</span></span></li>
-                        <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span>Reduced manual workflows by ~30% via robust business workflow automations.</span></li>
+                    <p class="text-slate-400 font-medium mb-4 text-[11px] uppercase tracking-wider">The Clearing Corporation of India Ltd (CCIL)</p>
+                    <ul class="text-slate-400 space-y-2 list-none text-[11px] leading-relaxed">
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Automated operational frameworks for critical Member Portals and legacy institutional clearing engines inside domestic sovereign assets.</span></li>
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Mapped business logic transformation and authored functional blueprints across 10+ legacy segments including FX-Options integration layers.</span></li>
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Orchestrated agile backlogs containing 50+ detailed structural user statements per execution iteration loop inside internal tracking stacks.</span></li>
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Engineered rigorous validation plans comprising 100+ critical functional paths, uplifting the detection metrics by ~25%.</span></li>
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Refactored operational workflows through integration design, removing ~30% of manual runtime overhead.</span></li>
                     </ul>
                 </div>
 
                 <div class="relative group">
-                    <div class="absolute -left-[2.25rem] sm:-left-[3.25rem] top-1.5 w-6 h-6 sm:w-8 h-8 bg-slate-400 dark:bg-slate-800 rounded-full border-4 border-slate-50 dark:border-dark group-hover:bg-slate-500 dark:group-hover:bg-slate-700 transition-colors"></div>
+                    <div class="absolute -left-[1.85rem] top-1 w-3 h-3 bg-slate-800 border-4 border-obsidian rounded-none group-hover:bg-matrix transition-colors"></div>
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Business Analyst / Project Manager</h3>
-                        <span class="text-slate-500 font-semibold text-xs sm:text-sm inline-block w-fit">Nov 2022 - Dec 2023</span>
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wide">Business Analyst / Project Manager</h3>
+                        <span class="text-slate-500 bg-white/5 px-2 py-1 border border-white/5 inline-block w-fit">Nov 2022 - Dec 2023</span>
                     </div>
-                    <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 font-semibold mb-3">NextGen Invent Corporation</p>
-                    <ul class="text-sm sm:text-base text-slate-600 dark:text-slate-400 space-y-3 list-none">
-                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Led end-to-end delivery of a financial services application and loan management system; steered stakeholder communication and timelines.</span></li>
-                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Acted as Scrum Master to facilitate agile delivery and integrated complex third-party APIs like Stripe, PayPal, and Google Maps.</span></li>
-                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Engineered interactive Power BI dashboards for healthcare clients to translate multi-tier data into insights.</span></li>
+                    <p class="text-slate-400 font-medium mb-4 text-[11px] uppercase tracking-wider">NextGen Invent Corporation</p>
+                    <ul class="text-slate-400 space-y-2 list-none text-[11px] leading-relaxed">
+                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Managed execution parameters and timeline delivery for commercial debt-handling configurations and cross-border lending mechanisms.</span></li>
+                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Acted as agile workflow driver, standardizing internal frameworks and incorporating secure settlement access layers (Stripe, PayPal).</span></li>
+                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Constructed data orchestration layers inside business intelligence tools, distilling multi-tiered raw inputs into analytical insights.</span></li>
                     </ul>
                 </div>
 
                 <div class="relative group">
-                    <div class="absolute -left-[2.25rem] sm:-left-[3.25rem] top-1.5 w-6 h-6 sm:w-8 h-8 bg-slate-400 dark:bg-slate-800 rounded-full border-4 border-slate-50 dark:border-dark group-hover:bg-slate-500 dark:group-hover:bg-slate-700 transition-colors"></div>
+                    <div class="absolute -left-[1.85rem] top-1 w-3 h-3 bg-slate-800 border-4 border-obsidian rounded-none group-hover:bg-matrix transition-colors"></div>
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Business Analyst</h3>
-                        <span class="text-slate-500 font-semibold text-xs sm:text-sm inline-block w-fit">Dec 2019 - Aug 2022</span>
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wide">Business Analyst</h3>
+                        <span class="text-slate-500 bg-white/5 px-2 py-1 border border-white/5 inline-block w-fit">Dec 2019 - Aug 2022</span>
                     </div>
-                    <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 font-semibold mb-3">Integreon Managed Solutions India Pvt. Ltd.</p>
-                    <ul class="text-sm sm:text-base text-slate-600 dark:text-slate-400 space-y-3 list-none">
-                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Delivered an enterprise-level customer/vendor onboarding platform specifically for legal and compliance spaces.</span></li>
-                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Gathered complex requirements, defined core execution KPIs, and structured data-driven product strategies.</span></li>
+                    <p class="text-slate-400 font-medium mb-4 text-[11px] uppercase tracking-wider">Integreon Managed Solutions India Pvt. Ltd.</p>
+                    <ul class="text-slate-400 space-y-2 list-none text-[11px] leading-relaxed">
+                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Structured and shipped risk-evaluated counterparty verification interfaces built specifically for compliance networks.</span></li>
+                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Aggregated operational specifications to programmatically parse complex multi-source requirements into clear product maps.</span></li>
                     </ul>
                 </div>
 
                 <div class="relative group">
-                    <div class="absolute -left-[2.25rem] sm:-left-[3.25rem] top-1.5 w-6 h-6 sm:w-8 h-8 bg-slate-400 dark:bg-slate-800 rounded-full border-4 border-slate-50 dark:border-dark group-hover:bg-slate-500 dark:group-hover:bg-slate-700 transition-colors"></div>
+                    <div class="absolute -left-[1.85rem] top-1 w-3 h-3 bg-slate-800 border-4 border-obsidian rounded-none group-hover:bg-matrix transition-colors"></div>
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Business Analyst / Web Developer</h3>
-                        <span class="text-slate-500 font-semibold text-xs sm:text-sm inline-block w-fit">Jan 2017 - Jul 2019</span>
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wide">Business Analyst / Web Developer</h3>
+                        <span class="text-slate-500 bg-white/5 px-2 py-1 border border-white/5 inline-block w-fit">Jan 2017 - Jul 2019</span>
                     </div>
-                    <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 font-semibold mb-3">Concentrix Daksh Service India Pvt. Ltd.</p>
-                    <ul class="text-sm sm:text-base text-slate-600 dark:text-slate-400 space-y-3 list-none">
-                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Maintained and customized reward systems using core frontend tech stacks (HTML, CSS, JavaScript).</span></li>
-                        <li class="flex items-start"><span class="text-slate-400 dark:text-slate-600 mr-3 mt-1.5">●</span><span>Successfully transitioned into a dedicated BA role managing stakeholder alignment and functional specs.</span></li>
+                    <p class="text-slate-400 font-medium mb-4 text-[11px] uppercase tracking-wider">Concentrix Daksh Service India Pvt. Ltd.</p>
+                    <ul class="text-slate-400 space-y-2 list-none text-[11px] leading-relaxed">
+                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Maintained and updated web applications leveraging foundational UI architectures (HTML, CSS, JavaScript).</span></li>
+                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Executed a calculated shift into dedicated operations analysis, transforming legacy data points into clear specifications.</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="certifications" class="bg-white/30 dark:bg-slate-900/30 theme-transition">
+    <section id="certifications">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="flex flex-col mb-8 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold inline-block relative">
-                    Certifications &amp; Education
-                    <span class="absolute -bottom-3 left-0 w-16 h-1.5 bg-gradient-to-r from-blue-600 to-sky-400 rounded-full"></span>
-                </h2>
+            <div class="mb-12 font-mono">
+                <span class="text-xs text-matrix tracking-widest uppercase block mb-2">// 04 . VALIDATED_CREDENTIALS</span>
+                <h2 class="text-xl font-bold text-white uppercase tracking-tight">Certifications &amp; Education</h2>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                <!-- Education -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4 border-l-4 border-l-blue-500">
-                    <div class="icon-box bg-blue-500/10 text-blue-500 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">BSc Information Technology</p>
-                        <p class="text-xs sm:text-sm text-slate-500">Mumbai University &middot; 2013-2016</p>
-                    </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
+                
+                <div class="terminal-card p-5 rounded border border-l-2 border-l-matrix">
+                    <div class="text-slate-500 mb-2">[DEGREE_REGISTRY]</div>
+                    <p class="font-bold text-white uppercase tracking-wide mb-1">BSc Information Technology</p>
+                    <p class="text-slate-400">Mumbai University &middot; 2013-2016</p>
                 </div>
-                <!-- Foundation Certification -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
-                    <div class="icon-box bg-orange-500/10 text-orange-500 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Business Analysis Foundations</p>
-                        <p class="text-xs sm:text-sm text-slate-500">LinkedIn Learning</p>
-                    </div>
+                
+                <div class="terminal-card p-5 rounded border">
+                    <div class="text-slate-500 mb-2">[LICENSE_ID_01]</div>
+                    <p class="font-bold text-white uppercase tracking-wide mb-1">Business Analysis Foundations</p>
+                    <p class="text-slate-400">LinkedIn Learning</p>
                 </div>
-                <!-- Project Management -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
-                    <div class="icon-box bg-blue-500/10 text-blue-500 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Project Management</p>
-                        <p class="text-xs sm:text-sm text-slate-500">Great Learning</p>
-                    </div>
+                
+                <div class="terminal-card p-5 rounded border">
+                    <div class="text-slate-500 mb-2">[LICENSE_ID_02]</div>
+                    <p class="font-bold text-white uppercase tracking-wide mb-1">Project Management</p>
+                    <p class="text-slate-400">Great Learning</p>
                 </div>
-                <!-- Product Management -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
-                    <div class="icon-box bg-purple-500/10 text-purple-500 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Product Management</p>
-                        <p class="text-xs sm:text-sm text-slate-500">Great Learning</p>
-                    </div>
+                
+                <div class="terminal-card p-5 rounded border">
+                    <div class="text-slate-500 mb-2">[LICENSE_ID_03]</div>
+                    <p class="font-bold text-white uppercase tracking-wide mb-1">Product Management</p>
+                    <p class="text-slate-400">Great Learning</p>
                 </div>
-                <!-- Product Lifecycle Management -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
-                    <div class="icon-box bg-emerald-500/10 text-emerald-600 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Product Lifecycle Management</p>
-                        <p class="text-xs sm:text-sm text-slate-500">Great Learning</p>
-                    </div>
+                
+                <div class="terminal-card p-5 rounded border">
+                    <div class="text-slate-500 mb-2 Geno mb-2">[LICENSE_ID_04]</div>
+                    <p class="font-bold text-white uppercase tracking-wide mb-1">Product Lifecycle Management</p>
+                    <p class="text-slate-400">Great Learning</p>
                 </div>
-                <!-- Power BI -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
-                    <div class="icon-box bg-amber-500/10 text-amber-500 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Data Visualization with Power BI</p>
-                        <p class="text-xs sm:text-sm text-slate-500">Great Learning</p>
-                    </div>
+                
+                <div class="terminal-card p-5 rounded border">
+                    <div class="text-slate-500 mb-2">[LICENSE_ID_05]</div>
+                    <p class="font-bold text-white uppercase tracking-wide mb-1">Data Visualization (Power BI)</p>
+                    <p class="text-slate-400">Great Learning</p>
                 </div>
-                <!-- Tableau -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
-                    <div class="icon-box bg-red-500/10 text-red-500 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Tableau Training</p>
-                        <p class="text-xs sm:text-sm text-slate-500">Simplilearn</p>
-                    </div>
+                
+                <div class="terminal-card p-5 rounded border">
+                    <div class="text-slate-500 mb-2">[LICENSE_ID_06]</div>
+                    <p class="font-bold text-white uppercase tracking-wide mb-1">Tableau Core Training</p>
+                    <p class="text-slate-400">Simplilearn</p>
                 </div>
-                <!-- Responsive Web Design -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
-                    <div class="icon-box bg-cyan-500/10 text-cyan-500 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Responsive Web Design</p>
-                        <p class="text-xs sm:text-sm text-slate-500">freeCodeCamp</p>
-                    </div>
+                
+                <div class="terminal-card p-5 rounded border">
+                    <div class="text-slate-500 mb-2">[LICENSE_ID_07]</div>
+                    <p class="font-bold text-white uppercase tracking-wide mb-1">Responsive Web Design</p>
+                    <p class="text-slate-400">freeCodeCamp</p>
                 </div>
-                <!-- HL7 FHIR -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl flex items-center gap-4">
-                    <div class="icon-box bg-violet-500/10 text-violet-500 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">HL7 FHIR® Proficient Certification</p>
-                        <p class="text-xs sm:text-sm text-slate-500">HL7 International</p>
-                    </div>
+
+                <div class="terminal-card p-5 rounded border sm:col-span-2">
+                    <div class="text-slate-500 mb-2">[INTEROP_PROTOCOL]</div>
+                    <p class="font-bold text-white uppercase tracking-wide mb-1">HL7 FHIR® Proficient Certification</p>
+                    <p class="text-slate-400">HL7 International</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="achievements">
+    <section id="achievements" class="border-y border-white/5 bg-black/20">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-16 text-center text-slate-900 dark:text-white">Impact at a Glance</h2>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                <div class="text-center p-6 sm:p-8 glass-card rounded-2xl sm:rounded-[2rem]">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-black text-blue-600 dark:text-blue-400 mb-2 tracking-tighter">~25%</div>
-                    <p class="text-[9px] sm:text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">UAT Defect Detection</p>
+            <div class="mb-12 font-mono text-center">
+                <span class="text-xs text-matrix tracking-widest uppercase block mb-2">// 05 . REALTIME_METRICS</span>
+                <h2 class="text-xl font-bold text-white uppercase tracking-tight">System Impact Logs</h2>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
+                <div class="text-center p-6 terminal-card rounded">
+                    <div class="text-2xl sm:text-4xl font-bold text-matrix mb-1 select-none">~25%</div>
+                    <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">UAT Defect Isolation</p>
                 </div>
-                <div class="text-center p-6 sm:p-8 glass-card rounded-2xl sm:rounded-[2rem]">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-black text-blue-600 dark:text-blue-400 mb-2 tracking-tighter">~30%</div>
-                    <p class="text-[9px] sm:text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">Manual Effort Saved</p>
+                <div class="text-center p-6 terminal-card rounded">
+                    <div class="text-2xl sm:text-4xl font-bold text-matrix mb-1 select-none">~30%</div>
+                    <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Manual Load Reductions</p>
                 </div>
-                <div class="text-center p-6 sm:p-8 glass-card rounded-2xl sm:rounded-[2rem]">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-black text-blue-600 dark:text-blue-400 mb-2 tracking-tighter">10+</div>
-                    <p class="text-[9px] sm:text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">Migrated Modules</p>
+                <div class="text-center p-6 terminal-card rounded">
+                    <div class="text-2xl sm:text-4xl font-bold text-matrix mb-1 select-none">10+</div>
+                    <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Migrated Modules</p>
                 </div>
-                <div class="text-center p-6 sm:p-8 glass-card rounded-2xl sm:rounded-[2rem]">
-                    <div id="exp-years-stat" class="text-3xl sm:text-4xl md:text-5xl font-black text-blue-600 dark:text-blue-400 mb-2 tracking-tighter">8Y+</div>
-                    <p class="text-[9px] sm:text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">Domain Practice</p>
+                <div class="text-center p-6 terminal-card rounded">
+                    <div id="exp-years-stat" class="text-2xl sm:text-4xl font-bold text-matrix mb-1 select-none">8Y+</div>
+                    <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Ecosystem Practice</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="pb-24 sm:pb-32 bg-gradient-to-b from-transparent to-slate-200 dark:to-[#040810] theme-transition">
-        <div class="max-w-xl mx-auto px-6 text-center">
-            <div class="inline-block p-3 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <section id="contact" class="pb-24 sm:pb-32">
+        <div class="max-w-xl mx-auto px-6 text-center font-mono">
+            <div class="inline-block p-3 rounded-full bg-matrix/5 text-matrix mb-6 border border-matrix/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Let's build reliable platforms together.</h2>
-            <p class="text-slate-600 dark:text-slate-400 mb-10 sm:mb-12 text-base sm:text-lg font-medium">Available for Senior Project Manager roles and Product Delivery Management roles inside Capital Markets &amp; Financial Technology lines.</p>
-            <div class="space-y-4">
-                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-center space-x-4 p-5 glass-card rounded-2xl group transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    <span class="text-xs sm:text-lg font-bold truncate max-w-[200px] sm:max-w-none">dubeyr428@outlook.com</span>
+            <h2 class="text-2xl font-bold text-white uppercase tracking-tight mb-4">Establish Data Link</h2>
+            <p class="text-slate-400 mb-10 text-xs leading-relaxed max-w-md mx-auto">Available for Senior Project Execution frameworks and Product Delivery Management layers inside FinTech lines.</p>
+            
+            <div class="space-y-3 text-xs tracking-wider">
+                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-center space-x-4 p-4 terminal-card rounded group transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-matrix shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <span class="text-white font-bold tracking-widest truncate">dubeyr428@outlook.com</span>
                 </a>
-                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-4 p-5 glass-card rounded-2xl group transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform shrink-0"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    <span class="text-xs sm:text-lg font-bold truncate">linkedin.com/in/rahul-dubey</span>
+                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-4 p-4 terminal-card rounded group transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-matrix shrink-0"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    <span class="text-white font-bold tracking-widest truncate">linkedin.com/in/rahul-dubey</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <button id="scroll-top-btn" class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg shadow-blue-600/30 flex items-center justify-center" aria-label="Scroll to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    <button id="scroll-top-btn" class="w-10 h-10 bg-matrix text-obsidian rounded shadow-lg flex items-center justify-center transform active:scale-95" aria-label="Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
-    <footer class="py-12 sm:py-16 border-t border-slate-200 dark:border-slate-800/50 text-center px-6 theme-transition">
+    <footer class="py-12 border-t border-white/5 text-center px-6 font-mono text-xs">
         <div class="max-w-6xl mx-auto">
-            <span class="text-xl font-bold tracking-tighter gradient-text block mb-4">RD.</span>
-            <p class="text-slate-500 dark:text-slate-600 text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-loose">Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> Rahul Dubey.</p>
+            <span class="text-slate-600 block mb-3">// ARCHIVE_ROOT_END</span>
+            <p class="text-slate-500 text-[10px] tracking-widest uppercase">Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> Rahul Dubey.</p>
         </div>
     </footer>
 
     <script>
-        // Theme toggle mechanics
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeToggleBtnMob = document.getElementById('theme-toggle-mobile');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-        const darkIconMob = document.getElementById('theme-toggle-dark-icon-mob');
-        const lightIconMob = document.getElementById('theme-toggle-light-icon-mob');
-
-        function updateIcons() {
-            if (document.documentElement.classList.contains('dark')) {
-                darkIcon.classList.add('hidden');
-                lightIcon.classList.remove('hidden');
-                darkIconMob.classList.add('hidden');
-                lightIconMob.classList.remove('hidden');
-            } else {
-                lightIcon.classList.add('hidden');
-                darkIcon.classList.remove('hidden');
-                lightIconMob.classList.add('hidden');
-                darkIconMob.classList.remove('hidden');
-            }
-        }
-
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark');
-            updateIcons();
-        }
-
-        themeToggleBtn.addEventListener('click', toggleTheme);
-        themeToggleBtnMob.addEventListener('click', toggleTheme);
-        updateIcons();
-
-        // Mobile drawer control logic
+        // Drawer Menu Toggle Interface Logic
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -665,21 +586,21 @@
             if (mobileMenu.classList.contains('active')) toggleMenu();
         }));
 
-        // Dynamic metric evaluation script
+        // Experience Calculation Module Engine
         const startYear = 2017;
         const yearsExp = new Date().getFullYear() - startYear;
         const expStrip = document.getElementById('exp-years-strip');
         const expAbout = document.getElementById('exp-years-about');
         const expStat = document.getElementById('exp-years-stat');
-        if (expStrip) expStrip.textContent = yearsExp + '+ Years of Experience';
+        if (expStrip) expStrip.textContent = yearsExp + '+ Years Practice';
         if (expAbout) expAbout.textContent = yearsExp + '+ Years of Experience';
         if (expStat) expStat.textContent = yearsExp + 'Y+';
 
-        // Dynamic footer execution clock logic
+        // Synchronize Footer Clock Context
         const footerYear = document.getElementById('footer-year');
         if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-        // Auto Scroll Spy Configuration
+        // Active Scroll Spy Tracking Configuration Engine
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -692,9 +613,9 @@
                 }
             });
             navLinks.forEach(link => {
-                link.classList.remove('text-blue-500', 'font-bold');
+                link.classList.remove('text-matrix', 'font-bold');
                 if (current && link.getAttribute('href').includes(current)) {
-                    link.classList.add('text-blue-500', 'font-bold');
+                    link.classList.add('text-matrix', 'font-bold');
                 }
             });
 
@@ -715,11 +636,11 @@
             });
         }
 
-        // IntersectionObserver setups for scroll UI animations
+        // Setup Scroll View Intersection Triggers
         const animTargets = document.querySelectorAll(
-            '#about .glass-card, #skills .glass-card, #experience .relative.group, ' +
-            '#certifications .glass-card, #achievements .glass-card, #contact .glass-card, ' +
-            'section:not(#hero) h2'
+            '#about .terminal-card, #skills .terminal-card, #experience .relative.group, ' +
+            '#certifications .terminal-card, #achievements .terminal-card, #contact .terminal-card, ' +
+            'section h2'
         );
         animTargets.forEach(el => el.classList.add('fade-up'));
 
@@ -730,7 +651,7 @@
                     animObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05 });
 
         animTargets.forEach(el => animObserver.observe(el));
     </script>
