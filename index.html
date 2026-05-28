@@ -9,16 +9,19 @@
     <meta property="og:description" content="Rahul Dubey — Senior Business Analyst with 8+ years in capital markets and financial services, specializing in clearing & settlement, system migrations, and Agile delivery.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rahuldubey.github.io/">
+    
+    <!-- Tailwind & Chart.js CDNs -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        swissDark: "#0B0C0E",
-                        swissLight: "#F7F6F3",
-                        swissPanelDark: "#131518",
+                        swissDark: "#0A0B0D",
+                        swissLight: "#F8F7F4",
+                        swissPanelDark: "#121417",
                         swissPanelLight: "#FFFFFF",
                         swissAccent: "#2563EB"
                     },
@@ -29,7 +32,6 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
         
@@ -40,63 +42,63 @@
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* Swiss Engineering Grid Structural Setup */
+        /* Preloader Structural Hide Mechanics */
+        #preloader {
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+        }
+
         .swiss-grid-container {
-            border-left: 1px solid rgba(0, 0, 0, 0.08);
-            border-right: 1px solid rgba(0, 0, 0, 0.08);
+            border-left: 1px solid rgba(0, 0, 0, 0.07);
+            border-right: 1px solid rgba(0, 0, 0, 0.07);
         }
         .dark .swiss-grid-container {
-            border-left: 1px solid rgba(255, 255, 255, 0.05);
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 1px solid rgba(255, 255, 255, 0.04);
+            border-right: 1px solid rgba(255, 255, 255, 0.04);
         }
 
         .swiss-border {
-            border-color: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.07);
         }
         .dark .swiss-border {
-            border-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.04);
         }
 
-        /* Hover states with pure mathematical alignment */
         .grid-block {
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         .dark .grid-block:hover {
-            background-color: rgba(255, 255, 255, 0.01);
+            background-color: rgba(255, 255, 255, 0.008);
         }
         html:not(.dark) .grid-block:hover {
-            background-color: rgba(0, 0, 0, 0.005);
+            background-color: rgba(0, 0, 0, 0.004);
         }
 
         .skill-tag {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 500;
-            letter-spacing: 0.02em;
-            padding: 5px 12px;
-            border-radius: 0px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background: rgba(0, 0, 0, 0.02);
-            transition: all 0.2s ease;
+            padding: 4px 10px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(0, 0, 0, 0.01);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .dark .skill-tag {
-            border-color: rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.02);
-            color: #C1C7CD;
+            border-color: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.01);
+            color: #A2A9B0;
         }
         .skill-tag:hover {
             border-color: #2563eb;
             color: #2563eb;
-            background: transparent;
+            transform: translateY(-1px);
         }
 
         .abbr-badge {
-            font-size: 0.55rem;
+            font-size: 0.52rem;
             font-weight: 700;
-            letter-spacing: 0.05em;
-            border: 1px solid rgba(37, 99, 235, 0.3);
+            border: 1px solid rgba(37, 99, 235, 0.25);
             color: #2563eb;
-            padding: 1px 4px;
-            margin-right: 6px;
+            padding: 1px 3px;
+            margin-right: 4px;
             line-height: 1;
             display: inline-flex;
             align-items: center;
@@ -105,7 +107,7 @@
         .fade-up {
             opacity: 0;
             transform: translateY(12px);
-            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .fade-up.visible {
             opacity: 1;
@@ -119,11 +121,11 @@
             z-index: 50;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0,0,0,0.08);
         }
         .dark #scroll-top-btn {
-            border-color: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.06);
         }
         #scroll-top-btn.show {
             opacity: 1;
@@ -133,6 +135,13 @@
 </head>
 <body class="bg-swissLight text-slate-900 dark:bg-swissDark dark:text-slate-200 antialiased tracking-tight">
 
+    <!-- APP INITIALIZATION SCREEN OVERLAY -->
+    <div id="preloader" class="fixed inset-0 z-[100] bg-swissLight dark:bg-swissDark flex flex-col items-center justify-center font-sans">
+        <div class="w-12 h-12 border-2 border-slate-300 dark:border-neutral-700 border-t-swissAccent rounded-full animate-spin mb-4"></div>
+        <span class="text-xs font-mono tracking-widest text-slate-400 uppercase animate-pulse">Initializing Framework...</span>
+    </div>
+
+    <!-- GLOBAL SWISS BAR NAVIGATION -->
     <nav class="fixed top-0 w-full z-50 bg-swissLight/80 dark:bg-swissDark/80 backdrop-blur-md border-b swiss-border">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <span class="text-lg font-black tracking-tight select-none">RAHUL DUBEY<span class="text-swissAccent">.</span></span>
@@ -146,18 +155,18 @@
                 <a href="#achievements" class="nav-link hover:text-swissAccent transition">Impact</a>
                 <a href="#contact" class="nav-link hover:text-swissAccent transition">Sync</a>
                 
-                <button id="theme-toggle" class="p-2 border swiss-border hover:bg-black/5 dark:hover:bg-white/5 transition-all">
+                <button id="theme-toggle" class="p-2 border swiss-border hover:bg-black/5 dark:hover:bg-white/5 transition-all" aria-label="Toggle Theme">
                     <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                    <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                 </button>
             </div>
 
             <div class="flex items-center space-x-4 md:hidden">
-                <button id="theme-toggle-mobile" class="p-2 border swiss-border">
+                <button id="theme-toggle-mobile" class="p-2 border swiss-border" aria-label="Toggle Mobile Theme">
                     <svg id="theme-toggle-dark-icon-mob" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                     <svg id="theme-toggle-light-icon-mob" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                 </button>
-                <button id="menu-btn" class="p-2">
+                <button id="menu-btn" class="p-2" aria-label="Toggle Drawer">
                     <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                     <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
@@ -165,37 +174,35 @@
         </div>
     </nav>
 
+    <!-- MOBILE NAVIGATION DROPDOWN OVERLAY -->
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-swissLight dark:bg-swissDark md:hidden flex flex-col items-center justify-center space-y-6 text-sm font-bold tracking-widest uppercase border-b swiss-border transform translate-x-full transition-transform duration-300">
-        <a href="#hero" class="mobile-nav-link hover:text-swissAccent transition">Home</a>
-        <a href="#about" class="mobile-nav-link hover:text-swissAccent transition">About</a>
-        <a href="#skills" class="mobile-nav-link hover:text-swissAccent transition">Skills</a>
-        <a href="#experience" class="mobile-nav-link hover:text-swissAccent transition">Experience</a>
-        <a href="#certifications" class="mobile-nav-link hover:text-swissAccent transition">Certifications</a>
-        <a href="#achievements" class="mobile-nav-link hover:text-swissAccent transition">Achievements</a>
-        <a href="#contact" class="mobile-nav-link text-swissAccent transition">Contact</a>
+        <a href="#hero" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#skills" class="mobile-nav-link">Skills</a>
+        <a href="#experience" class="mobile-nav-link">Experience</a>
+        <a href="#certifications" class="mobile-nav-link">Certifications</a>
+        <a href="#achievements" class="mobile-nav-link">Achievements</a>
+        <a href="#contact" class="mobile-nav-link text-swissAccent">Contact</a>
     </div>
 
+    <!-- MAIN CORE CONTENT MATRIX GRID WRAPPER -->
     <div class="max-w-7xl mx-auto swiss-grid-container relative min-h-screen pt-16">
 
+        <!-- ASYMMETRICAL ARCHITECTURAL HERO -->
         <section id="hero" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0">
             <div class="lg:col-span-8 p-6 sm:p-12 flex flex-col justify-center items-start space-y-6 border-b lg:border-b-0 lg:border-r swiss-border">
-                
                 <div class="font-mono text-[10px] tracking-widest uppercase bg-black/5 dark:bg-white/5 border swiss-border px-3 py-1 font-semibold">
-                    System.Status // Active Infrastructure Deployment
+                    System.Status // Active Core Implementation
                 </div>
-                
                 <h1 class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter text-slate-900 dark:text-white uppercase leading-none">
                     Rahul Dubey
                 </h1>
-                
                 <p class="text-lg sm:text-xl md:text-2xl font-light text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
                     Senior Business Analyst at <span class="text-slate-900 dark:text-white font-medium">The Clearing Corporation of India Limited</span>. Balancing functional corporate architecture with large-scale technology transformations.
                 </p>
-
                 <p class="text-sm text-slate-500 dark:text-slate-400 font-medium max-w-xl">
                     Driving transactional clarity, optimizing cloud microservices, and leading system UAT validation matrices to establish highly resilient financial infrastructure.
                 </p>
-
                 <div class="flex flex-col sm:flex-row gap-4 pt-4 text-xs font-bold uppercase tracking-wider w-full sm:w-auto">
                     <a href="#experience" class="bg-swissAccent text-white px-8 py-4 text-center border border-transparent hover:bg-blue-700 transition">
                         Explore System Ledger
@@ -207,6 +214,7 @@
                 </div>
             </div>
 
+            <!-- RIGHT BLUEPRINT SIDE PANEL INDEX -->
             <div class="lg:col-span-4 grid grid-cols-1 divide-y swiss-border font-mono text-[11px] text-slate-500 bg-white/5">
                 <div class="p-6 flex flex-col justify-center">
                     <span class="text-swissAccent font-bold uppercase tracking-widest block mb-1">[LOC_REGISTRY]</span>
@@ -231,6 +239,7 @@
             </div>
         </section>
 
+        <!-- ASYMMETRICAL STICKY SECTION: SUMMARY -->
         <section id="about" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10 items-start">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 01 / PROFILE OVERVIEW</span>
@@ -248,6 +257,7 @@
             </div>
         </section>
 
+        <!-- STICKY MATRICES LAYER WITH INTELLIGENT DATA CHART -->
         <section id="skills" class="border-b swiss-border p-0 items-start">
             <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border lg:sticky lg:top-16 bg-swissLight dark:bg-swissDark z-30">
                 <div class="lg:col-span-4 p-6 sm:p-12 lg:border-r swiss-border">
@@ -255,95 +265,103 @@
                     <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Capabilities Matrix</h2>
                 </div>
                 <div class="lg:col-span-8 p-6 sm:p-12 flex items-center">
-                    <p class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">Comprehensive business strategy analysis &amp; multi-tier financial engineering capabilities</p>
+                    <p class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">Comprehensive business strategy analysis &amp; telemetry data visualization modeling</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 lg:divide-x divide-y divide-x-0 swiss-border">
-                <div class="p-6 sm:p-8 grid-block border-b swiss-border">
-                    <div class="font-mono text-[9px] text-slate-400 mb-4">[SYSTEM_ANALYSIS]</div>
-                    <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Business Analysis</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag">Requirements Gathering</div>
-                        <div class="skill-tag"><span class="abbr-badge">BRD</span>BRD</div>
-                        <div class="skill-tag"><span class="abbr-badge">FRD</span>FRD</div>
-                        <div class="skill-tag"><span class="abbr-badge">SRS</span>SRS</div>
-                        <div class="skill-tag">User Stories Mapping</div>
-                        <div class="skill-tag">AS-IS / TO-BE</div>
+            <!-- INTERACTIVE RATIONAL RADAR SKILLS PLOT -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border items-stretch">
+                <div class="lg:col-span-5 p-6 sm:p-8 flex items-center justify-center border-b lg:border-b-0 lg:border-r swiss-border bg-black/[0.01] dark:bg-white/[0.01]">
+                    <div class="w-full max-w-[340px] aspect-square relative">
+                        <canvas id="skillsRadarChart"></canvas>
                     </div>
                 </div>
-
-                <div class="p-6 sm:p-8 grid-block border-b swiss-border">
-                    <div class="font-mono text-[9px] text-slate-400 mb-4">[PROCESS_BLUEPRINT]</div>
-                    <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Modeling &amp; Schematics</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag"><span class="abbr-badge">BPMN</span>BPMN 2.0</div>
-                        <div class="skill-tag">Balsamiq Wireframes</div>
-                        <div class="skill-tag">Lucidchart Modeling</div>
-                        <div class="skill-tag">Microsoft Visio Stacks</div>
-                        <div class="skill-tag">Draw.io Layouts</div>
+                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x swiss-border text-left">
+                    <div class="p-6 grid-block border-b swiss-border">
+                        <div class="font-mono text-[9px] text-slate-400 mb-2">[SYSTEM_ANALYSIS]</div>
+                        <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Business Analysis</h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <div class="skill-tag">Requirements Gathering</div>
+                            <div class="skill-tag"><span class="abbr-badge">BRD</span>BRD</div>
+                            <div class="skill-tag"><span class="abbr-badge">FRD</span>FRD</div>
+                            <div class="skill-tag"><span class="abbr-badge">SRS</span>SRS</div>
+                            <div class="skill-tag">User Stories Mapping</div>
+                            <div class="skill-tag">AS-IS / TO-BE</div>
+                        </div>
+                    </div>
+                    <div class="p-6 grid-block border-b swiss-border">
+                        <div class="font-mono text-[9px] text-slate-400 mb-2">[PROCESS_BLUEPRINT]</div>
+                        <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Modeling &amp; Wireframes</h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <div class="skill-tag"><span class="abbr-badge">BPMN</span>BPMN 2.0</div>
+                            <div class="skill-tag">Balsamiq Wireframes</div>
+                            <div class="skill-tag">Lucidchart Modeling</div>
+                            <div class="skill-tag">Microsoft Visio Stacks</div>
+                            <div class="skill-tag">Draw.io Layouts</div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="p-6 sm:p-8 grid-block border-b swiss-border">
-                    <div class="font-mono text-[9px] text-slate-400 mb-4">[SDLC_GOVERNANCE]</div>
-                    <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Agile Project Delivery</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag">Scrum Management</div>
-                        <div class="skill-tag">Sprint Architecture</div>
-                        <div class="skill-tag">Backlog Modernization</div>
-                        <div class="skill-tag">Jira Stacks</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-x divide-y md:divide-y-0 swiss-border">
+                <div class="p-6 grid-block border-b md:border-b-0 swiss-border">
+                    <div class="font-mono text-[9px] text-slate-400 mb-2">[SDLC_GOVERNANCE]</div>
+                    <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Agile Delivery</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <div class="skill-tag">Scrum</div>
+                        <div class="skill-tag">Sprints</div>
+                        <div class="skill-tag">Backlogs</div>
+                        <div class="skill-tag">Jira</div>
                         <div class="skill-tag">Azure DevOps</div>
-                        <div class="skill-tag">GitLab Logic Repos</div>
+                        <div class="skill-tag">GitLab</div>
                     </div>
                 </div>
-
-                <div class="p-6 sm:p-8 grid-block border-b lg:border-b-0 swiss-border">
-                    <div class="font-mono text-[9px] text-slate-400 mb-4">[FINTECH_CORE]</div>
-                    <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Financial Domains</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag">Membership Systems</div>
+                <div class="p-6 grid-block border-b md:border-b-0 swiss-border">
+                    <div class="font-mono text-[9px] text-slate-400 mb-2">[FINTECH_CORE]</div>
+                    <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Financial Domains</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <div class="skill-tag">Membership</div>
                         <div class="skill-tag">Clearing &amp; Settlement</div>
-                        <div class="skill-tag">Government Securities</div>
-                        <div class="skill-tag">FX-Options Tranches</div>
-                        <div class="skill-tag">Loan Architecture</div>
+                        <div class="skill-tag">G-Secs</div>
+                        <div class="skill-tag">FX-Options</div>
+                        <div class="skill-tag">Loans</div>
                     </div>
                 </div>
-
-                <div class="p-6 sm:p-8 grid-block border-b md:border-b-0 swiss-border">
-                    <div class="font-mono text-[9px] text-slate-400 mb-4">[DATA_LOGISTICS]</div>
-                    <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Data Analytics</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag">Power BI Models</div>
-                        <div class="skill-tag">MySQL Datastores</div>
-                        <div class="skill-tag">Tableau Workspaces</div>
-                        <div class="skill-tag">Structural State Auditing</div>
-                        <div class="skill-tag">Excel Dashboards</div>
+                <div class="p-6 grid-block border-b sm:border-b-0 swiss-border">
+                    <div class="font-mono text-[9px] text-slate-400 mb-2">[DATA_LOGISTICS]</div>
+                    <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Data Analytics</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <div class="skill-tag">Power BI</div>
+                        <div class="skill-tag">MySQL</div>
+                        <div class="skill-tag">Tableau</div>
+                        <div class="skill-tag">Audits</div>
+                        <div class="skill-tag">Excel</div>
                     </div>
                 </div>
-
-                <div class="p-6 sm:p-8 grid-block">
-                    <div class="font-mono text-[9px] text-slate-400 mb-4">[QUALITY_SHIELD]</div>
-                    <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Testing Architecture</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div class="skill-tag"><span class="abbr-badge">UAT</span>UAT Execution Paths</div>
-                        <div class="skill-tag">Test Case Engineering</div>
-                        <div class="skill-tag">API Integration Audits</div>
-                        <div class="skill-tag">Defect Lifecycle Maps</div>
-                        <div class="skill-tag">Database State Mapping</div>
+                <div class="p-6 grid-block">
+                    <div class="font-mono text-[9px] text-slate-400 mb-2">[QUALITY_SHIELD]</div>
+                    <h3 class="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white mb-4">Testing Setup</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <div class="skill-tag"><span class="abbr-badge">UAT</span>UAT Execution</div>
+                        <div class="skill-tag">Test Paths</div>
+                        <div class="skill-tag">API Integration</div>
+                        <div class="skill-tag">Defects</div>
+                        <div class="skill-tag">DB Scopes</div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- STICKY ASYMMETRICAL TIME LEDGER ROW -->
         <section id="experience" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 items-start">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
-                <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 03 / OPERATIONAL TIMELINE</span>
+                <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 03 / TIMELINE CHRONOLOGY</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white mb-4">Professional Chronology</h2>
-                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider leading-relaxed">System-by-system registry of core production involvement parameters.</p>
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider leading-relaxed">Structural blueprint ledger tracking transaction-facing corporate involvement parameters.</p>
             </div>
             
             <div class="lg:col-span-8 divide-y swiss-border">
+                <!-- JOB 1: CCIL -->
                 <div class="p-6 sm:p-12 grid-block relative group">
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
                         <span class="text-swissAccent font-bold uppercase tracking-wider">[CORE_BLOCK // REGULATED_MARKETS]</span>
@@ -360,6 +378,7 @@
                     </ul>
                 </div>
 
+                <!-- JOB 2: NEXTGEN -->
                 <div class="p-6 sm:p-12 grid-block relative group">
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
                         <span class="text-slate-400 font-bold uppercase tracking-wider">[CORE_BLOCK // COMMERCIAL_LEDGER]</span>
@@ -374,6 +393,7 @@
                     </ul>
                 </div>
 
+                <!-- JOB 3: INTEGREON -->
                 <div class="p-6 sm:p-12 grid-block relative group">
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
                         <span class="text-slate-400 font-bold uppercase tracking-wider">[CORE_BLOCK // RISK_OVERSIGHT]</span>
@@ -387,6 +407,7 @@
                     </ul>
                 </div>
 
+                <!-- JOB 4: CONCENTRIX -->
                 <div class="p-6 sm:p-12 grid-block relative group">
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
                         <span class="text-slate-400 font-bold uppercase tracking-wider">[CORE_BLOCK // FRONTEND_INTERFACE]</span>
@@ -402,6 +423,7 @@
             </div>
         </section>
 
+        <!-- STICKY ASYMMETRICAL CREDENTIALS ROW -->
         <section id="certifications" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10 items-start">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 04 / CERTIFICATE REGISTRIES</span>
@@ -457,6 +479,7 @@
             </div>
         </section>
 
+        <!-- DYNAMIC TELEMETRY COUNTER SECTION -->
         <section id="achievements" class="border-b swiss-border p-0">
             <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border">
                 <div class="lg:col-span-4 p-6 sm:p-12 lg:border-r swiss-border">
@@ -496,45 +519,68 @@
             </div>
         </section>
 
+        <!-- HIGH-END SECURE INTAKE HANDSHAKE CORE FORM -->
         <section id="contact" class="grid grid-cols-1 lg:grid-cols-12 p-0 items-start">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border lg:sticky lg:top-16">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 06 / PORT_ESTABLISHMENT</span>
                 <h2 class="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white mb-4">Establish Sync</h2>
-                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider leading-relaxed">Available for enterprise framework coordination, delivery leads, and architectural project solutions.</p>
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider leading-relaxed">Available for enterprise framework coordination and permanent delivery management positions.</p>
+                
+                <div class="pt-8 space-y-3 font-mono text-[10px] tracking-widest uppercase hidden lg:block">
+                    <a href="mailto:dubeyr428@outlook.com" class="block text-slate-400 hover:text-swissAccent transition">// dubeyr428@outlook.com</a>
+                    <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="block text-slate-400 hover:text-swissAccent transition">// in/rahul-dubey</a>
+                </div>
             </div>
             
-            <div class="lg:col-span-8 p-6 sm:p-12 flex flex-col justify-center space-y-4 font-mono text-xs tracking-wider uppercase">
-                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-between p-4 border swiss-border grid-block group bg-white/5">
-                    <span class="text-slate-400">[PORT_EMAIL]</span>
-                    <span class="text-slate-900 dark:text-white font-bold group-hover:text-swissAccent transition-colors truncate pl-4">dubeyr428@outlook.com</span>
-                </a>
-                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border swiss-border grid-block group bg-white/5">
-                    <span class="text-slate-400">[PORT_LINKEDIN]</span>
-                    <span class="text-slate-900 dark:text-white font-bold group-hover:text-swissAccent transition-colors truncate pl-4">linkedin.com/in/rahul-dubey</span>
-                </a>
+            <div class="lg:col-span-8 p-6 sm:p-12 bg-white/[0.01]">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs uppercase tracking-wider">
+                    <div class="flex flex-col space-y-2">
+                        <label class="text-slate-400 text-[10px]">[IDENT_NAME]</label>
+                        <input type="text" name="name" required placeholder="Enter Full Name" class="p-3 bg-transparent border swiss-border focus:border-swissAccent focus:outline-none text-slate-900 dark:text-white font-sans transition-colors rounded-none">
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        <label class="text-slate-400 text-[10px]">[IDENT_EMAIL]</label>
+                        <input type="email" name="email" required placeholder="name@corporate.com" class="p-3 bg-transparent border swiss-border focus:border-swissAccent focus:outline-none text-slate-900 dark:text-white font-sans transition-colors rounded-none">
+                    </div>
+                    <div class="flex flex-col space-y-2 sm:col-span-2">
+                        <label class="text-slate-400 text-[10px]">[INTENT_MESSAGE]</label>
+                        <textarea name="message" required rows="4" placeholder="Describe Project Scope / Opportunity Parameter Details..." class="p-3 bg-transparent border swiss-border focus:border-swissAccent focus:outline-none text-slate-900 dark:text-white font-sans transition-colors rounded-none resize-none"></textarea>
+                    </div>
+                    <div class="sm:col-span-2 pt-2">
+                        <button type="submit" class="w-full bg-swissAccent hover:bg-blue-700 text-white p-4 font-bold transition-colors text-center">
+                            TRANSMIT_SECURE_HANDSHAKE()
+                        </button>
+                    </div>
+                </form>
             </div>
         </section>
 
     </div>
 
+    <!-- BACK TO TOP FLOATING BUTTON -->
     <button id="scroll-top-btn" class="w-10 h-10 bg-swissAccent text-white flex items-center justify-center hover:bg-blue-700 transition shadow" aria-label="Top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
-    <footer class="py-12 border-t swiss-border text-center px-6 text-xs font-mono tracking-widest text-slate-400 bg-white/10 dark:bg-black/20">
+    <!-- ARCHIVE SYSTEM FOOTER -->
+    <footer class="py-12 border-t swiss-border text-center px-6 text-xs font-mono tracking-widest text-slate-400 bg-white/10 dark:bg-black/20 relative z-30">
         <div class="max-w-7xl mx-auto">
             <div>// REGISTER_ROOT_TERMINATED //</div>
             <p class="text-[10px] uppercase text-slate-500 tracking-widest mt-2">Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> Rahul Dubey.</p>
         </div>
     </footer>
 
+    <!-- INTERNALS ENGINES AND OBSERVERS RUNTIME -->
     <script>
+        // Core Dual Action Theme Toggle Control System
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleBtnMob = document.getElementById('theme-toggle-mobile');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
         const darkIconMob = document.getElementById('theme-toggle-dark-icon-mob');
         const lightIconMob = document.getElementById('theme-toggle-light-icon-mob');
+
+        let skillsChartInstance = null;
 
         function updateIcons() {
             if (document.documentElement.classList.contains('dark')) {
@@ -553,13 +599,13 @@
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
             updateIcons();
+            renderRadarChart(); // Re-render visual chart data points to map color systems instantly
         }
 
         themeToggleBtn.addEventListener('click', toggleTheme);
         themeToggleBtnMob.addEventListener('click', toggleTheme);
-        updateIcons();
 
-        // Mobile Hamburger Router Logic Fixed
+        // Mobile Drawer Controller Interface Logic
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -578,13 +624,12 @@
             if (!mobileMenu.classList.contains('translate-x-full')) toggleMenu();
         }));
 
-        // Experience Delta Computations Engine
+        // Dynamic Experience Automatic Processing Delta Calculation Engine
         const startYear = 2017;
         const yearsExp = new Date().getFullYear() - startYear;
         const expStrip = document.getElementById('exp-years-strip');
         const expAbout = document.getElementById('exp-years-about');
         const expStatCount = document.getElementById('exp-years-stat-count');
-        
         if (expStrip) expStrip.textContent = yearsExp + '+ Years Experience';
         if (expAbout) expAbout.textContent = yearsExp + '+ years of structural experience';
         if (expStatCount) expStatCount.setAttribute('data-target', yearsExp);
@@ -592,7 +637,7 @@
         const footerYear = document.getElementById('footer-year');
         if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-        // Active Navigation Scroll Tracker Module (ScrollSpy)
+        // Active Navigation Tracker ScrollSpy Framework Logic
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -628,10 +673,10 @@
             });
         }
 
-        // Setup Modern Viewport Intersectors for Element Transitions
+        // Setup Modern Viewport Intersectors for Element Fading Transitions
         const animTargets = document.querySelectorAll(
             '#about .grid-block, #skills .grid-block, #experience .grid-block, ' +
-            '#certifications .grid-block, #contact .grid-block, section h2'
+            '#certifications .grid-block, #achievements .grid-block, #contact form, section h2'
         );
         animTargets.forEach(el => el.classList.add('fade-up'));
 
@@ -655,8 +700,8 @@
                     const el = entry.target;
                     const target = parseInt(el.getAttribute('data-target'), 10);
                     let count = 0;
-                    const duration = 1200; // Animation total runtime context miliseconds
-                    const increment = target / (duration / 16); // ~60fps step mapping
+                    const duration = 1200; 
+                    const increment = target / (duration / 16); 
 
                     const counterLoop = setInterval(() => {
                         count += increment;
@@ -674,6 +719,74 @@
         }, { threshold: 0.1 });
 
         metricElements.forEach(el => countUpObserver.observe(el));
+
+        // HIGH-END DYNAMIC SWISS CHART PLOTTING SYSTEM (Radar Core Topology)
+        function renderRadarChart() {
+            const ctx = document.getElementById('skillsRadarChart').getContext('2d');
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            // Mathematical design parameter evaluation mapping current dark/light state metrics
+            const gridColor = isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.06)';
+            const labelColor = isDark ? '#A2A9B0' : '#475569';
+            const angleLineColor = isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(0, 0, 0, 0.04)';
+
+            if (skillsChartInstance) {
+                skillsChartInstance.destroy();
+            }
+
+            skillsChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Business Analysis', 'Modeling', 'Agile Delivery', 'Capital Markets', 'Data Analytics', 'Testing'],
+                    datasets: [{
+                        label: 'Core Competency Level',
+                        data: [95, 90, 88, 92, 85, 90],
+                        backgroundColor: 'rgba(37, 99, 235, 0.12)',
+                        borderColor: '#2563EB',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#2563EB',
+                        pointBorderColor: '#FFFFFF',
+                        pointHoverBackgroundColor: '#FFFFFF',
+                        pointHoverBorderColor: '#2563EB',
+                        pointRadius: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        r: {
+                            grid: { color: gridColor },
+                            angleLines: { color: angleLineColor },
+                            pointLabels: {
+                                color: labelColor,
+                                font: { family: 'Inter', size: 9, weight: '500' }
+                            },
+                            ticks: { display: false },
+                            min: 0,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize Runtime Systems when Loader drops out safely
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('preloader');
+            updateIcons();
+            renderRadarChart();
+            
+            setTimeout(() => {
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.style.visibility = 'hidden', 500);
+                }
+            }, 300);
+        });
     </script>
 </body>
 </html>
