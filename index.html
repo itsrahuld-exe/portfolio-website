@@ -16,12 +16,13 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: "#070C0B",
+                        obsidian: "#050807",
                         matrix: "#00FFCC",
-                        terminal: "#12201D"
+                        terminal: "#0B1110",
+                        accentDim: "rgba(0, 255, 204, 0.15)"
                     },
                     fontFamily: {
-                        mono: ['JetBrains Mono', 'SF Mono', 'ui-monospace', 'monospace']
+                        mono: ['JetBrains Mono', 'Fira Code', 'SF Mono', 'monospace']
                     }
                 }
             }
@@ -29,343 +30,357 @@
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
-            background-color: #070C0B;
+            background-color: #050807;
+            color: #A3B3B0;
         }
 
-        /* FinTech Cyber Terminal Styling Grid Lines */
+        /* Advanced CRT Scanline & Grid Effect Overlay */
         .terminal-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(0, 255, 204, 0.02) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(0, 255, 204, 0.02) 1px, transparent 1px);
+            position: relative;
+        }
+        .terminal-grid::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            opacity: 0.12;
+            pointer-events: none;
+            background-size: 100% 3px, 6px 100%;
+        }
+        .grid-bg {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(0, 255, 204, 0.015) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 255, 204, 0.015) 1px, transparent 1px);
         }
 
-        .terminal-glow {
+        /* High-End Dynamic Terminal Glows */
+        .ambient-glow {
             position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 255, 204, 0.06) 0%, rgba(7, 12, 11, 0) 70%);
-            z-index: -1;
-            filter: blur(60px);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse at center, rgba(0, 255, 204, 0.04) 0%, rgba(5, 8, 7, 0) 70%);
+            z-index: 0;
+            filter: blur(80px);
             pointer-events: none;
         }
 
+        /* Advanced Cyber Terminal Components */
         .terminal-card {
-            background: #0E1715;
-            border: 1px solid rgba(0, 255, 204, 0.08);
-            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            background: #090F0E;
+            border: 1px solid rgba(0, 255, 204, 0.06);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.02);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         .terminal-card:hover {
+            border-color: rgba(0, 255, 204, 0.25);
+            box-shadow: 0 20px 40px -20px rgba(0, 255, 204, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.04);
             transform: translateY(-2px);
-            border-color: rgba(0, 255, 204, 0.3);
-            box-shadow: 0 10px 30px -15px rgba(0, 255, 204, 0.15);
         }
 
         .skill-tag {
-            background: rgba(0, 255, 204, 0.03);
-            color: #A3B8B5;
-            padding: 6px 14px;
-            border-radius: 4px;
-            font-size: 0.8125rem;
+            background: #0C1412;
+            color: #839995;
+            padding: 6px 12px;
+            border-radius: 2px;
+            font-size: 0.75rem;
             font-family: 'JetBrains Mono', monospace;
-            border: 1px solid rgba(0, 255, 204, 0.06);
-            display: inline-flex;
-            align-items: center;
+            border: 1px solid rgba(0, 255, 204, 0.05);
             transition: all 0.2s ease;
         }
-
         .skill-tag:hover {
-            background: rgba(0, 255, 204, 0.1);
+            background: rgba(0, 255, 204, 0.06);
             border-color: #00FFCC;
             color: #00FFCC;
-        }
-
-        section {
-            padding: 5rem 0;
-            position: relative;
-        }
-        @media (min-width: 768px) {
-            section { padding: 8rem 0; }
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
         }
 
         .nav-link {
-            position: relative;
             font-family: 'JetBrains Mono', monospace;
+            position: relative;
             transition: color 0.3s ease;
         }
-
+        .nav-link::before {
+            content: '[';
+            color: transparent;
+            margin-right: 2px;
+            transition: color 0.3s ease;
+        }
         .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -4px;
-            left: 0;
-            background: #00FFCC;
-            transition: width 0.3s ease;
+            content: ']';
+            color: transparent;
+            margin-left: 2px;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #00FFCC;
+        }
+        .nav-link:hover::before, .nav-link:hover::after {
+            color: rgba(0, 255, 204, 0.4);
         }
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-        #mobile-menu.active {
-            transform: translateX(0);
-        }
-
+        /* Smooth custom transitions */
         .fade-up {
             opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .abbr-badge {
-            font-size: 0.6rem;
-            font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
-            background: rgba(0, 255, 204, 0.1);
-            color: #00FFCC;
-            border-radius: 2px;
-            padding: 1px 4px;
-            margin-right: 6px;
-            border: 1px solid rgba(0, 255, 204, 0.2);
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        #scroll-top-btn {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 40;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        #scroll-top-btn.show {
-            opacity: 1;
-            visibility: visible;
-        }
+        .code-syntax-accent { color: #00FFCC; }
+        .code-syntax-string { color: #A5C2BE; }
+        .code-syntax-number { color: #FFB86C; }
+        .code-syntax-comment { color: #4E615D; }
     </style>
 </head>
-<body class="bg-obsidian text-slate-300 terminal-grid antialiased">
+<body class="bg-obsidian terminal-grid antialiased selection:bg-matrix/20 selection:text-matrix">
 
-    <nav class="fixed top-0 w-full z-50 bg-obsidian/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-6xl mx-auto px-6 h-16 sm:h-20 flex items-center justify-between">
-            <span class="text-xl font-bold font-mono tracking-tight text-white flex items-center gap-2">
-                <span class="text-matrix">&lt;/&gt;</span> RAHUL.D
+    <div class="fixed inset-0 grid-bg pointer-events-none z-10"></div>
+
+    <!-- GLOBAL NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 bg-obsidian/70 backdrop-blur-xl border-b border-white/[0.03]">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative z-20">
+            <span class="text-sm font-bold font-mono tracking-wider text-white flex items-center gap-2 select-none">
+                <span class="w-2 h-2 rounded-full bg-matrix shadow-[0_0_8px_#00FFCC]"></span> RAHUL_DUBEY // <span class="text-xs text-slate-500 font-normal">DM_CCIL</span>
             </span>
             
-            <div class="hidden md:flex items-center space-x-8 text-xs font-medium tracking-wider">
-                <a href="#hero" class="nav-link text-slate-400 hover:text-white transition">// home</a>
-                <a href="#about" class="nav-link text-slate-400 hover:text-white transition">// summary</a>
-                <a href="#skills" class="nav-link text-slate-400 hover:text-white transition">// framework</a>
-                <a href="#experience" class="nav-link text-slate-400 hover:text-white transition">// ledger</a>
-                <a href="#certifications" class="nav-link text-slate-400 hover:text-white transition">// credentials</a>
-                <a href="#achievements" class="nav-link text-slate-400 hover:text-white transition">// impact</a>
-                <a href="#contact" class="nav-link text-slate-400 hover:text-white transition">// sync</a>
+            <div class="hidden md:flex items-center space-x-6 text-[11px] uppercase tracking-widest font-medium">
+                <a href="#hero" class="nav-link text-slate-400">home</a>
+                <a href="#about" class="nav-link text-slate-400">summary</a>
+                <a href="#skills" class="nav-link text-slate-400">frameworks</a>
+                <a href="#experience" class="nav-link text-slate-400">ledger</a>
+                <a href="#certifications" class="nav-link text-slate-400">credentials</a>
+                <a href="#achievements" class="nav-link text-slate-400">monitoring</a>
+                <a href="#contact" class="nav-link text-matrix border border-matrix/20 px-3 py-1 rounded bg-matrix/5 hover:bg-matrix/10 transition-all">synchronize</a>
             </div>
 
             <div class="flex items-center md:hidden">
-                <button id="menu-btn" class="text-matrix p-2 z-50">
-                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                    <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <button id="menu-btn" class="text-matrix p-2">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
             </div>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-obsidian md:hidden flex flex-col items-center justify-center space-y-8 text-sm font-mono tracking-widest">
-        <a href="#hero" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// home</a>
-        <a href="#about" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// summary</a>
-        <a href="#skills" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// framework</a>
-        <a href="#experience" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// ledger</a>
-        <a href="#certifications" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// credentials</a>
-        <a href="#achievements" class="mobile-nav-link text-slate-400 hover:text-matrix transition">// impact</a>
-        <a href="#contact" class="mobile-nav-link text-matrix transition">// sync</a>
+    <!-- DRAWER INTERFACE FOR MOBILE DEVICES -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-2xl md:hidden flex flex-col items-center justify-center space-y-6 text-xs font-mono tracking-widest uppercase">
+        <a href="#hero" class="mobile-nav-link text-slate-400 hover:text-matrix">// 01. ROOT</a>
+        <a href="#about" class="mobile-nav-link text-slate-400 hover:text-matrix">// 02. PROFILE</a>
+        <a href="#skills" class="mobile-nav-link text-slate-400 hover:text-matrix">// 03. MATRIX</a>
+        <a href="#experience" class="mobile-nav-link text-slate-400 hover:text-matrix">// 04. LEDGER</a>
+        <a href="#certifications" class="mobile-nav-link text-slate-400 hover:text-matrix">// 05. RECORDS</a>
+        <a href="#achievements" class="mobile-nav-link text-slate-400 hover:text-matrix">// 06. TELEMETRY</a>
+        <a href="#contact" class="mobile-nav-link text-matrix border border-matrix/20 px-6 py-2 bg-matrix/5">// CONNECT</a>
     </div>
 
-    <section id="hero" class="min-h-screen pt-25 flex flex-col items-center justify-center text-center overflow-hidden">
-        <div class="terminal-glow"></div>
-        <div class="max-w-4xl px-6 relative z-10">
+    <!-- HIGH-END REFACTORED HERO CONSOLE -->
+    <section id="hero" class="min-h-screen pt-24 flex flex-col items-center justify-center relative overflow-hidden px-6">
+        <div class="ambient-glow" style="top: 20%;"></div>
+        <div class="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-20">
             
-            <div class="inline-flex items-center gap-3 px-4 py-1.5 mb-8 rounded border border-matrix/20 bg-matrix/5 backdrop-blur-sm shadow-sm">
-                <span class="w-2 h-2 bg-matrix shadow-[0_0_8px_#00FFCC] animate-pulse shrink-0"></span>
-                <span class="text-matrix font-mono tracking-wider uppercase text-[10px] sm:text-[11px]">System.Status: ACTIVE &nbsp;&middot;&nbsp; CCIL Deputy Manager</span>
+            <!-- LEFT SECTION: IDENTITY READOUT -->
+            <div class="lg:col-span-6 text-left space-y-6">
+                <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest text-matrix bg-matrix/5 border border-matrix/10 px-3 py-1 uppercase">
+                    <span class="w-1.5 h-1.5 bg-matrix rounded-none animate-ping"></span> 
+                    SYS_STATUS: INSTANTIATED_RUNNING
+                </div>
+                <h1 class="text-5xl sm:text-6xl font-light tracking-tight text-white leading-none">
+                    Rahul <span class="font-bold text-matrix block sm:inline">Dubey</span>
+                </h1>
+                <p class="font-mono text-xs tracking-wider text-slate-500 uppercase">
+                    &gt; Senior Business Analyst // Platform Delivery Lead
+                </p>
+                <p class="text-slate-400 text-sm sm:text-base max-w-xl leading-relaxed font-light">
+                    Specialized in deploying mission-critical clearing and settlement infrastructure for global capital markets. Engineered to bridge real-world business complexity with ultra-scalable enterprise technology architectures.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4 font-mono text-[11px] tracking-wider">
+                    <a href="#experience" class="bg-matrix text-obsidian px-6 py-3 font-bold hover:bg-matrix/80 transition-all shadow-[0_0_15px_rgba(0,255,204,0.15)]">
+                        INIT_DEEP_DIVE()
+                    </a>
+                    <a href="./Rahul_Dubey_Resume.pdf" download class="border border-white/10 text-white hover:bg-white/5 px-6 py-3 transition-all flex items-center gap-2">
+                        FETCH_RESUME.sh
+                    </a>
+                </div>
             </div>
-            
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-6 tracking-tight text-white">
-                Rahul Dubey
-            </h1>
-            
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-10 text-[11px] font-mono tracking-wider uppercase text-slate-500">
-                <span class="flex items-center gap-2">
-                    <span class="text-matrix">[LOC]</span> Mumbai, India
-                </span>
-                <span class="text-white/10 hidden sm:inline">|</span>
-                <span class="flex items-center gap-2">
-                    <span class="text-matrix">[EXP]</span> <span id="exp-years-strip">8+ Years Practice</span>
-                </span>
-                <span class="text-white/10 hidden sm:inline">|</span>
-                <span class="flex items-center gap-2">
-                    <span class="text-matrix">[DOM]</span> Capital Markets &amp; FinTech
-                </span>
-            </div>
-            
-            <p class="text-base sm:text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-normal px-2">
-                Optimizing clearing &amp; settlement systems while engineered to bridge structural business workflows and scalable enterprise infrastructure.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4 sm:px-0 font-mono text-xs tracking-wider">
-                <a href="#experience" class="bg-matrix hover:bg-matrix/90 text-obsidian px-8 py-3.5 rounded font-bold transition-all shadow-lg shadow-matrix/10 w-full sm:w-auto text-center transform active:scale-95">
-                    EXECUTE: Explore_Work()
-                </a>
-                
-                <a href="./Rahul_Dubey_Resume.pdf" download="Rahul_Dubey_Resume.pdf" class="bg-transparent hover:bg-white/5 text-white px-8 py-3.5 rounded font-bold transition-all border border-white/10 w-full sm:w-auto text-center transform active:scale-95 flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Fetch_CV.pdf
-                </a>
 
-                <a href="mailto:dubeyr428@outlook.com" class="bg-transparent hover:text-matrix text-slate-400 px-8 py-3.5 rounded font-bold transition-all border border-transparent hover:border-matrix/20 w-full sm:w-auto text-center transform active:scale-95 flex items-center justify-center">// init_contact</a>
+            <!-- RIGHT SECTION: ADVANCED COMPILER CODE BLOCK VISUAL -->
+            <div class="lg:col-span-6 w-full">
+                <div class="w-full bg-[#070A09] border border-white/[0.04] shadow-2xl font-mono text-xs text-slate-400 rounded overflow-hidden">
+                    <div class="bg-black/40 px-4 py-2.5 border-b border-white/[0.03] flex items-center justify-between text-[11px] text-slate-500">
+                        <span>📋 core_profile_compiler.js</span>
+                        <div class="flex space-x-1.5">
+                            <span class="w-2 h-2 rounded-full bg-red-500/30"></span>
+                            <span class="w-2 h-2 rounded-full bg-yellow-500/30"></span>
+                            <span class="w-2 h-2 rounded-full bg-green-500/30"></span>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6 overflow-x-auto space-y-1 leading-relaxed text-[11px] sm:text-xs select-none">
+                        <div><span class="code-syntax-accent">const</span> profile = {</div>
+                        <div>&nbsp;&nbsp;name: <span class="code-syntax-string">"Rahul Dubey"</span>,</div>
+                        <div>&nbsp;&nbsp;role: <span class="code-syntax-string">"Senior Business Analyst"</span>,</div>
+                        <div>&nbsp;&nbsp;tenure: <span class="code-syntax-string">"<span id="exp-years-code">8+</span> Years Practice"</span>,</div>
+                        <div>&nbsp;&nbsp;location: <span class="code-syntax-string">"Mumbai, IN"</span>,</div>
+                        <div>&nbsp;&nbsp;core_clearing_house: <span class="code-syntax-string">"CCIL Ltd"</span>,</div>
+                        <div>&nbsp;&nbsp;specialties: [</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-syntax-string">"Sovereign Clearing"</span>, <span class="code-syntax-string">"UAT Governance"</span>,</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-syntax-string">"Cloud Microservices"</span>, <span class="code-syntax-string">"BPMN Architecture"</span></div>
+                        <div>&nbsp;&nbsp;]</div>
+                        <div>};</div>
+                        <div class="pt-3"><span class="code-syntax-comment">// Tracking key operational telemetry</span></div>
+                        <div><span class="code-syntax-accent">console</span>.log(profile.specialties.join(<span class="code-syntax-string">" | "</span>));</div>
+                        <div class="text-matrix/6xl font-semibold pt-1 text-[10px] animate-pulse">&gt; Sovereign Clearing | UAT Governance | Cloud Microservices | BPMN Architecture</div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="mt-16 flex justify-center space-x-6 text-slate-600">
-                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="hover:text-matrix transition-colors" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="mailto:dubeyr428@outlook.com" class="hover:text-matrix transition-colors" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                </a>
-            </div>
+
         </div>
     </section>
 
-    <section id="about" class="border-y border-white/5 bg-black/20">
+    <!-- REFACTORED ADVANCED SUMMARY -->
+    <section id="about" class="border-y border-white/[0.02] bg-black/[0.15]">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="flex flex-col mb-8 font-mono">
-                <span class="text-xs text-matrix tracking-widest uppercase">// 01 . EXECUTIVE SUMMARY</span>
-            </div>
-            <div class="terminal-card p-6 sm:p-10 rounded border border-white/5">
-                <div class="text-sm sm:text-base text-slate-400 leading-relaxed space-y-6 font-mono">
+            <div class="font-mono text-[10px] tracking-widest text-matrix uppercase mb-8">// LEVEL_01 // METADATA_SUMMARY</div>
+            <div class="terminal-card p-6 sm:p-10 border border-white/5 relative">
+                <div class="absolute top-0 right-0 font-mono text-[9px] text-slate-600 p-3 select-none">ID: 409-R</div>
+                <div class="text-sm sm:text-base font-mono space-y-6 text-slate-400 leading-relaxed">
                     <p>
-                        Senior Business Analyst with <span id="exp-years-about" class="text-white font-semibold">8+ years of expertise</span> across capital markets, financial operations, and infrastructure engineering. Specialized implementation architecture across <span class="text-matrix">membership structures, clearing engines, &amp; settlement logs</span> compliant with national framework directives.
+                        Senior Infrastructure Operations Analyst holding <span id="exp-years-about" class="text-white font-semibold">8+ Years Practice</span> across core market engines, financial settlement architecture, and cloud technology domains. Expert at drafting functional logic layers mapping out intricate <span class="text-matrix">membership parameters, automated clearing streams, and algorithmic risk buffers</span> adhering strictly to regulatory oversight frameworks.
                     </p>
                     <p>
-                        Currently driving high-availability cloud migration initiatives and architecture modernization patterns at <span class="text-white">The Clearing Corporation of India Ltd (CCIL)</span>. System transformation portfolio aggregates over <span class="text-white">10+ production modules</span>, realizing a metrics-verified validation uplift of <span class="text-matrix">~25% defect detection coverage</span> inside complex end-to-end integration environments.
+                        Currently validating microservice systems migration at <span class="text-white font-medium">The Clearing Corporation of India Ltd (CCIL)</span>. System transformation lifecycle encompasses <span class="text-white font-medium">10+ production modules</span>, creating integrated UAT strategies that effectively captured and containerized architectural flaws, yielding an improved pre-prod defect localization shift of <span class="text-matrix">~25%</span>.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CORE FUNCTIONAL SYSTEM MATRICES (SKILLS) -->
     <section id="skills">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="mb-12 font-mono">
-                <span class="text-xs text-matrix tracking-widest uppercase block mb-2">// 02 . SKILLS_MATRIX_DESTRUCTION</span>
-                <h2 class="text-xl font-bold text-white uppercase tracking-tight">Core Capabilities Map</h2>
+            <div class="mb-12 font-mono relative z-20">
+                <div class="text-[10px] text-matrix tracking-widest uppercase mb-1">// LEVEL_02 // SYSTEM_CAPABILITIES</div>
+                <h2 class="text-lg font-bold text-white uppercase tracking-wider">Functional Matrix Decoders</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-20">
                 
-                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                <!-- STACK 1 -->
+                <div class="terminal-card p-6 border flex flex-col justify-between">
                     <div>
-                        <div class="text-matrix font-mono text-xs mb-4">[SYSTEM_ANALYSIS]</div>
-                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Business Analysis</h3>
+                        <div class="flex items-center justify-between mb-4 font-mono text-[10px] text-slate-500">
+                            <span>[UNIT_01]</span>
+                            <span class="text-matrix">SYS_BA</span>
+                        </div>
+                        <h3 class="text-xs font-bold font-mono text-white mb-6 uppercase tracking-widest">Business Analysis</h3>
                         <div class="flex flex-wrap gap-2">
-                            <div class="skill-tag">Requirements Gathering</div>
+                            <div class="skill-tag">Requirements Scoping</div>
                             <div class="skill-tag"><span class="abbr-badge">BRD</span>BRD</div>
                             <div class="skill-tag"><span class="abbr-badge">FRD</span>FRD</div>
                             <div class="skill-tag"><span class="abbr-badge">SRS</span>SRS</div>
-                            <div class="skill-tag">User Stories</div>
-                            <div class="skill-tag">AS-IS / TO-BE</div>
+                            <div class="skill-tag">User Stories Mapping</div>
+                            <div class="skill-tag">Target state AS-IS / TO-BE</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                <!-- STACK 2 -->
+                <div class="terminal-card p-6 border flex flex-col justify-between">
                     <div>
-                        <div class="text-matrix font-mono text-xs mb-4">[STRUCTURAL_LOGIC]</div>
-                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Modeling &amp; Schematics</h3>
+                        <div class="flex items-center justify-between mb-4 font-mono text-[10px] text-slate-500">
+                            <span>[UNIT_02]</span>
+                            <span class="text-matrix">SYS_ARCH</span>
+                        </div>
+                        <h3 class="text-xs font-bold font-mono text-white mb-6 uppercase tracking-widest">Modeling Schematics</h3>
                         <div class="flex flex-wrap gap-2">
-                            <div class="skill-tag"><span class="abbr-badge">BPMN</span>BPMN 2.0</div>
-                            <div class="skill-tag">Balsamiq Wireframes</div>
-                            <div class="skill-tag">Lucidchart</div>
-                            <div class="skill-tag">Microsoft Visio</div>
-                            <div class="skill-tag">Draw.io</div>
+                            <div class="skill-tag"><span class="abbr-badge">BPMN</span>BPMN 2.0 Engine</div>
+                            <div class="skill-tag">Balsamiq UI Blueprints</div>
+                            <div class="skill-tag">Lucid Architecture</div>
+                            <div class="skill-tag">Microsoft Visio Structs</div>
+                            <div class="skill-tag">Draw.io Modeling</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                <!-- STACK 3 -->
+                <div class="terminal-card p-6 border flex flex-col justify-between">
                     <div>
-                        <div class="text-matrix font-mono text-xs mb-4">[SDLC_PIPELINE]</div>
-                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Agile Delivery</h3>
+                        <div class="flex items-center justify-between mb-4 font-mono text-[10px] text-slate-500">
+                            <span>[UNIT_03]</span>
+                            <span class="text-matrix">SYS_SDLC</span>
+                        </div>
+                        <h3 class="text-xs font-bold font-mono text-white mb-6 uppercase tracking-widest">Agile Delivery</h3>
                         <div class="flex flex-wrap gap-2">
                             <div class="skill-tag">Scrum Management</div>
-                            <div class="skill-tag">Sprint Planning</div>
-                            <div class="skill-tag">Backlog Grooming</div>
-                            <div class="skill-tag">Jira</div>
-                            <div class="skill-tag">Azure DevOps</div>
-                            <div class="skill-tag">GitLab / Redmine</div>
+                            <div class="skill-tag">Sprint Lifecycle Planning</div>
+                            <div class="skill-tag">Backlog Modernization</div>
+                            <div class="skill-tag">Jira Agile Stacks</div>
+                            <div class="skill-tag">Azure DevOps Portals</div>
+                            <div class="skill-tag">GitLab Logic Repos</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                <!-- STACK 4 -->
+                <div class="terminal-card p-6 border flex flex-col justify-between">
                     <div>
-                        <div class="text-matrix font-mono text-xs mb-4">[DOMAIN_INTELLIGENCE]</div>
-                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Financial Ecosystems</h3>
+                        <div class="flex items-center justify-between mb-4 font-mono text-[10px] text-slate-500">
+                            <span>[UNIT_04]</span>
+                            <span class="text-matrix">SYS_DOMAIN</span>
+                        </div>
+                        <h3 class="text-xs font-bold font-mono text-white mb-6 uppercase tracking-widest">Financial Landscapes</h3>
                         <div class="flex flex-wrap gap-2">
-                            <div class="skill-tag">Membership Systems</div>
-                            <div class="skill-tag">Clearing &amp; Settlement</div>
-                            <div class="skill-tag">Government Securities</div>
-                            <div class="skill-tag">FX-Options</div>
-                            <div class="skill-tag">Loan Management</div>
+                            <div class="skill-tag">Institutional Membership</div>
+                            <div class="skill-tag">Clearing &amp; Settlement Engines</div>
+                            <div class="skill-tag">Sovereign Debt G-Sec Markets</div>
+                            <div class="skill-tag">FX-Options Risk Tranches</div>
+                            <div class="skill-tag">Commercial Loan Lifecycle</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                <!-- STACK 5 -->
+                <div class="terminal-card p-6 border flex flex-col justify-between">
                     <div>
-                        <div class="text-matrix font-mono text-xs mb-4">[DATA_DECODER]</div>
-                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Analytics &amp; Datastores</h3>
+                        <div class="flex items-center justify-between mb-4 font-mono text-[10px] text-slate-500">
+                            <span>[UNIT_05]</span>
+                            <span class="text-matrix">SYS_DATA</span>
+                        </div>
+                        <h3 class="text-xs font-bold font-mono text-white mb-6 uppercase tracking-widest">Data Engineering</h3>
                         <div class="flex flex-wrap gap-2">
-                            <div class="skill-tag">Power BI</div>
-                            <div class="skill-tag">MySQL</div>
-                            <div class="skill-tag">Tableau</div>
-                            <div class="skill-tag">Data Validation</div>
-                            <div class="skill-tag">Excel Dashboarding</div>
+                            <div class="skill-tag">Power BI Data Modeling</div>
+                            <div class="skill-tag">MySQL Architecture</div>
+                            <div class="skill-tag">Tableau Workspaces</div>
+                            <div class="skill-tag">Structural Integrity Audits</div>
+                            <div class="skill-tag">Advanced Decision Metrics</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="terminal-card p-6 rounded border flex flex-col justify-between">
+                <!-- STACK 6 -->
+                <div class="terminal-card p-6 border flex flex-col justify-between">
                     <div>
-                        <div class="text-matrix font-mono text-xs mb-4">[INTEGRITY_SHIELD]</div>
-                        <h3 class="text-base font-bold text-white mb-6 tracking-wide uppercase">Testing &amp; Auditing</h3>
+                        <div class="flex items-center justify-between mb-4 font-mono text-[10px] text-slate-500">
+                            <span>[UNIT_06]</span>
+                            <span class="text-matrix">SYS_VAL</span>
+                        </div>
+                        <h3 class="text-xs font-bold font-mono text-white mb-6 uppercase tracking-widest">Testing Infrastructure</h3>
                         <div class="flex flex-wrap gap-2">
-                            <div class="skill-tag"><span class="abbr-badge">UAT</span>UAT Execution</div>
-                            <div class="skill-tag">Test Case Design</div>
-                            <div class="skill-tag">API Integration Testing</div>
-                            <div class="skill-tag">Defect Tracking</div>
-                            <div class="skill-tag">Database Validation</div>
+                            <div class="skill-tag"><span class="abbr-badge">UAT</span>End-To-End UAT Strategy</div>
+                            <div class="skill-tag">Functional Path Matrix Design</div>
+                            <div class="skill-tag">API Integration Protocols</div>
+                            <div class="skill-tag">Defect Lifecycle Control</div>
+                            <div class="skill-tag">Database State Mapping</div>
                         </div>
                     </div>
                 </div>
@@ -374,200 +389,232 @@
         </div>
     </section>
 
-    <section id="experience" class="border-y border-white/5 bg-black/20">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="mb-12 font-mono">
-                <span class="text-xs text-matrix tracking-widest uppercase block mb-2">// 03 . TIMELINE_LOGS</span>
-                <h2 class="text-xl font-bold text-white uppercase tracking-tight">Professional Journey</h2>
+    <!-- PROFESSIONAL CHRONOLOGY (CHRONO-LEDGER) -->
+    <section id="experience" class="border-y border-white/[0.02] bg-black/[0.15]">
+        <div class="ambient-glow" style="bottom: 10%;"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-20">
+            <div class="mb-16 font-mono">
+                <div class="text-[10px] text-matrix tracking-widest uppercase mb-1">// LEVEL_03 // OPERATIONAL_LEDGER</div>
+                <h2 class="text-lg font-bold text-white uppercase tracking-wider">Chronological System Registry</h2>
             </div>
             
-            <div class="space-y-12 border-l border-matrix/20 ml-2 pl-6 sm:pl-8 relative font-mono text-xs">
+            <div class="space-y-12 border-l border-white/10 ml-2 pl-6 sm:pl-8 relative font-mono text-xs">
                 
+                <!-- NODE 1: CCIL -->
                 <div class="relative group">
-                    <div class="absolute -left-[1.85rem] top-1 w-3 h-3 bg-matrix border-4 border-obsidian shadow-[0_0_8px_#00FFCC] rounded-none group-hover:scale-125 transition-transform"></div>
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wide group-hover:text-matrix transition-colors">Business Analyst - Deputy Manager</h3>
-                        <span class="text-matrix bg-matrix/5 px-2 py-1 border border-matrix/10 inline-block w-fit">May 2024 - Present</span>
+                    <div class="absolute -left-[1.78rem] top-1 w-2.5 h-2.5 bg-matrix shadow-[0_0_8px_#00FFCC] rounded-none"></div>
+                    <div class="mb-2 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 text-slate-500 text-[10px]">
+                        <span>[BLOCK_ID: 04_CCIL]</span>
+                        <span class="text-matrix bg-matrix/5 px-2 py-0.5 border border-matrix/10">MAY 2024 - PRESENT // RUNNING_</span>
                     </div>
-                    <p class="text-slate-400 font-medium mb-4 text-[11px] uppercase tracking-wider">The Clearing Corporation of India Ltd (CCIL)</p>
-                    <ul class="text-slate-400 space-y-2 list-none text-[11px] leading-relaxed">
-                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Automated operational frameworks for critical Member Portals and legacy institutional clearing engines inside domestic sovereign assets.</span></li>
-                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Mapped business logic transformation and authored functional blueprints across 10+ legacy segments including FX-Options integration layers.</span></li>
-                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Orchestrated agile backlogs containing 50+ detailed structural user statements per execution iteration loop inside internal tracking stacks.</span></li>
-                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Engineered rigorous validation plans comprising 100+ critical functional paths, uplifting the detection metrics by ~25%.</span></li>
-                        <li class="flex items-start"><span class="text-matrix mr-3 font-bold">&gt;</span><span>Refactored operational workflows through integration design, removing ~30% of manual runtime overhead.</span></li>
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wide group-hover:text-matrix transition-colors">Business Analyst - Deputy Manager</h3>
+                    <p class="text-slate-400 font-medium mb-4 uppercase text-[10px] tracking-widest">The Clearing Corporation of India Ltd (CCIL)</p>
+                    <ul class="text-slate-400 space-y-2 list-none text-[11px] font-sans font-light leading-relaxed">
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-mono text-[10px] font-bold">&gt;&gt;</span><span>Orchestrated automation patterns for critical institution-facing portals and core clearing mechanisms within sovereign primary/secondary debt markets.</span></li>
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-mono text-[10px] font-bold">&gt;&gt;</span><span>Mapped multi-layer complex functional flow constraints to author specification documentation for cloud microservice transformations crossing 10+ core structural blocks.</span></li>
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-mono text-[10px] font-bold">&gt;&gt;</span><span>Controlled agile sprints running 50+ user story matrices containing highly structured boundary criteria inside GitLab pipeline repositories.</span></li>
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-mono text-[10px] font-bold">&gt;&gt;</span><span>Architected integration verification tests covering 100+ logic pathways, advancing pre-production system risk interception metrics by ~25%.</span></li>
+                        <li class="flex items-start"><span class="text-matrix mr-3 font-mono text-[10px] font-bold">&gt;&gt;</span><span>Reduced manual operational overhead processing timelines by ~30% through automated event-driven messaging structures.</span></li>
                     </ul>
                 </div>
 
+                <!-- NODE 2: NEXTGEN -->
                 <div class="relative group">
-                    <div class="absolute -left-[1.85rem] top-1 w-3 h-3 bg-slate-800 border-4 border-obsidian rounded-none group-hover:bg-matrix transition-colors"></div>
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wide">Business Analyst / Project Manager</h3>
-                        <span class="text-slate-500 bg-white/5 px-2 py-1 border border-white/5 inline-block w-fit">Nov 2022 - Dec 2023</span>
+                    <div class="absolute -left-[1.78rem] top-1 w-2.5 h-2.5 bg-slate-800 rounded-none group-hover:bg-matrix group-hover:shadow-[0_0_8px_#00FFCC] transition-all"></div>
+                    <div class="mb-2 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 text-slate-500 text-[10px]">
+                        <span>[BLOCK_ID: 03_NXGN]</span>
+                        <span class="text-slate-500 bg-white/5 px-2 py-0.5 border border-white/5">NOV 2022 - DEC 2023 // COMPLETED_</span>
                     </div>
-                    <p class="text-slate-400 font-medium mb-4 text-[11px] uppercase tracking-wider">NextGen Invent Corporation</p>
-                    <ul class="text-slate-400 space-y-2 list-none text-[11px] leading-relaxed">
-                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Managed execution parameters and timeline delivery for commercial debt-handling configurations and cross-border lending mechanisms.</span></li>
-                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Acted as agile workflow driver, standardizing internal frameworks and incorporating secure settlement access layers (Stripe, PayPal).</span></li>
-                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Constructed data orchestration layers inside business intelligence tools, distilling multi-tiered raw inputs into analytical insights.</span></li>
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wide">Business Analyst / Project Manager</h3>
+                    <p class="text-slate-400 font-medium mb-4 uppercase text-[10px] tracking-widest">NextGen Invent Corporation</p>
+                    <ul class="text-slate-400 space-y-2 list-none text-[11px] font-sans font-light leading-relaxed">
+                        <li class="flex items-start"><span class="text-slate-600 mr-3 font-mono text-[10px]">&gt;&gt;</span><span>Steered architecture roadmaps and deployment sprints for enterprise-tier micro-lending platforms and modern core accounting ledger entities.</span></li>
+                        <li class="flex items-start"><span class="text-slate-600 mr-3 font-mono text-[10px]">&gt;&gt;</span><span>Facilitated Scrum framework lifecycles and safely deployed complex global payment settlement pathways (Stripe, PayPal infrastructure).</span></li>
+                        <li class="flex items-start"><span class="text-slate-600 mr-3 font-mono text-[10px]">&gt;&gt;</span><span>Constructed structural dashboard layers converting diverse multi-source databases into granular operational metrics charts.</span></li>
                     </ul>
                 </div>
 
+                <!-- NODE 3: INTEGREON -->
                 <div class="relative group">
-                    <div class="absolute -left-[1.85rem] top-1 w-3 h-3 bg-slate-800 border-4 border-obsidian rounded-none group-hover:bg-matrix transition-colors"></div>
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wide">Business Analyst</h3>
-                        <span class="text-slate-500 bg-white/5 px-2 py-1 border border-white/5 inline-block w-fit">Dec 2019 - Aug 2022</span>
+                    <div class="absolute -left-[1.78rem] top-1 w-2.5 h-2.5 bg-slate-800 rounded-none group-hover:bg-matrix group-hover:shadow-[0_0_8px_#00FFCC] transition-all"></div>
+                    <div class="mb-2 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 text-slate-500 text-[10px]">
+                        <span>[BLOCK_ID: 02_INTG]</span>
+                        <span class="text-slate-500 bg-white/5 px-2 py-0.5 border border-white/5">DEC 2019 - AUG 2022 // COMPLETED_</span>
                     </div>
-                    <p class="text-slate-400 font-medium mb-4 text-[11px] uppercase tracking-wider">Integreon Managed Solutions India Pvt. Ltd.</p>
-                    <ul class="text-slate-400 space-y-2 list-none text-[11px] leading-relaxed">
-                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Structured and shipped risk-evaluated counterparty verification interfaces built specifically for compliance networks.</span></li>
-                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Aggregated operational specifications to programmatically parse complex multi-source requirements into clear product maps.</span></li>
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wide">Business Analyst</h3>
+                    <p class="text-slate-400 font-medium mb-4 uppercase text-[10px] tracking-widest">Integreon Managed Solutions India Pvt. Ltd.</p>
+                    <ul class="text-slate-400 space-y-2 list-none text-[11px] font-sans font-light leading-relaxed">
+                        <li class="flex items-start"><span class="text-slate-600 mr-3 font-mono text-[10px]">&gt;&gt;</span><span>Mapped operational constraints for custom risk-evaluation systems deployed globally inside regulatory entity monitoring pipelines.</span></li>
+                        <li class="flex items-start"><span class="text-slate-600 mr-3 font-mono text-[10px]">&gt;&gt;</span><span>Analyzed and engineered enterprise processing targets to translate nebulous regulatory policies into functional tracking metrics.</span></li>
                     </ul>
                 </div>
 
+                <!-- NODE 4: CONCENTRIX -->
                 <div class="relative group">
-                    <div class="absolute -left-[1.85rem] top-1 w-3 h-3 bg-slate-800 border-4 border-obsidian rounded-none group-hover:bg-matrix transition-colors"></div>
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wide">Business Analyst / Web Developer</h3>
-                        <span class="text-slate-500 bg-white/5 px-2 py-1 border border-white/5 inline-block w-fit">Jan 2017 - Jul 2019</span>
+                    <div class="absolute -left-[1.78rem] top-1 w-2.5 h-2.5 bg-slate-800 rounded-none group-hover:bg-matrix group-hover:shadow-[0_0_8px_#00FFCC] transition-all"></div>
+                    <div class="mb-2 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 text-slate-500 text-[10px]">
+                        <span>[BLOCK_ID: 01_CNTX]</span>
+                        <span class="text-slate-500 bg-white/5 px-2 py-0.5 border border-white/5">JAN 2017 - JUL 2019 // COMPLETED_</span>
                     </div>
-                    <p class="text-slate-400 font-medium mb-4 text-[11px] uppercase tracking-wider">Concentrix Daksh Service India Pvt. Ltd.</p>
-                    <ul class="text-slate-400 space-y-2 list-none text-[11px] leading-relaxed">
-                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Maintained and updated web applications leveraging foundational UI architectures (HTML, CSS, JavaScript).</span></li>
-                        <li class="flex items-start"><span class="text-slate-600 mr-3">&gt;</span><span>Executed a calculated shift into dedicated operations analysis, transforming legacy data points into clear specifications.</span></li>
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wide">Business Analyst / Web Developer</h3>
+                    <p class="text-slate-400 font-medium mb-4 uppercase text-[10px] tracking-widest">Concentrix Daksh Service India Pvt. Ltd.</p>
+                    <ul class="text-slate-400 space-y-2 list-none text-[11px] font-sans font-light leading-relaxed">
+                        <li class="flex items-start"><span class="text-slate-600 mr-3 font-mono text-[10px]">&gt;&gt;</span><span>Managed custom code configurations and updates to internal systems deploying core web technology arrays (HTML, CSS, JavaScript framework layers).</span></li>
+                        <li class="flex items-start"><span class="text-slate-600 mr-3 font-mono text-[10px]">&gt;&gt;</span><span>Successfully transitioned into operational architecture paths, tracking systemic processing speeds and product data specs.</span></li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- VERIFIED RECORD VERIFICATION (CERTIFICATIONS) -->
     <section id="certifications">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="mb-12 font-mono">
-                <span class="text-xs text-matrix tracking-widest uppercase block mb-2">// 04 . VALIDATED_CREDENTIALS</span>
-                <h2 class="text-xl font-bold text-white uppercase tracking-tight">Certifications &amp; Education</h2>
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-12 font-mono relative z-20">
+                <div class="text-[10px] text-matrix tracking-widest uppercase mb-1">// LEVEL_04 // CRYPTO_SIGN_RECORDS</div>
+                <h2 class="text-lg font-bold text-white uppercase tracking-wider">Credentials &amp; Education Logs</h2>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
-                
-                <div class="terminal-card p-5 rounded border border-l-2 border-l-matrix">
-                    <div class="text-slate-500 mb-2">[DEGREE_REGISTRY]</div>
-                    <p class="font-bold text-white uppercase tracking-wide mb-1">BSc Information Technology</p>
-                    <p class="text-slate-400">Mumbai University &middot; 2013-2016</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs relative z-20">
+                <div class="terminal-card p-4 border border-l-2 border-l-matrix">
+                    <div class="text-slate-600 text-[9px] mb-1">[REGISTRY: ACADEMIC]</div>
+                    <p class="font-bold text-white tracking-wide uppercase">BSc Information Technology</p>
+                    <p class="text-slate-500 text-[11px]">Mumbai University // Class of 2016</p>
                 </div>
-                
-                <div class="terminal-card p-5 rounded border">
-                    <div class="text-slate-500 mb-2">[LICENSE_ID_01]</div>
-                    <p class="font-bold text-white uppercase tracking-wide mb-1">Business Analysis Foundations</p>
-                    <p class="text-slate-400">LinkedIn Learning</p>
+                <div class="terminal-card p-4 border">
+                    <div class="text-slate-600 text-[9px] mb-1">[REGISTRY: ID_9921]</div>
+                    <p class="font-bold text-white tracking-wide uppercase">Business Analysis Foundations</p>
+                    <p class="text-slate-500 text-[11px]">LinkedIn Learning Stack</p>
                 </div>
-                
-                <div class="terminal-card p-5 rounded border">
-                    <div class="text-slate-500 mb-2">[LICENSE_ID_02]</div>
-                    <p class="font-bold text-white uppercase tracking-wide mb-1">Project Management</p>
-                    <p class="text-slate-400">Great Learning</p>
+                <div class="terminal-card p-4 border">
+                    <div class="text-slate-600 text-[9px] mb-1">[REGISTRY: ID_5810]</div>
+                    <p class="font-bold text-white tracking-wide uppercase">Project Management Core</p>
+                    <p class="text-slate-500 text-[11px]">Great Learning Verification</p>
                 </div>
-                
-                <div class="terminal-card p-5 rounded border">
-                    <div class="text-slate-500 mb-2">[LICENSE_ID_03]</div>
-                    <p class="font-bold text-white uppercase tracking-wide mb-1">Product Management</p>
-                    <p class="text-slate-400">Great Learning</p>
+                <div class="terminal-card p-4 border">
+                    <div class="text-slate-600 text-[9px] mb-1">[REGISTRY: ID_2291]</div>
+                    <p class="font-bold text-white tracking-wide uppercase">Product Management Spec</p>
+                    <p class="text-slate-500 text-[11px]">Great Learning Verification</p>
                 </div>
-                
-                <div class="terminal-card p-5 rounded border">
-                    <div class="text-slate-500 mb-2 Geno mb-2">[LICENSE_ID_04]</div>
-                    <p class="font-bold text-white uppercase tracking-wide mb-1">Product Lifecycle Management</p>
-                    <p class="text-slate-400">Great Learning</p>
+                <div class="terminal-card p-4 border">
+                    <div class="text-slate-600 text-[9px] mb-1">[REGISTRY: ID_4401]</div>
+                    <p class="font-bold text-white tracking-wide uppercase">Product Lifecycle Architecture</p>
+                    <p class="text-slate-500 text-[11px]">Great Learning Verification</p>
                 </div>
-                
-                <div class="terminal-card p-5 rounded border">
-                    <div class="text-slate-500 mb-2">[LICENSE_ID_05]</div>
-                    <p class="font-bold text-white uppercase tracking-wide mb-1">Data Visualization (Power BI)</p>
-                    <p class="text-slate-400">Great Learning</p>
+                <div class="terminal-card p-4 border">
+                    <div class="text-slate-600 text-[9px] mb-1">[REGISTRY: ID_3812]</div>
+                    <p class="font-bold text-white tracking-wide uppercase">Data Visualization (Power BI)</p>
+                    <p class="text-slate-500 text-[11px]">Great Learning Verification</p>
                 </div>
-                
-                <div class="terminal-card p-5 rounded border">
-                    <div class="text-slate-500 mb-2">[LICENSE_ID_06]</div>
-                    <p class="font-bold text-white uppercase tracking-wide mb-1">Tableau Core Training</p>
-                    <p class="text-slate-400">Simplilearn</p>
+                <div class="terminal-card p-4 border">
+                    <div class="text-slate-600 text-[9px] mb-1">[REGISTRY: ID_0991]</div>
+                    <p class="font-bold text-white tracking-wide uppercase">Tableau Analytics Training</p>
+                    <p class="text-slate-500 text-[11px]">Simplilearn Core Pipeline</p>
                 </div>
-                
-                <div class="terminal-card p-5 rounded border">
-                    <div class="text-slate-500 mb-2">[LICENSE_ID_07]</div>
-                    <p class="font-bold text-white uppercase tracking-wide mb-1">Responsive Web Design</p>
-                    <p class="text-slate-400">freeCodeCamp</p>
+                <div class="terminal-card p-4 border">
+                    <div class="text-slate-600 text-[9px] mb-1">[REGISTRY: ID_7761]</div>
+                    <p class="font-bold text-white tracking-wide uppercase">Responsive Web Architectures</p>
+                    <p class="text-slate-500 text-[11px]">freeCodeCamp Frameworks</p>
                 </div>
-
-                <div class="terminal-card p-5 rounded border sm:col-span-2">
-                    <div class="text-slate-500 mb-2">[INTEROP_PROTOCOL]</div>
-                    <p class="font-bold text-white uppercase tracking-wide mb-1">HL7 FHIR® Proficient Certification</p>
-                    <p class="text-slate-400">HL7 International</p>
+                <div class="terminal-card p-4 border sm:col-span-2">
+                    <div class="text-slate-600 text-[9px] mb-1">[REGISTRY: INTEROP_DATA]</div>
+                    <p class="font-bold text-white tracking-wide uppercase">HL7 FHIR® Proficient Certification</p>
+                    <p class="text-slate-500 text-[11px]">HL7 International Certification Authority</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="achievements" class="border-y border-white/5 bg-black/20">
+    <!-- REALISTIC TELEMETRY INTERACTIVE GRID (ACHIEVEMENTS) -->
+    <section id="achievements" class="border-y border-white/[0.02] bg-black/[0.15]">
         <div class="max-w-6xl mx-auto px-6">
             <div class="mb-12 font-mono text-center">
-                <span class="text-xs text-matrix tracking-widest uppercase block mb-2">// 05 . REALTIME_METRICS</span>
-                <h2 class="text-xl font-bold text-white uppercase tracking-tight">System Impact Logs</h2>
+                <div class="text-[10px] text-matrix tracking-widest uppercase mb-1">// LEVEL_05 // QUANTIFIABLE_TELEMETRY</div>
+                <h2 class="text-lg font-bold text-white uppercase tracking-wider">System Metrics Telemetry</h2>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
-                <div class="text-center p-6 terminal-card rounded">
-                    <div class="text-2xl sm:text-4xl font-bold text-matrix mb-1 select-none">~25%</div>
-                    <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">UAT Defect Isolation</p>
-                </div>
-                <div class="text-center p-6 terminal-card rounded">
-                    <div class="text-2xl sm:text-4xl font-bold text-matrix mb-1 select-none">~30%</div>
-                    <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Manual Load Reductions</p>
-                </div>
-                <div class="text-center p-6 terminal-card rounded">
-                    <div class="text-2xl sm:text-4xl font-bold text-matrix mb-1 select-none">10+</div>
-                    <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Migrated Modules</p>
-                </div>
-                <div class="text-center p-6 terminal-card rounded">
-                    <div id="exp-years-stat" class="text-2xl sm:text-4xl font-bold text-matrix mb-1 select-none">8Y+</div>
-                    <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Ecosystem Practice</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="pb-24 sm:pb-32">
-        <div class="max-w-xl mx-auto px-6 text-center font-mono">
-            <div class="inline-block p-3 rounded-full bg-matrix/5 text-matrix mb-6 border border-matrix/10">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <h2 class="text-2xl font-bold text-white uppercase tracking-tight mb-4">Establish Data Link</h2>
-            <p class="text-slate-400 mb-10 text-xs leading-relaxed max-w-md mx-auto">Available for Senior Project Execution frameworks and Product Delivery Management layers inside FinTech lines.</p>
             
-            <div class="space-y-3 text-xs tracking-wider">
-                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-center space-x-4 p-4 terminal-card rounded group transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-matrix shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    <span class="text-white font-bold tracking-widest truncate">dubeyr428@outlook.com</span>
+            <!-- ADVANCED SIMULATED FINTECH TELEMETRY MODULES -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
+                
+                <div class="p-6 terminal-card rounded relative overflow-hidden">
+                    <div class="text-slate-600 text-[9px] mb-2">[METRIC_UAT_COVERAGE]</div>
+                    <div class="text-3xl font-bold text-white tracking-tight mb-2">~25%</div>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wider mb-3">Defect Localization</p>
+                    <div class="w-full bg-white/5 h-1 rounded-none overflow-hidden">
+                        <div class="bg-matrix h-full w-[25%] shadow-[0_0_8px_#00FFCC]"></div>
+                    </div>
+                </div>
+
+                <div class="p-6 terminal-card rounded relative overflow-hidden">
+                    <div class="text-slate-600 text-[9px] mb-2">[METRIC_MANUAL_LOAD]</div>
+                    <div class="text-3xl font-bold text-white tracking-tight mb-2">~30%</div>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wider mb-3">Effort Saved Via Scripting</p>
+                    <div class="w-full bg-white/5 h-1 rounded-none overflow-hidden">
+                        <div class="bg-matrix h-full w-[30%] shadow-[0_0_8px_#00FFCC]"></div>
+                    </div>
+                </div>
+
+                <div class="p-6 terminal-card rounded relative overflow-hidden">
+                    <div class="text-slate-600 text-[9px] mb-2">[METRIC_TRANSFORMATIONS]</div>
+                    <div class="text-3xl font-bold text-white tracking-tight mb-2">10+</div>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wider mb-3">Migrated Core Modules</p>
+                    <div class="w-full bg-white/5 h-1 rounded-none overflow-hidden">
+                        <div class="bg-matrix h-full w-[65%] shadow-[0_0_8px_#00FFCC]"></div>
+                    </div>
+                </div>
+
+                <div class="p-6 terminal-card rounded relative overflow-hidden">
+                    <div class="text-slate-600 text-[9px] mb-2">[METRIC_TENURE_CLOCK]</div>
+                    <div id="exp-years-stat" class="text-3xl font-bold text-white tracking-tight mb-2">8Y+</div>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wider mb-3">Domain System Experience</p>
+                    <div class="w-full bg-white/5 h-1 rounded-none overflow-hidden">
+                        <div class="bg-matrix h-full w-[85%] shadow-[0_0_8px_#00FFCC]"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTABLISH LINK VIA SECURE PORTS (CONTACT) -->
+    <section id="contact" class="pb-28">
+        <div class="max-w-xl mx-auto px-6 text-center font-mono relative z-20">
+            <div class="inline-block p-2 bg-matrix/5 text-matrix mb-4 border border-matrix/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h2 class="text-sm font-bold text-white uppercase tracking-widest mb-2">Open Handshake Sync Link</h2>
+            <p class="text-slate-500 text-[11px] leading-relaxed mb-8 max-w-sm mx-auto">Available for operational consulting and permanent deployment hooks into elite Product Execution architectures.</p>
+            
+            <div class="space-y-2 text-[11px] tracking-widest uppercase">
+                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-between p-3.5 terminal-card rounded group transition-all">
+                    <span class="text-slate-600">[EMAIL_PORT]</span>
+                    <span class="text-white group-hover:text-matrix transition-colors truncate pl-4">dubeyr428@outlook.com</span>
                 </a>
-                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-4 p-4 terminal-card rounded group transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-matrix shrink-0"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    <span class="text-white font-bold tracking-widest truncate">linkedin.com/in/rahul-dubey</span>
+                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 terminal-card rounded group transition-all">
+                    <span class="text-slate-600">[SECURE_LINKEDIN]</span>
+                    <span class="text-white group-hover:text-matrix transition-colors truncate pl-4">in/rahul-dubey</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <button id="scroll-top-btn" class="w-10 h-10 bg-matrix text-obsidian rounded shadow-lg flex items-center justify-center transform active:scale-95" aria-label="Top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    <!-- FLOATING ACTIONS: CONTROL TERMINAL RETURN ARROW -->
+    <button id="scroll-top-btn" class="w-9 h-9 bg-matrix text-obsidian rounded-none shadow-[0_0_10px_rgba(0,255,204,0.3)] flex items-center justify-center transform active:scale-90" aria-label="Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
-    <footer class="py-12 border-t border-white/5 text-center px-6 font-mono text-xs">
-        <div class="max-w-6xl mx-auto">
-            <span class="text-slate-600 block mb-3">// ARCHIVE_ROOT_END</span>
-            <p class="text-slate-500 text-[10px] tracking-widest uppercase">Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> Rahul Dubey.</p>
+    <!-- REALISTIC SUB-FOOTER RECON TRACKER -->
+    <footer class="py-10 border-t border-white/[0.03] text-center px-6 font-mono text-[10px] tracking-widest relative z-20">
+        <div class="max-w-6xl mx-auto text-slate-600">
+            <div>// PORT_ESTABLISHED // TARGET_SHUTDOWN_NONE</div>
+            <div class="mt-2 text-slate-500">Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> RAHUL DUBEY.</div>
         </div>
     </footer>
 
+    <!-- LOGICAL ARCHITECTURE EXECUTION OBJECTS -->
     <script>
-        // Drawer Menu Toggle Interface Logic
+        // Drawer Menu Control Router Block
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -586,21 +633,25 @@
             if (mobileMenu.classList.contains('active')) toggleMenu();
         }));
 
-        // Experience Calculation Module Engine
+        // Dynamic System Tenure Delta Engine
         const startYear = 2017;
         const yearsExp = new Date().getFullYear() - startYear;
+        
+        const expCode = document.getElementById('exp-years-code');
         const expStrip = document.getElementById('exp-years-strip');
         const expAbout = document.getElementById('exp-years-about');
         const expStat = document.getElementById('exp-years-stat');
+        
+        if (expCode) expCode.textContent = yearsExp + '+';
         if (expStrip) expStrip.textContent = yearsExp + '+ Years Practice';
-        if (expAbout) expAbout.textContent = yearsExp + '+ Years of Experience';
+        if (expAbout) expAbout.textContent = yearsExp + '+ Years Practice';
         if (expStat) expStat.textContent = yearsExp + 'Y+';
 
         // Synchronize Footer Clock Context
         const footerYear = document.getElementById('footer-year');
         if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-        // Active Scroll Spy Tracking Configuration Engine
+        // Active Navigation Tracker ScrollSpy Framework
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -613,15 +664,15 @@
                 }
             });
             navLinks.forEach(link => {
-                link.classList.remove('text-matrix', 'font-bold');
+                link.classList.remove('text-matrix');
                 if (current && link.getAttribute('href').includes(current)) {
-                    link.classList.add('text-matrix', 'font-bold');
+                    link.classList.add('text-matrix');
                 }
             });
 
             const scrollTopBtn = document.getElementById('scroll-top-btn');
             if (scrollTopBtn) {
-                if (window.pageYOffset > window.innerHeight * 0.8) {
+                if (window.pageYOffset > window.innerHeight * 0.6) {
                     scrollTopBtn.classList.add('show');
                 } else {
                     scrollTopBtn.classList.remove('show');
@@ -636,7 +687,7 @@
             });
         }
 
-        // Setup Scroll View Intersection Triggers
+        // Setup Modern Intersection Observers for Scroll Execution
         const animTargets = document.querySelectorAll(
             '#about .terminal-card, #skills .terminal-card, #experience .relative.group, ' +
             '#certifications .terminal-card, #achievements .terminal-card, #contact .terminal-card, ' +
@@ -651,7 +702,7 @@
                     animObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.05 });
+        }, { threshold: 0.02 });
 
         animTargets.forEach(el => animObserver.observe(el));
     </script>
