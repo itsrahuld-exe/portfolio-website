@@ -40,7 +40,6 @@
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* Swiss Engineering Grid Structural Setup */
         .swiss-grid-container {
             border-left: 1px solid rgba(0, 0, 0, 0.08);
             border-right: 1px solid rgba(0, 0, 0, 0.08);
@@ -57,7 +56,6 @@
             border-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* Hover states with pure mathematical alignment */
         .grid-block {
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
@@ -73,7 +71,6 @@
             font-weight: 500;
             letter-spacing: 0.02em;
             padding: 5px 12px;
-            border-radius: 0px;
             border: 1px solid rgba(0, 0, 0, 0.1);
             background: rgba(0, 0, 0, 0.02);
             transition: all 0.2s ease;
@@ -133,7 +130,6 @@
 </head>
 <body class="bg-swissLight text-slate-900 dark:bg-swissDark dark:text-slate-200 antialiased tracking-tight">
 
-    <!-- GLOBAL SWISS BAR NAVIGATION -->
     <nav class="fixed top-0 w-full z-50 bg-swissLight/80 dark:bg-swissDark/80 backdrop-blur-md border-b swiss-border">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <span class="text-lg font-black tracking-tight select-none">RAHUL DUBEY<span class="text-swissAccent">.</span></span>
@@ -147,7 +143,6 @@
                 <a href="#achievements" class="nav-link hover:text-swissAccent transition">Impact</a>
                 <a href="#contact" class="nav-link hover:text-swissAccent transition">Sync</a>
                 
-                <!-- LIGHT/DARK STRUCTURAL TOGGLE BUTTON -->
                 <button id="theme-toggle" class="p-2 border swiss-border hover:bg-black/5 dark:hover:bg-white/5 transition-all">
                     <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                     <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
@@ -167,8 +162,7 @@
         </div>
     </nav>
 
-    <!-- MOBILE NAVIGATION DROPDOWN -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-swissLight dark:bg-swissDark md:hidden flex flex-col items-center justify-center space-y-6 text-sm font-bold tracking-widest uppercase border-b swiss-border">
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-swissLight dark:bg-swissDark md:hidden flex flex-col items-center justify-center space-y-6 text-sm font-bold tracking-widest uppercase border-b swiss-border transform translate-x-full transition-transform duration-300">
         <a href="#hero" class="mobile-nav-link hover:text-swissAccent transition">Home</a>
         <a href="#about" class="mobile-nav-link hover:text-swissAccent transition">About</a>
         <a href="#skills" class="mobile-nav-link hover:text-swissAccent transition">Skills</a>
@@ -178,10 +172,8 @@
         <a href="#contact" class="mobile-nav-link text-swissAccent transition">Contact</a>
     </div>
 
-    <!-- MAIN CORE FRAMEWORK WRAPPER -->
     <div class="max-w-7xl mx-auto swiss-grid-container relative min-h-screen pt-16">
 
-        <!-- ASYMMETRICAL SWISS HERO ROW -->
         <section id="hero" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0">
             <div class="lg:col-span-8 p-6 sm:p-12 flex flex-col justify-center items-start space-y-6 border-b lg:border-b-0 lg:border-r swiss-border">
                 
@@ -212,7 +204,6 @@
                 </div>
             </div>
 
-            <!-- RIGHT METRICS INDEX GRID COLUMN -->
             <div class="lg:col-span-4 grid grid-cols-1 divide-y swiss-border font-mono text-[11px] text-slate-500 bg-white/5">
                 <div class="p-6 flex flex-col justify-center">
                     <span class="text-swissAccent font-bold uppercase tracking-widest block mb-1">[LOC_REGISTRY]</span>
@@ -237,7 +228,6 @@
             </div>
         </section>
 
-        <!-- EXECUTIVE EXECUTIVE SUMMARY GRID SECTION -->
         <section id="about" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 01 / PROFILE OVERVIEW</span>
@@ -255,7 +245,6 @@
             </div>
         </section>
 
-        <!-- CAPABILITIES MATRIX STRUCTURE -->
         <section id="skills" class="border-b swiss-border p-0">
             <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border">
                 <div class="lg:col-span-4 p-6 sm:p-12 lg:border-r swiss-border">
@@ -269,7 +258,6 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 lg:divide-x divide-y divide-x-0 swiss-border">
                 
-                <!-- STACK 1 -->
                 <div class="p-6 sm:p-8 grid-block border-b swiss-border">
                     <div class="font-mono text-[9px] text-slate-400 mb-4">[SYSTEM_ANALYSIS]</div>
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Business Analysis</h3>
@@ -283,7 +271,6 @@
                     </div>
                 </div>
 
-                <!-- STACK 2 -->
                 <div class="p-6 sm:p-8 grid-block border-b swiss-border">
                     <div class="font-mono text-[9px] text-slate-400 mb-4">[PROCESS_BLUEPRINT]</div>
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Modeling &amp; Schematics</h3>
@@ -296,7 +283,6 @@
                     </div>
                 </div>
 
-                <!-- STACK 3 -->
                 <div class="p-6 sm:p-8 grid-block border-b swiss-border">
                     <div class="font-mono text-[9px] text-slate-400 mb-4">[SDLC_GOVERNANCE]</div>
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Agile Project Delivery</h3>
@@ -310,7 +296,6 @@
                     </div>
                 </div>
 
-                <!-- STACK 4 -->
                 <div class="p-6 sm:p-8 grid-block">
                     <div class="font-mono text-[9px] text-slate-400 mb-4">[FINTECH_CORE]</div>
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Financial Domains</h3>
@@ -323,7 +308,6 @@
                     </div>
                 </div>
 
-                <!-- STACK 5 -->
                 <div class="p-6 sm:p-8 grid-block">
                     <div class="font-mono text-[9px] text-slate-400 mb-4">[DATA_LOGISTICS]</div>
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Data Analytics</h3>
@@ -336,7 +320,6 @@
                     </div>
                 </div>
 
-                <!-- STACK 6 -->
                 <div class="p-6 sm:p-8 grid-block">
                     <div class="font-mono text-[9px] text-slate-400 mb-4">[QUALITY_SHIELD]</div>
                     <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white mb-6">Testing Architecture</h3>
@@ -352,7 +335,6 @@
             </div>
         </section>
 
-        <!-- PROFESSIONAL CHRONOLOGY SWISS TIMELINE -->
         <section id="experience" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 03 / OPERATIONAL TIMELINE</span>
@@ -362,7 +344,6 @@
             
             <div class="lg:col-span-8 divide-y swiss-border">
                 
-                <!-- JOB 1: CCIL -->
                 <div class="p-6 sm:p-12 grid-block relative group">
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
                         <span class="text-swissAccent font-bold uppercase tracking-wider">[CORE_BLOCK // REGULATED_MARKETS]</span>
@@ -379,7 +360,6 @@
                     </ul>
                 </div>
 
-                <!-- JOB 2: NEXTGEN -->
                 <div class="p-6 sm:p-12 grid-block relative group">
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
                         <span class="text-slate-400 font-bold uppercase tracking-wider">[CORE_BLOCK // COMMERCIAL_LEDGER]</span>
@@ -394,7 +374,6 @@
                     </ul>
                 </div>
 
-                <!-- JOB 3: INTEGREON -->
                 <div class="p-6 sm:p-12 grid-block relative group">
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
                         <span class="text-slate-400 font-bold uppercase tracking-wider">[CORE_BLOCK // RISK_OVERSIGHT]</span>
@@ -408,7 +387,6 @@
                     </ul>
                 </div>
 
-                <!-- JOB 4: CONCENTRIX -->
                 <div class="p-6 sm:p-12 grid-block relative group">
                     <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2 font-mono text-[11px]">
                         <span class="text-slate-400 font-bold uppercase tracking-wider">[CORE_BLOCK // FRONTEND_INTERFACE]</span>
@@ -418,14 +396,13 @@
                     <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mt-1 mb-6">Concentrix Daksh Service India Pvt. Ltd.</p>
                     <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-3 list-none font-light leading-relaxed">
                         <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Maintained internal operations portals deploying browser tracking structures using core frontend layout codes (HTML, CSS, JavaScript).</span></li>
-                        <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Transitioned systematically into focused process analysis, handling stakeholder targets and functional parameters.</span></li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-3 font-mono text-xs">&middot;</span><span>Transitioned strategically into focused process analysis, handling stakeholder targets and functional parameters.</span></li>
                     </ul>
                 </div>
 
             </div>
         </section>
 
-        <!-- EDUCATION AND CERTIFICATIONS -->
         <section id="certifications" class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border p-0 bg-white/20 dark:bg-black/10">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 04 / CERTIFICATE REGISTRIES</span>
@@ -463,12 +440,12 @@
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Data Visualization with Power BI</p>
                     <p class="text-slate-500 tracking-wide mt-1">Great Learning Certified</p>
                 </div>
-                <div class="p-6 grid-block border-b sm:border-b-0 swiss-border">
+                <div class="p-6 grid-block sm:border-b-0 swiss-border">
                     <div class="text-slate-400 mb-1">[LICENSE_ID_06]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Tableau Core Analytics</p>
                     <p class="text-slate-500 tracking-wide mt-1">Simplilearn Pipeline</p>
                 </div>
-                <div class="p-6 grid-block border-b sm:border-b-0 swiss-border">
+                <div class="p-6 grid-block sm:border-b-0 swiss-border">
                     <div class="text-slate-400 mb-1">[LICENSE_ID_07]</div>
                     <p class="font-bold text-slate-900 dark:text-white text-sm font-sans uppercase">Responsive Web Architecture</p>
                     <p class="text-slate-500 tracking-wide mt-1">freeCodeCamp Core Frameworks</p>
@@ -481,7 +458,6 @@
             </div>
         </section>
 
-        <!-- STRUCTURAL METRICS GRID (ACHIEVEMENTS) -->
         <section id="achievements" class="border-b swiss-border p-0">
             <div class="grid grid-cols-1 lg:grid-cols-12 border-b swiss-border">
                 <div class="lg:col-span-4 p-6 sm:p-12 lg:border-r swiss-border">
@@ -513,7 +489,6 @@
             </div>
         </section>
 
-        <!-- CONTACT SYNC PORTS -->
         <section id="contact" class="grid grid-cols-1 lg:grid-cols-12 p-0">
             <div class="lg:col-span-4 p-6 sm:p-12 border-b lg:border-b-0 lg:border-r swiss-border">
                 <span class="text-[10px] font-mono tracking-widest uppercase text-swissAccent block mb-2">// 06 / PORT_ESTABLISHMENT</span>
@@ -522,11 +497,11 @@
             </div>
             
             <div class="lg:col-span-8 p-6 sm:p-12 flex flex-col justify-center space-y-4 font-mono text-xs tracking-wider uppercase">
-                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-between p-4 border swiss-border grid-block group">
+                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-between p-4 border swiss-border grid-block group bg-white/5">
                     <span class="text-slate-400">[PORT_EMAIL]</span>
                     <span class="text-slate-900 dark:text-white font-bold group-hover:text-swissAccent transition-colors truncate pl-4">dubeyr428@outlook.com</span>
                 </a>
-                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border swiss-border grid-block group">
+                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border swiss-border grid-block group bg-white/5">
                     <span class="text-slate-400">[PORT_LINKEDIN]</span>
                     <span class="text-slate-900 dark:text-white font-bold group-hover:text-swissAccent transition-colors truncate pl-4">linkedin.com/in/rahul-dubey</span>
                 </a>
@@ -535,12 +510,10 @@
 
     </div>
 
-    <!-- BACK TO TOP SCROLL ICON -->
-    <button id="scroll-top-btn" class="w-10 h-10 bg-swissAccent text-white flex items-center justify-center hover:bg-blue-700 transition" aria-label="Top">
+    <button id="scroll-top-btn" class="w-10 h-10 bg-swissAccent text-white flex items-center justify-center hover:bg-blue-700 transition shadow" aria-label="Top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
-    <!-- SYSTEM FOOTER LOGS -->
     <footer class="py-12 border-t swiss-border text-center px-6 text-xs font-mono tracking-widest text-slate-400 bg-white/10 dark:bg-black/20">
         <div class="max-w-7xl mx-auto">
             <div>// REGISTER_ROOT_TERMINATED //</div>
@@ -548,9 +521,7 @@
         </div>
     </footer>
 
-    <!-- INTERNALS THEME & RUNTIME ENGINE SCRIPTS -->
     <script>
-        // Core Dual Action Theme Toggle Control System
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleBtnMob = document.getElementById('theme-toggle-mobile');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -581,7 +552,7 @@
         themeToggleBtnMob.addEventListener('click', toggleTheme);
         updateIcons();
 
-        // Mobile Hamburger Responsive Logic
+        // Mobile Hamburger Responsive Controller logic Fix
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -589,7 +560,7 @@
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
         function toggleMenu() {
-            mobileMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('translate-x-full');
             menuIcon.classList.toggle('hidden');
             closeIcon.classList.toggle('hidden');
             document.body.classList.toggle('overflow-hidden');
@@ -597,10 +568,10 @@
 
         menuBtn.addEventListener('click', toggleMenu);
         mobileNavLinks.forEach(link => link.addEventListener('click', () => {
-            if (mobileMenu.classList.contains('active')) toggleMenu();
+            if (!mobileMenu.classList.contains('translate-x-full')) toggleMenu();
         }));
 
-        // Dynamic System Tenure Delta Engine
+        // Experience Automatic Processing Engine Update
         const startYear = 2017;
         const yearsExp = new Date().getFullYear() - startYear;
         const expStrip = document.getElementById('exp-years-strip');
@@ -610,11 +581,10 @@
         if (expAbout) expAbout.textContent = yearsExp + '+ years of structural experience';
         if (expStat) expStat.textContent = yearsExp + 'Y+';
 
-        // Synchronize Footer Clock Context
         const footerYear = document.getElementById('footer-year');
         if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-        // Active Navigation Scroll Tracker Module
+        // Navigation Tracker Engine ScrollSpy
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -650,7 +620,7 @@
             });
         }
 
-        // Setup Modern Viewport Intersectors for Element Transitions
+        // Viewport Intersector Initializer for Smooth Transitions
         const animTargets = document.querySelectorAll(
             '#about .grid-block, #skills .grid-block, #experience .grid-block, ' +
             '#certifications .grid-block, #achievements .grid-block, #contact .grid-block, ' +
