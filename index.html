@@ -15,145 +15,82 @@
             theme: {
                 extend: {
                     colors: {
-                        alabaster: "#F9F8F6",
-                        brutalblack: "#1A1A1A",
-                        brutalshadow: "#000000",
-                        architectBlue: "#1034A6"
+                        monoBg: "#FFFFFF",
+                        monoPanel: "#F5F5F7",
+                        monoTextPrimary: "#1D1D1F",
+                        monoTextSecondary: "#86868B",
+                        brandBlue: "#0066CC"
+                    },
+                    fontFamily: {
+                        sans: ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            overflow-x: hidden;
-            background-color: #F9F8F6;
-            color: #1A1A1A;
+            background-color: #FFFFFF;
+            color: #1D1D1F;
+            letter-spacing: -0.01em;
         }
 
-        h1, h2, h3, .brutal-heading {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-        }
-
-        /* Premium Neo-Brutalist Box Shadow Triggers */
-        .brutal-card {
-            background: #FFFFFF;
-            border: 2px solid #1A1A1A;
-            box-shadow: 4px 4px 0px #1A1A1A;
-            transition: all 0.2s ease;
-        }
-        .brutal-card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 7px 7px 0px #1A1A1A;
-        }
-
-        .brutal-btn {
-            background: #1034A6;
-            color: #FFFFFF;
-            border: 2px solid #1A1A1A;
-            box-shadow: 3px 3px 0px #1A1A1A;
-            transition: all 0.2s ease;
-        }
-        .brutal-btn:hover {
-            transform: translate(-1px, -1px);
-            box-shadow: 5px 5px 0px #1A1A1A;
-            background: #0d2a8a;
-        }
-
-        .brutal-btn-secondary {
-            background: #FFFFFF;
-            color: #1A1A1A;
-            border: 2px solid #1A1A1A;
-            box-shadow: 3px 3px 0px #1A1A1A;
-            transition: all 0.2s ease;
-        }
-        .brutal-btn-secondary:hover {
-            transform: translate(-1px, -1px);
-            box-shadow: 5px 5px 0px #1A1A1A;
-            background: #F3F3F3;
-        }
-
-        .skill-tag {
-            background: #FFFFFF;
-            color: #1A1A1A;
-            padding: 6px 12px;
-            border: 1px solid #1A1A1A;
-            font-weight: 600;
-            font-size: 0.8rem;
-            box-shadow: 2px 2px 0px #1A1A1A;
-            transition: all 0.15s ease;
-        }
-        .skill-tag:hover {
-            transform: translate(-1px, -1px);
-            box-shadow: 3px 3px 0px #1034A6;
-            border-color: #1034A6;
-            color: #1034A6;
-        }
-
-        section {
-            padding: 5rem 0;
-            border-bottom: 2px solid #1A1A1A;
-        }
-        @media (min-width: 768px) {
-            section { padding: 8rem 0; }
-        }
-
-        .nav-link {
-            font-weight: 700;
-            transition: all 0.2s ease;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-link:hover {
-            color: #1034A6;
-            border-color: #1034A6;
-        }
-
-        #mobile-menu {
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            transform: translateX(100%);
-        }
-        #mobile-menu.active {
-            transform: translateX(0);
-        }
-
+        /* Ultra-Smooth Premium Fade Up Animations */
         .fade-up {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(15px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .abbr-badge {
-            font-size: 0.65rem;
-            font-weight: 800;
-            background: #1A1A1A;
-            color: #FFFFFF;
-            padding: 2px 4px;
-            margin-right: 6px;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
+        .premium-card {
+            background-color: #F5F5F7;
+            border-radius: 18px;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease;
+        }
+        .premium-card:hover {
+            transform: scale(1.01);
+            background-color: #F0F0F3;
+        }
+
+        .skill-tag {
+            background-color: #FFFFFF;
+            color: #1D1D1F;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+        }
+        .skill-tag:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .nav-link {
+            color: #86868B;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #1D1D1F;
         }
 
         #scroll-top-btn {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 40;
+            bottom: 30px;
+            right: 30px;
+            z-index: 50;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            border: 2px solid #1A1A1A;
-            box-shadow: 2px 2px 0px #1A1A1A;
         }
         #scroll-top-btn.show {
             opacity: 1;
@@ -161,187 +98,174 @@
         }
     </style>
 </head>
-<body class="bg-alabaster text-brutalblack antialiased">
+<body class="antialiased">
 
-    <nav class="fixed top-0 w-full z-50 bg-alabaster border-b-2 solid border-brutalblack">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <span class="text-xl font-black uppercase tracking-tighter bg-brutalblack text-alabaster px-3 py-1 border-2 border-brutalblack shadow-[2px_2px_0px_#1034A6]">
-                RD // BA
-            </span>
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-black/[0.04]">
+        <div class="max-w-6xl mx-auto px-6 h-14 sm:h-16 flex items-center justify-between">
+            <span class="text-base font-bold tracking-tight text-monoTextPrimary">Rahul Dubey</span>
             
-            <div class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider">
-                <a href="#hero" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">Summary</a>
-                <a href="#skills" class="nav-link">Frameworks</a>
-                <a href="#experience" class="nav-link">Journey</a>
+            <div class="hidden md:flex items-center space-x-8 text-xs font-medium tracking-normal">
+                <a href="#hero" class="nav-link">Overview</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
                 <a href="#certifications" class="nav-link">Credentials</a>
                 <a href="#achievements" class="nav-link">Impact</a>
-                <a href="#contact" class="bg-brutalblack text-alabaster border-2 border-brutalblack px-4 py-2 hover:bg-architectBlue hover:text-white transition-all">Get in Touch</a>
+                <a href="#contact" class="bg-monoTextPrimary text-white px-4 py-1.5 rounded-full hover:opacity-90 transition">Contact</a>
             </div>
 
             <div class="flex items-center md:hidden">
-                <button id="menu-btn" class="p-2 border-2 border-brutalblack bg-white shadow-[2px_2px_0px_#1A1A1A]">
-                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                    <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <button id="menu-btn" class="text-monoTextPrimary p-2">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+                    <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
             </div>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-alabaster md:hidden flex flex-col items-center justify-center space-y-6 text-sm font-bold tracking-widest uppercase border-b-2 border-brutalblack">
-        <a href="#hero" class="mobile-nav-link hover:text-architectBlue">01 // Home</a>
-        <a href="#about" class="mobile-nav-link hover:text-architectBlue">02 // Summary</a>
-        <a href="#skills" class="mobile-nav-link hover:text-architectBlue">03 // Frameworks</a>
-        <a href="#experience" class="mobile-nav-link hover:text-architectBlue">04 // Journey</a>
-        <a href="#certifications" class="mobile-nav-link hover:text-architectBlue">05 // Credentials</a>
-        <a href="#achievements" class="mobile-nav-link hover:text-architectBlue">06 // Impact</a>
-        <a href="#contact" class="mobile-nav-link text-white bg-brutalblack px-6 py-2 border-2 border-brutalblack">Connect</a>
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white md:hidden flex flex-col items-center justify-center space-y-6 text-sm font-semibold tracking-tight uppercase" style="transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); transform: translateX(100%);">
+        <a href="#hero" class="mobile-nav-link text-monoTextPrimary">Overview</a>
+        <a href="#about" class="mobile-nav-link text-monoTextPrimary">About</a>
+        <a href="#skills" class="mobile-nav-link text-monoTextPrimary">Skills</a>
+        <a href="#experience" class="mobile-nav-link text-monoTextPrimary">Experience</a>
+        <a href="#certifications" class="mobile-nav-link text-monoTextPrimary">Credentials</a>
+        <a href="#achievements" class="mobile-nav-link text-monoTextPrimary">Impact</a>
+        <a href="#contact" class="mobile-nav-link bg-monoTextPrimary text-white px-8 py-2 rounded-full">Contact</a>
     </div>
 
-    <section id="hero" class="min-h-screen pt-28 flex flex-col items-center justify-center relative px-6 bg-[radial-gradient(#1a1a1a_1px,transparent_1px)] [background-size:24px_24px] bg-opacity-5">
-        <div class="max-w-5xl w-full mx-auto text-center space-y-8">
-            
-            <div class="inline-block bg-white text-brutalblack font-bold text-xs tracking-widest uppercase border-2 border-brutalblack px-4 py-2 shadow-[3px_3px_0px_#1A1A1A]">
-                Senior Business Analyst &nbsp;&middot;&nbsp; CCIL Ltd
+    <section id="hero" class="min-h-screen pt-16 flex flex-col items-center justify-center text-center px-6">
+        <div class="max-w-4xl mx-auto space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-monoPanel text-monoTextSecondary text-xs font-medium">
+                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                Senior Business Analyst &nbsp;&middot;&nbsp; CCIL
             </div>
             
-            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter text-brutalblack uppercase leading-none">
-                Rahul Dubey
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-monoTextPrimary max-w-3xl mx-auto leading-[1.05]">
+                Engineering scalable financial systems.
             </h1>
             
-            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-bold uppercase tracking-wider text-brutalblack">
-                <span class="bg-white border-2 border-brutalblack px-3 py-1 shadow-[2px_2px_0px_#1A1A1A]">[LOC] Mumbai, IN</span>
-                <span class="bg-white border-2 border-brutalblack px-3 py-1 shadow-[2px_2px_0px_#1A1A1A]">[EXP] <span id="exp-years-strip">8+ Years</span> Practice</span>
-                <span class="bg-white border-2 border-brutalblack px-3 py-1 shadow-[2px_2px_0px_#1A1A1A]">[DOM] Capital Markets</span>
-            </div>
-            
-            <p class="text-base sm:text-xl text-brutalblack/80 max-w-2xl mx-auto leading-relaxed font-medium">
-                Optimizing legacy transactional clearing architecture, auditing system integrations, and deploying modern technical frameworks for systemic national institutions.
+            <p class="text-lg sm:text-xl text-monoTextSecondary max-w-2xl mx-auto font-normal leading-relaxed">
+                Hi, I'm Rahul Dubey. I bridge business strategy and platform technology to deliver high-performance clearing, settlement, and transaction architectures.
             </p>
+
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-medium text-monoTextSecondary uppercase tracking-wider pt-2">
+                <span>Mumbai, India</span>
+                <span class="text-black/10">&bull;</span>
+                <span id="exp-years-strip">8+ Years Experience</span>
+                <span class="text-black/10">&bull;</span>
+                <span>Capital Markets</span>
+            </div>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4 font-bold text-xs tracking-wider uppercase">
-                <a href="#experience" class="brutal-btn px-8 py-4 text-center">
-                    Review Journey Ledger
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-6 font-medium text-sm">
+                <a href="#experience" class="bg-monoTextPrimary text-white px-7 py-3 rounded-full hover:opacity-90 transition shadow-sm">
+                    View Portfolio
                 </a>
-                <a href="./Rahul_Dubey_Resume.pdf" download class="brutal-btn-secondary px-8 py-4 flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Download CV Archive
-                </a>
-            </div>
-
-            <div class="pt-8 flex justify-center space-x-6">
-                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" class="w-10 h-10 border-2 border-brutalblack bg-white flex items-center justify-center shadow-[2px_2px_0px_#1A1A1A] hover:bg-architectBlue hover:text-white hover:shadow-[3px_3px_0px_#1A1A1A] transition-all" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="mailto:dubeyr428@outlook.com" class="w-10 h-10 border-2 border-brutalblack bg-white flex items-center justify-center shadow-[2px_2px_0px_#1A1A1A] hover:bg-architectBlue hover:text-white hover:shadow-[3px_3px_0px_#1A1A1A] transition-all" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="./Rahul_Dubey_Resume.pdf" download class="bg-monoPanel text-monoTextPrimary px-7 py-3 rounded-full hover:bg-neutral-200 transition flex items-center justify-center gap-2">
+                    Download CV
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="bg-white">
+    <section id="about" class="py-20 sm:py-28 bg-monoPanel">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-black uppercase tracking-tight text-brutalblack mb-10 border-b-4 border-brutalblack pb-2 inline-block">
-                01 // Professional Summary
-            </h2>
-            <div class="brutal-card p-6 sm:p-10 border-2 border-brutalblack">
-                <div class="text-base sm:text-lg space-y-6 text-brutalblack/90 leading-relaxed font-medium">
-                    <p>
-                        Senior Business Analyst backed by over <span id="exp-years-about" class="font-bold underline text-architectBlue">8+ years of structural experience</span> mapping financial workflows across clearing engines, national banking modernizations, and cloud technology stacks. Specialized in building compliance-hardened onboarding infrastructures and regulatory transaction matrices.
-                    </p>
-                    <p>
-                        Currently executing critical microservices and portal modernizations at <span class="font-bold">The Clearing Corporation of India Ltd (CCIL)</span>. Successfully structured and audited testing boundaries across <span class="font-bold">10+ legacy modules</span>, driving pre-production UAT defect detection efficiency up by <span class="text-architectBlue font-bold underline">~25%</span>.
-                    </p>
-                </div>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-monoTextSecondary mb-6">Profile Summary</h2>
+            <div class="text-2xl sm:text-3xl font-medium text-monoTextPrimary leading-relaxed space-y-6">
+                <p>
+                    Senior Business Analyst with <span id="exp-years-about" class="text-brandBlue font-semibold">8+ years of dedicated practice</span> across capital markets and national core clearing infrastructure. Expert at orchestrating end-to-end integration designs for highly regulated membership setups and settlement systems.
+                </p>
+                <p class="text-monoTextSecondary">
+                    Currently scaling cloud-native modernizations at <span class="text-monoTextPrimary">The Clearing Corporation of India Ltd (CCIL)</span>, optimizing over 10 critical production modules and delivering a ~25% uplift in pre-production UAT defect detection coverage.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="bg-alabaster">
+    <section id="skills" class="py-20 sm:py-28 bg-white">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-black uppercase tracking-tight text-brutalblack mb-12 border-b-4 border-brutalblack pb-2 inline-block">
-                02 // Core Skillset Matrix
-            </h2>
+            <div class="mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-monoTextSecondary mb-2">Capabilities Matrix</h2>
+                <p class="text-xl font-semibold text-monoTextPrimary">Core Skillset Architecture</p>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <div class="brutal-card p-6 border-2 flex flex-col justify-between">
+                <div class="premium-card p-8 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-black text-brutalblack mb-4 uppercase tracking-wide border-b-2 border-brutalblack pb-1">Business Analysis</h3>
-                        <div class="flex flex-wrap gap-2 pt-2">
+                        <h3 class="text-base font-semibold text-monoTextPrimary mb-6">Business Analysis</h3>
+                        <div class="flex flex-wrap gap-2">
                             <div class="skill-tag">Requirements Gathering</div>
-                            <div class="skill-tag"><span class="abbr-badge">BRD</span>BRD</div>
-                            <div class="skill-tag"><span class="abbr-badge">FRD</span>FRD</div>
-                            <div class="skill-tag"><span class="abbr-badge">SRS</span>SRS</div>
-                            <div class="skill-tag">User Stories Mapping</div>
+                            <div class="skill-tag">BRD</div>
+                            <div class="skill-tag">FRD</div>
+                            <div class="skill-tag">SRS</div>
+                            <div class="skill-tag">User Stories</div>
                             <div class="skill-tag">AS-IS / TO-BE</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="brutal-card p-6 border-2 flex flex-col justify-between">
+                <div class="premium-card p-8 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-black text-brutalblack mb-4 uppercase tracking-wide border-b-2 border-brutalblack pb-1">Modeling &amp; Schematics</h3>
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            <div class="skill-tag"><span class="abbr-badge">BPMN</span>BPMN 2.0</div>
+                        <h3 class="text-base font-semibold text-monoTextPrimary mb-6">Process Modeling</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="skill-tag">BPMN 2.0</div>
                             <div class="skill-tag">Balsamiq Wireframes</div>
-                            <div class="skill-tag">Lucidchart Workspace</div>
-                            <div class="skill-tag">Microsoft Visio Structs</div>
-                            <div class="skill-tag">Draw.io Layouts</div>
+                            <div class="skill-tag">Lucidchart</div>
+                            <div class="skill-tag">Microsoft Visio</div>
+                            <div class="skill-tag">Draw.io</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="brutal-card p-6 border-2 flex flex-col justify-between">
+                <div class="premium-card p-8 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-black text-brutalblack mb-4 uppercase tracking-wide border-b-2 border-brutalblack pb-1">Agile Delivery</h3>
-                        <div class="flex flex-wrap gap-2 pt-2">
+                        <h3 class="text-base font-semibold text-monoTextPrimary mb-6">Agile Project Delivery</h3>
+                        <div class="flex flex-wrap gap-2">
                             <div class="skill-tag">Scrum Management</div>
-                            <div class="skill-tag">Sprint Architecture</div>
+                            <div class="skill-tag">Sprint Planning</div>
                             <div class="skill-tag">Backlog Grooming</div>
-                            <div class="skill-tag">Jira Agile</div>
+                            <div class="skill-tag">Jira</div>
                             <div class="skill-tag">Azure DevOps</div>
-                            <div class="skill-tag">GitLab Controls</div>
+                            <div class="skill-tag">GitLab</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="brutal-card p-6 border-2 flex flex-col justify-between">
+                <div class="premium-card p-8 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-black text-brutalblack mb-4 uppercase tracking-wide border-b-2 border-brutalblack pb-1">Capital Markets</h3>
-                        <div class="flex flex-wrap gap-2 pt-2">
+                        <h3 class="text-base font-semibold text-monoTextPrimary mb-6">Financial Domains</h3>
+                        <div class="flex flex-wrap gap-2">
                             <div class="skill-tag">Membership Systems</div>
                             <div class="skill-tag">Clearing &amp; Settlement</div>
                             <div class="skill-tag">Government Securities</div>
-                            <div class="skill-tag">FX-Options Risk Layers</div>
-                            <div class="skill-tag">Loan Architecture</div>
+                            <div class="skill-tag">FX-Options</div>
+                            <div class="skill-tag">Loan Management</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="brutal-card p-6 border-2 flex flex-col justify-between">
+                <div class="premium-card p-8 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-black text-brutalblack mb-4 uppercase tracking-wide border-b-2 border-brutalblack pb-1">Data &amp; Reporting</h3>
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            <div class="skill-tag">Power BI Engine</div>
-                            <div class="skill-tag">MySQL Datastores</div>
-                            <div class="skill-tag">Tableau Portals</div>
-                            <div class="skill-tag">Data State Audits</div>
+                        <h3 class="text-base font-semibold text-monoTextPrimary mb-6">Data Analytics</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="skill-tag">Power BI</div>
+                            <div class="skill-tag">MySQL</div>
+                            <div class="skill-tag">Tableau</div>
+                            <div class="skill-tag">Data Validation</div>
                             <div class="skill-tag">Excel Dashboards</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="brutal-card p-6 border-2 flex flex-col justify-between">
+                <div class="premium-card p-8 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-black text-brutalblack mb-4 uppercase tracking-wide border-b-2 border-brutalblack pb-1">Testing Infrastructure</h3>
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            <div class="skill-tag"><span class="abbr-badge">UAT</span>UAT Execution</div>
-                            <div class="skill-tag">Test Path Design</div>
-                            <div class="skill-tag">API Verification</div>
+                        <h3 class="text-base font-semibold text-monoTextPrimary mb-6">Testing Infrastructure</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="skill-tag">UAT Execution</div>
+                            <div class="skill-tag">Test Case Design</div>
+                            <div class="skill-tag">API Integration</div>
                             <div class="skill-tag">Defect Tracking</div>
-                            <div class="skill-tag">Database Auditing</div>
+                            <div class="skill-tag">Database Audits</div>
                         </div>
                     </div>
                 </div>
@@ -350,188 +274,174 @@
         </div>
     </section>
 
-    <section id="experience" class="bg-white">
+    <section id="experience" class="py-20 sm:py-28 bg-monoPanel">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-black uppercase tracking-tight text-brutalblack mb-16 border-b-4 border-brutalblack pb-2 inline-block">
-                03 // Professional Journey
-            </h2>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-monoTextSecondary mb-14">Professional Chronology</h2>
             
-            <div class="space-y-12 border-l-4 border-brutalblack ml-2 pl-6 sm:pl-10 relative">
+            <div class="space-y-12">
                 
-                <div class="relative brutal-card p-6 sm:p-8 border-2 border-brutalblack bg-white">
-                    <div class="absolute -left-[2.35rem] sm:-left-[3.35rem] top-6 w-5 h-5 bg-architectBlue border-2 border-brutalblack shadow-[2px_2px_0px_#1A1A1A]"></div>
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-lg sm:text-xl font-black text-brutalblack uppercase">Business Analyst - Deputy Manager</h3>
-                        <span class="bg-architectBlue text-white font-bold px-3 py-1 border-2 border-brutalblack text-xs uppercase tracking-wider inline-block w-fit shadow-[2px_2px_0px_#1A1A1A]">May 2024 - Present</span>
+                <div class="bg-white p-6 sm:p-10 rounded-[24px] shadow-sm space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-monoTextPrimary">Business Analyst - Deputy Manager</h3>
+                            <p class="text-sm font-medium text-brandBlue">The Clearing Corporation of India Ltd (CCIL)</p>
+                        </div>
+                        <span class="bg-monoPanel text-monoTextPrimary px-3 py-1 rounded-full text-xs font-semibold w-fit">May 2024 - Present</span>
                     </div>
-                    <p class="text-sm font-bold text-architectBlue uppercase tracking-widest mb-4">The Clearing Corporation of India Ltd (CCIL)</p>
-                    <ul class="text-sm text-brutalblack/90 space-y-3 list-none font-medium">
-                        <li class="flex items-start"><span class="font-black mr-3 text-architectBlue">&bull;</span><span>Managed systemic transformation platforms for automated Membership Interfaces and sovereign debt primary market clearing logs.</span></li>
-                        <li class="flex items-start"><span class="font-black mr-3 text-architectBlue">&bull;</span><span>Conducted integration logic analysis to build functional requirements across 10+ core structural segments, covering FX-Options processing blocks.</span></li>
-                        <li class="flex items-start"><span class="font-black mr-3 text-architectBlue">&bull;</span><span>Led active delivery boards handling 50+ detailed user specifications per iteration loop inside source tracking environments.</span></li>
-                        <li class="flex items-start"><span class="font-black mr-3 text-architectBlue">&bull;</span><span>Drafted operational verification metrics encompassing 100+ logical code paths, lifting pre-prod defect localization thresholds by ~25%.</span></li>
-                        <li class="flex items-start"><span class="font-black mr-3 text-architectBlue">&bull;</span><span>Optimized financial business flows via logic refactoring, clearing ~30% of legacy execution friction.</span></li>
+                    <ul class="text-sm sm:text-base text-monoTextSecondary space-y-2 list-disc pl-4 font-light leading-relaxed">
+                        <li>Managed system architecture updates for core Membership Portal platforms and sovereign debt market clearing channels.</li>
+                        <li>Designed functional flow diagrams to scope complex cloud transformations for 10+ core structural system applications.</li>
+                        <li>Led active cross-functional agile scrums handling 50+ business requirements blocks per execution loop.</li>
+                        <li>Created comprehensive logic mapping across 100+ critical execution paths, minimizing deployment risks by ~25%.</li>
+                        <li>Reduced manual processing bottlenecks by ~30% via robust modern integration automation loops.</li>
                     </ul>
                 </div>
 
-                <div class="relative brutal-card p-6 sm:p-8 border-2 border-brutalblack bg-white">
-                    <div class="absolute -left-[2.35rem] sm:-left-[3.35rem] top-6 w-5 h-5 bg-white border-2 border-brutalblack shadow-[2px_2px_0px_#1A1A1A]"></div>
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-lg sm:text-xl font-black text-brutalblack uppercase">Business Analyst / Project Manager</h3>
-                        <span class="bg-alabaster text-brutalblack font-bold px-3 py-1 border-2 border-brutalblack text-xs uppercase tracking-wider inline-block w-fit shadow-[2px_2px_0px_#1A1A1A]">Nov 2022 - Dec 2023</span>
+                <div class="bg-white p-6 sm:p-10 rounded-[24px] shadow-sm space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-monoTextPrimary">Business Analyst / Project Manager</h3>
+                            <p class="text-sm font-medium text-monoTextSecondary">NextGen Invent Corporation</p>
+                        </div>
+                        <span class="bg-monoPanel text-monoTextSecondary px-3 py-1 rounded-full text-xs font-semibold w-fit">Nov 2022 - Dec 2023</span>
                     </div>
-                    <p class="text-sm font-bold text-brutalblack/60 uppercase tracking-widest mb-4">NextGen Invent Corporation</p>
-                    <ul class="text-sm text-brutalblack/80 space-y-3 list-none font-medium">
-                        <li class="flex items-start"><span class="font-black mr-3 text-brutalblack/40">&bull;</span><span>Directed milestone pipelines and functional scopes for commercial lending ledgers and customized transactional accounting portfolios.</span></li>
-                        <li class="flex items-start"><span class="font-black mr-3 text-brutalblack/40">&bull;</span><span>Administered sprint mechanics as Scrum Master, deploying secure localized payment pipeline hooks (Stripe, PayPal connections).</span></li>
-                        <li class="flex items-start"><span class="font-black mr-3 text-brutalblack/40">&bull;</span><span>Structured core data aggregation schemas to stream multi-layer relational data into actionable metrics views.</span></li>
+                    <ul class="text-sm text-monoTextSecondary space-y-2 list-disc pl-4 font-light leading-relaxed">
+                        <li>Supervised milestone delivery timelines and mapped system scopes for high-tier commercial lending pipelines.</li>
+                        <li>Directed agile scrums and systematically deployed secure modern payment pathways (Stripe, PayPal APIs).</li>
+                        <li>Engineered analytical visualization layers to track and process multi-source corporate databases efficiently.</li>
                     </ul>
                 </div>
 
-                <div class="relative brutal-card p-6 sm:p-8 border-2 border-brutalblack bg-white">
-                    <div class="absolute -left-[2.35rem] sm:-left-[3.35rem] top-6 w-5 h-5 bg-white border-2 border-brutalblack shadow-[2px_2px_0px_#1A1A1A]"></div>
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-lg sm:text-xl font-black text-brutalblack uppercase">Business Analyst</h3>
-                        <span class="bg-alabaster text-brutalblack font-bold px-3 py-1 border-2 border-brutalblack text-xs uppercase tracking-wider inline-block w-fit shadow-[2px_2px_0px_#1A1A1A]">Dec 2019 - Aug 2022</span>
+                <div class="bg-white p-6 sm:p-10 rounded-[24px] shadow-sm space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-monoTextPrimary">Business Analyst</h3>
+                            <p class="text-sm font-medium text-monoTextSecondary">Integreon Managed Solutions India Pvt. Ltd.</p>
+                        </div>
+                        <span class="bg-monoPanel text-monoTextSecondary px-3 py-1 rounded-full text-xs font-semibold w-fit">Dec 2019 - Aug 2022</span>
                     </div>
-                    <p class="text-sm font-bold text-brutalblack/60 uppercase tracking-widest mb-4">Integreon Managed Solutions India Pvt. Ltd.</p>
-                    <ul class="text-sm text-brutalblack/80 space-y-3 list-none font-medium">
-                        <li class="flex items-start"><span class="font-black mr-3 text-brutalblack/40">&bull;</span><span>Engineered workflow constraints for custom third-party corporate compliance screening structures built for secure validation networks.</span></li>
-                        <li class="flex items-start"><span class="font-black mr-3 text-brutalblack/40">&bull;</span><span>Audited and organized incoming operational system features into definitive structural matrix blueprints.</span></li>
+                    <ul class="text-sm text-monoTextSecondary space-y-2 list-disc pl-4 font-light leading-relaxed">
+                        <li>Scoped system parameters for corporate counterparty compliance screening systems running on institutional layers.</li>
+                        <li>Translated complex risk-mitigation legal criteria into clearly tracked software deployment blueprints.</li>
                     </ul>
                 </div>
 
-                <div class="relative brutal-card p-6 sm:p-8 border-2 border-brutalblack bg-white">
-                    <div class="absolute -left-[2.35rem] sm:-left-[3.35rem] top-6 w-5 h-5 bg-white border-2 border-brutalblack shadow-[2px_2px_0px_#1A1A1A]"></div>
-                    <div class="mb-3 flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                        <h3 class="text-lg sm:text-xl font-black text-brutalblack uppercase">Business Analyst / Web Developer</h3>
-                        <span class="bg-alabaster text-brutalblack font-bold px-3 py-1 border-2 border-brutalblack text-xs uppercase tracking-wider inline-block w-fit shadow-[2px_2px_0px_#1A1A1A]">Jan 2017 - Jul 2019</span>
+                <div class="bg-white p-6 sm:p-10 rounded-[24px] shadow-sm space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-monoTextPrimary">Business Analyst / Web Developer</h3>
+                            <p class="text-sm font-medium text-monoTextSecondary">Concentrix Daksh Service India Pvt. Ltd.</p>
+                        </div>
+                        <span class="bg-monoPanel text-monoTextSecondary px-3 py-1 rounded-full text-xs font-semibold w-fit">Jan 2017 - Jul 2019</span>
                     </div>
-                    <p class="text-sm font-bold text-brutalblack/60 uppercase tracking-widest mb-4">Concentrix Daksh Service India Pvt. Ltd.</p>
-                    <ul class="text-sm text-brutalblack/80 space-y-3 list-none font-medium">
-                        <li class="flex items-start"><span class="font-black mr-3 text-brutalblack/40">&bull;</span><span>Maintained internal tracking systems and modules utilizing core browser development stacks (HTML, CSS, JavaScript layouts).</span></li>
-                        <li class="flex items-start"><span class="font-black mr-3 text-brutalblack/40">&bull;</span><span>Transitioned strategically into target analysis operations, scoping transaction velocities and product requirements.</span></li>
+                    <ul class="text-sm text-monoTextSecondary space-y-2 list-disc pl-4 font-light leading-relaxed">
+                        <li>Maintained code updates to enterprise portal applications leveraging foundational frontend technologies.</li>
+                        <li>Transitioned into operations analysis, tracking transaction speeds and application functional parameters.</li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="certifications" class="bg-alabaster">
+    <section id="certifications" class="py-20 sm:py-28 bg-white">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-black uppercase tracking-tight text-brutalblack mb-12 border-b-4 border-brutalblack pb-2 inline-block">
-                04 // Credentials &amp; Records
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold uppercase">
-                <div class="brutal-card p-5 border-2 border-l-8 border-l-architectBlue">
-                    <p class="text-architectBlue mb-1 text-[10px]">[ACADEMIC_REGISTRY]</p>
-                    <p class="text-sm font-black text-brutalblack mb-1">BSc Information Technology</p>
-                    <p class="text-brutalblack/60">Mumbai University &middot; Class of 2016</p>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-monoTextSecondary mb-12">Credentials &amp; Records</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                <div class="premium-card p-6 border-l-4 border-l-brandBlue">
+                    <p class="font-bold text-monoTextPrimary mb-1">BSc Information Technology</p>
+                    <p class="text-monoTextSecondary text-xs">Mumbai University &middot; Class of 2016</p>
                 </div>
-                <div class="brutal-card p-5 border-2">
-                    <p class="text-brutalblack/40 mb-1 text-[10px]">[CERTIFICATION_ID]</p>
-                    <p class="text-sm font-black text-brutalblack mb-1">Business Analysis Foundations</p>
-                    <p class="text-brutalblack/60">LinkedIn Learning</p>
+                <div class="premium-card p-6">
+                    <p class="font-bold text-monoTextPrimary mb-1">Business Analysis Foundations</p>
+                    <p class="text-monoTextSecondary text-xs">LinkedIn Learning Certification</p>
                 </div>
-                <div class="brutal-card p-5 border-2">
-                    <p class="text-brutalblack/40 mb-1 text-[10px]">[CERTIFICATION_ID]</p>
-                    <p class="text-sm font-black text-brutalblack mb-1">Project Management</p>
-                    <p class="text-brutalblack/60">Great Learning Stacks</p>
+                <div class="premium-card p-6">
+                    <p class="font-bold text-monoTextPrimary mb-1">Project Management Core</p>
+                    <p class="text-monoTextSecondary text-xs">Great Learning Accredited</p>
                 </div>
-                <div class="brutal-card p-5 border-2">
-                    <p class="text-brutalblack/40 mb-1 text-[10px]">[CERTIFICATION_ID]</p>
-                    <p class="text-sm font-black text-brutalblack mb-1">Product Management</p>
-                    <p class="text-brutalblack/60">Great Learning Stacks</p>
+                <div class="premium-card p-6">
+                    <p class="font-bold text-monoTextPrimary mb-1">Product Management Spec</p>
+                    <p class="text-monoTextSecondary text-xs">Great Learning Accredited</p>
                 </div>
-                <div class="brutal-card p-5 border-2">
-                    <p class="text-brutalblack/40 mb-1 text-[10px]">[CERTIFICATION_ID]</p>
-                    <p class="text-sm font-black text-brutalblack mb-1">Product Lifecycle Management</p>
-                    <p class="text-brutalblack/60">Great Learning Stacks</p>
+                <div class="premium-card p-6">
+                    <p class="font-bold text-monoTextPrimary mb-1">Product Lifecycle Management</p>
+                    <p class="text-monoTextSecondary text-xs">Great Learning Accredited</p>
                 </div>
-                <div class="brutal-card p-5 border-2">
-                    <p class="text-brutalblack/40 mb-1 text-[10px]">[CERTIFICATION_ID]</p>
-                    <p class="text-sm font-black text-brutalblack mb-1">Data Visualization (Power BI)</p>
-                    <p class="text-brutalblack/60">Great Learning Stacks</p>
+                <div class="premium-card p-6">
+                    <p class="font-bold text-monoTextPrimary mb-1">Data Visualization (Power BI)</p>
+                    <p class="text-monoTextSecondary text-xs">Great Learning Accredited</p>
                 </div>
-                <div class="brutal-card p-5 border-2">
-                    <p class="text-brutalblack/40 mb-1 text-[10px]">[CERTIFICATION_ID]</p>
-                    <p class="text-sm font-black text-brutalblack mb-1">Tableau Core Training</p>
-                    <p class="text-brutalblack/60">Simplilearn Pipeline</p>
+                <div class="premium-card p-6">
+                    <p class="font-bold text-monoTextPrimary mb-1">Tableau Core Pipeline</p>
+                    <p class="text-monoTextSecondary text-xs">Simplilearn Training</p>
                 </div>
-                <div class="brutal-card p-5 border-2">
-                    <p class="text-brutalblack/40 mb-1 text-[10px]">[CERTIFICATION_ID]</p>
-                    <p class="text-sm font-black text-brutalblack mb-1">Responsive Web Design</p>
-                    <p class="text-brutalblack/60">freeCodeCamp Core</p>
+                <div class="premium-card p-6">
+                    <p class="font-bold text-monoTextPrimary mb-1">Responsive Web Design</p>
+                    <p class="text-monoTextSecondary text-xs">freeCodeCamp Frameworks</p>
                 </div>
-                <div class="brutal-card p-5 border-2 sm:col-span-2">
-                    <p class="text-architectBlue mb-1 text-[10px]">[INTEROPERABILITY_PROTOCOL]</p>
-                    <p class="text-sm font-black text-brutalblack mb-1">HL7 FHIR® Proficient Certification</p>
-                    <p class="text-brutalblack/60">HL7 International Authority</p>
+                <div class="premium-card p-6 sm:col-span-2">
+                    <p class="font-bold text-monoTextPrimary mb-1">HL7 FHIR® Proficient Certification</p>
+                    <p class="text-monoTextSecondary text-xs">HL7 International Authority</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="achievements" class="bg-white">
+    <section id="achievements" class="py-20 sm:py-28 bg-monoPanel">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-black uppercase tracking-tight text-brutalblack mb-16 border-b-4 border-brutalblack pb-2 inline-block">
-                05 // Quantifiable Telemetry
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                <div class="p-8 brutal-card border-2">
-                    <div class="text-4xl md:text-5xl font-black text-architectBlue mb-2 tracking-tighter">~25%</div>
-                    <p class="text-xs text-brutalblack font-bold uppercase tracking-wider">UAT Defect Isolation</p>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-monoTextSecondary mb-14 text-center">Quantifiable Impact</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-bold text-monoTextPrimary mb-1">~25%</div>
+                    <p class="text-xs text-monoTextSecondary uppercase font-medium tracking-wide">UAT Defect Localization</p>
                 </div>
-                <div class="p-8 brutal-card border-2">
-                    <div class="text-4xl md:text-5xl font-black text-architectBlue mb-2 tracking-tighter">~30%</div>
-                    <p class="text-xs text-brutalblack font-bold uppercase tracking-wider">Manual Work Reduction</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-bold text-monoTextPrimary mb-1">~30%</div>
+                    <p class="text-xs text-monoTextSecondary uppercase font-medium tracking-wide">Manual Effort Reduction</p>
                 </div>
-                <div class="p-8 brutal-card border-2">
-                    <div class="text-4xl md:text-5xl font-black text-architectBlue mb-2 tracking-tighter">10+</div>
-                    <p class="text-xs text-brutalblack font-bold uppercase tracking-wider">Migrated Modules</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-bold text-monoTextPrimary mb-1">10+</div>
+                    <p class="text-xs text-monoTextSecondary uppercase font-medium tracking-wide">Migrated Core Modules</p>
                 </div>
-                <div class="p-8 brutal-card border-2">
-                    <div id="exp-years-stat" class="text-4xl md:text-5xl font-black text-architectBlue mb-2 tracking-tighter">8Y+</div>
-                    <p class="text-xs text-brutalblack font-bold uppercase tracking-wider">Domain Operations</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div id="exp-years-stat" class="text-3xl sm:text-4xl font-bold text-monoTextPrimary mb-1">8Y+</div>
+                    <p class="text-xs text-monoTextSecondary uppercase font-medium tracking-wide">Ecosystem Practice</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="pb-28 bg-alabaster">
-        <div class="max-w-xl mx-auto px-6 text-center space-y-6">
-            <div class="inline-block p-3 bg-brutalblack text-alabaster border-2 border-brutalblack shadow-[3px_3px_0px_#1034A6]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <h2 class="text-2xl font-black uppercase tracking-wide text-brutalblack">Synchronize Handshake Link</h2>
-            <p class="text-brutalblack/70 text-sm max-w-sm mx-auto font-medium">Open for Senior Project Framework deployment and Product Operations Consulting slots within Capital Market networks.</p>
+    <section id="contact" class="py-24 bg-white text-center">
+        <div class="max-w-xl mx-auto px-6 space-y-6">
+            <h2 class="text-2xl font-bold text-monoTextPrimary tracking-tight">Connect and Synchronize</h2>
+            <p class="text-monoTextSecondary text-base font-light max-w-sm mx-auto">Available for Senior Project Framework tracking and Platform Delivery Management roles within financial infrastructure lines.</p>
             
-            <div class="space-y-3 font-bold text-xs uppercase tracking-wider">
-                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-between p-4 brutal-card border-2 group bg-white">
-                    <span>[PORT_EMAIL]</span>
-                    <span class="text-architectBlue group-hover:underline truncate max-w-[200px] sm:max-w-none">dubeyr428@outlook.com</span>
+            <div class="pt-4 space-y-2 text-sm font-medium">
+                <a href="mailto:dubeyr428@outlook.com" class="flex items-center justify-between p-4 bg-monoPanel rounded-xl hover:bg-neutral-200 transition group">
+                    <span class="text-monoTextSecondary">Email Gateway</span>
+                    <span class="text-monoTextPrimary font-semibold truncate pl-4">dubeyr428@outlook.com</span>
                 </a>
-                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 brutal-card border-2 group bg-white">
-                    <span>[PORT_LINKEDIN]</span>
-                    <span class="text-architectBlue group-hover:underline truncate">in/rahul-dubey</span>
+                <a href="https://linkedin.com/in/rahul-dubey-33a497a5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 bg-monoPanel rounded-xl hover:bg-neutral-200 transition group">
+                    <span class="text-monoTextSecondary">LinkedIn Sync</span>
+                    <span class="text-monoTextPrimary font-semibold truncate pl-4">in/rahul-dubey</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <button id="scroll-top-btn" class="w-10 h-10 bg-white text-brutalblack rounded-none flex items-center justify-center transform active:scale-90 transition-all" aria-label="Top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    <button id="scroll-top-btn" class="w-10 h-10 bg-monoTextPrimary text-white rounded-full flex items-center justify-center hover:opacity-90 transition shadow-md" aria-label="Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
-    <footer class="py-12 bg-brutalblack text-alabaster border-t-2 border-brutalblack text-center px-6 text-xs font-bold uppercase tracking-widest">
-        <div class="max-w-6xl mx-auto space-y-2">
-            <div>// CORE_CHRONO_END_REGISTERS</div>
-            <div class="text-alabaster/40 text-[10px]">Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> Rahul Dubey.</div>
+    <footer class="py-12 bg-white border-t border-black/[0.03] text-center px-6 text-xs text-monoTextSecondary">
+        <div class="max-w-6xl mx-auto font-light">
+            <p>Engineered for absolute accuracy. &copy; <span id="footer-year">2026</span> Rahul Dubey. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Drawer Layout Routing Interface Logic
+        // Drawer Menu Control Router Block
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -539,7 +449,11 @@
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
         function toggleMenu() {
-            mobileMenu.classList.toggle('active');
+            if (mobileMenu.style.transform === 'translateX(0%)') {
+                mobileMenu.style.transform = 'translateX(100%)';
+            } else {
+                mobileMenu.style.transform = 'translateX(0%)';
+            }
             menuIcon.classList.toggle('hidden');
             closeIcon.classList.toggle('hidden');
             document.body.classList.toggle('overflow-hidden');
@@ -547,20 +461,20 @@
 
         menuBtn.addEventListener('click', toggleMenu);
         mobileNavLinks.forEach(link => link.addEventListener('click', () => {
-            if (mobileMenu.classList.contains('active')) toggleMenu();
+            if (mobileMenu.style.transform === 'translateX(0%)') toggleMenu();
         }));
 
-        // Dynamically compute absolute time metrics
+        // Dynamic System Tenure Delta calculation Module
         const startYear = 2017;
         const yearsExp = new Date().getFullYear() - startYear;
         const expStrip = document.getElementById('exp-years-strip');
         const expAbout = document.getElementById('exp-years-about');
         const expStat = document.getElementById('exp-years-stat');
-        if (expStrip) expStrip.textContent = yearsExp + '+ Years';
-        if (expAbout) expAbout.textContent = yearsExp + '+ Years of Experience';
+        if (expStrip) expStrip.textContent = yearsExp + '+ Years Experience';
+        if (expAbout) expAbout.textContent = yearsExp + '+ years of dedicated practice';
         if (expStat) expStat.textContent = yearsExp + 'Y+';
 
-        // Set absolute time metrics inside structural footer
+        // Synchronize Footer Clock Context
         const footerYear = document.getElementById('footer-year');
         if (footerYear) footerYear.textContent = new Date().getFullYear();
 
@@ -577,15 +491,15 @@
                 }
             });
             navLinks.forEach(link => {
-                link.classList.remove('text-architectBlue', 'border-architectBlue');
+                link.classList.remove('text-monoTextPrimary', 'font-semibold');
                 if (current && link.getAttribute('href').includes(current)) {
-                    link.classList.add('text-architectBlue', 'border-architectBlue');
+                    link.classList.add('text-monoTextPrimary', 'font-semibold');
                 }
             });
 
             const scrollTopBtn = document.getElementById('scroll-top-btn');
             if (scrollTopBtn) {
-                if (window.pageYOffset > window.innerHeight * 0.7) {
+                if (window.pageYOffset > window.innerHeight * 0.5) {
                     scrollTopBtn.classList.add('show');
                 } else {
                     scrollTopBtn.classList.remove('show');
@@ -600,11 +514,11 @@
             });
         }
 
-        // Setup Modern Viewport Intersectors for Render Automation
+        // Setup Modern Viewport Intersectors for Element Transitions
         const animTargets = document.querySelectorAll(
-            '#about .brutal-card, #skills .brutal-card, #experience .relative.brutal-card, ' +
-            '#certifications .brutal-card, #achievements .brutal-card, #contact .brutal-card, ' +
-            'section h2'
+            '#about, #skills .premium-card, #experience .bg-white, ' +
+            '#certifications .premium-card, #achievements .bg-white, #contact, ' +
+            'section h2, section p'
         );
         animTargets.forEach(el => el.classList.add('fade-up'));
 
@@ -615,7 +529,7 @@
                     animObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.02 });
+        }, { threshold: 0.01 });
 
         animTargets.forEach(el => animObserver.observe(el));
     </script>
